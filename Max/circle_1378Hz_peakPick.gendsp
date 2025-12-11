@@ -1,0 +1,138 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-16",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 545.0, 18.115388870239258, 153.0, 75.0 ],
+                    "text": "cheeky but youre not likely to want more than 10 peaks retained right? and gen is weird about VLAs\n"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 552.0, 106.01807522773743, 123.0, 22.0 ],
+                    "text": "data best_peaks 10 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 327.0, 106.01807522773743, 82.0, 22.0 ],
+                    "text": "buffer buf_out"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 705.0, 150.0, 98.0, 22.0 ],
+                    "text": "channels buf_A0"
+                }
+            },
+            {
+                "box": {
+                    "code": "numBins = in2;\r\npeakPickDepth = 2;\r\nnumPeaksRetained = 4;\r\ntimeIndex = in1;\r\n\r\n// clear the peaks from last frame\r\nfor (i = 0; i<numPeaksRetained; i+=1)\r\n{\r\n    poke(best_peaks, 0, i, 0);\r\n    poke(best_peaks, 0, i, 1);\r\n}\r\n\r\n//iterate over channels\r\nfor (i = 0; i<numBins; i+=1)\r\n{\r\n    // look for local maxima\r\n    currBinVal = peek(buf_A0, timeIndex, i);\r\n    for (j = 1; j<= peakPickDepth; j+= 1)\r\n    {\r\n        upper = peek(buf_A0, timeIndex, i+j);\r\n        lower = peek(buf_A0, timeIndex, i-j);    \r\n        \r\n        if (currBinVal < upper || currBinVal < lower)\r\n        {\r\n            currBinVal = 0;\r\n            break;\r\n        } \r\n\r\n    }\r\n    \r\n    // if we found one, decide if it goes on the list of best peaks\r\n    if (currBinVal > 0)\r\n    {\r\n        currPeakIndex = 0;\r\n        currPeakVal = 0;\r\n        \r\n        //iterate over existing (ordered!) peaks\r\n        k = 0;\r\n        while (k < numPeaksRetained)\r\n        {\r\n            if (peek(best_peaks, k, 1) < currBinVal)\r\n            {\r\n                currPeakIndex = i;\r\n                currPeakVal = currBinVal;\r\n                break;\r\n            }\r\n            \r\n            k += 1;\r\n        }\r\n        \r\n        // if we broke out of the above loop\r\n        // then we need to update the best_peaks array\r\n        \r\n        while (k < numPeaksRetained) \r\n        {\r\n            \r\n            // the loop body (below) preserves sortedness \r\n            // and we initialised to all zeroes which is sorted\r\n            // so we just (implicitly) discard the last value in \r\n            // the list and push all others down by one\r\n            \r\n            // (think of it as one iteration of an insertion sort)\r\n            \r\n            tempIndex = peek(best_peaks, k, 0);\r\n            tempVal   = peek(best_peaks, k, 1);\r\n            \r\n            poke(best_peaks, currPeakIndex, k, 0);\r\n            poke(best_peaks, currPeakVal  , k, 1);\r\n            \r\n            currPeakIndex = tempIndex;\r\n            currPeakVal   = tempVal;\r\n            \r\n            k += 1;\r\n        }    \r\n    } \r\n    \r\n    poke(buf_out, currBinVal, timeIndex, i);\r\n}\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-6",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 0,
+                    "patching_rect": [ 197.916659116745, 187.49999284744263, 522.9166467189789, 897.9166324138641 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 426.0, 106.01807522773743, 80.0, 22.0 ],
+                    "text": "buffer buf_A0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 207.69232749938965, 44.61538887023926, 150.0, 34.0 ],
+                    "text": "circular buffer read/write index"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 88.0, 743.0, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 153.8461685180664, 44.61538887023926, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "order": 0,
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "order": 1,
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 1 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            }
+        ]
+    }
+}

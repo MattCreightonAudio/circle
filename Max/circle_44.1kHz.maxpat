@@ -14,12 +14,12 @@
             {
                 "box": {
                     "id": "obj-5",
-                    "linecount": 7,
+                    "linecount": 8,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 680.0, 412.0, 200.00000476837158, 103.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq"
+                    "patching_rect": [ 680.0, 412.0, 200.00000476837158, 117.0 ],
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n10 = TE rolling buffer size (samps)"
                 }
             },
             {
@@ -28,8 +28,8 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 413.0, 445.0, 256.0, 22.0 ],
-                    "text": "poly~ circle_1378Hz 1 down 32 args 64 8 0.25"
+                    "patching_rect": [ 413.0, 445.0, 272.0, 22.0 ],
+                    "text": "poly~ circle_1378Hz 1 down 32 args 64 8 0.25 10"
                 }
             },
             {
