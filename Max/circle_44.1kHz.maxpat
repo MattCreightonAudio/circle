@@ -19,7 +19,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 680.0, 412.0, 200.00000476837158, 103.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down Fr\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq"
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq"
                 }
             },
             {
