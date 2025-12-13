@@ -13,12 +13,79 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 290.0, 222.0, 118.0, 22.0 ],
+                    "text": "buffer buf_phiSpatial"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 869.5122158527374, 97.56097793579102, 95.0, 22.0 ],
+                    "text": "param freqRatio"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 874.390264749527, 134.0, 97.0, 22.0 ],
+                    "text": "param baseFreq"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 299.0, 180.0, 100.0, 22.0 ],
+                    "text": "buffer buf_deltaA"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1956.0, 1000.0, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "numBins = in2;\r\npeakPickDepth = 2;\r\nnumPeaksRetained = 4;\r\ntimeIndex = in1;\r\n\r\n// clear the peaks from last frame\r\nfor (i = 0; i<numPeaksRetained; i+=1)\r\n{\r\n    poke(best_peaks, 0, i, 0);\r\n    poke(best_peaks, 0, i, 1);\r\n}\r\n\r\n//iterate over channels\r\nfor (i = 0; i<numBins; i+=1)\r\n{\r\n    // look for local maxima\r\n    currBinVal = peek(buf_A0, timeIndex, i);\r\n    for (j = 1; j <= peakPickDepth; j+=1)\r\n    {\r\n        upper = peek(buf_A0, timeIndex, i+j);\r\n        lower = peek(buf_A0, timeIndex, i-j);    \r\n        \r\n        if (currBinVal < upper || currBinVal < lower)\r\n        {\r\n            currBinVal = 0;\r\n            break;\r\n        } \r\n\r\n    }\r\n    \r\n    // if we found local max, decide if it goes on the list of best peaks\r\n    if (currBinVal > 0)\r\n    {\r\n        currPeakIndex = 0;\r\n        currPeakVal = 0;\r\n\r\n        \r\n        //iterate over existing (ordered!) peaks\r\n        k = 0;\r\n        while (k < numPeaksRetained)\r\n        {\r\n            if (peek(best_peaks, k, 1) < currBinVal)\r\n            {\r\n                currPeakIndex = i;\r\n                currPeakVal = currBinVal;\r\n                break;\r\n            }\r\n            \r\n            k += 1;\r\n        }\r\n                \r\n        // if we broke out of the above loop\r\n        // then we need to update the best_peaks array\r\n        while (k < numPeaksRetained) \r\n        {\r\n            \r\n            // the loop body (below) preserves sortedness \r\n            // and we initialised to all zeroes which is sorted\r\n            // so we just (implicitly) discard the last value in \r\n            // the list and push all others down by one\r\n            \r\n            // (think of it as one iteration of an insertion sort)\r\n\r\n            tempIndex = peek(best_peaks, k, 0);\r\n            tempVal   = peek(best_peaks, k, 1);\r\n            \r\n            // extreme stupidness to get gen to understand peek/poke dependency\r\n            // note the || 1 meaning we ALWAYS go into this if statement.  \r\n            if (tempIndex == 0 || tempVal == 0 || 1) {\r\n                poke(best_peaks, currPeakIndex, k, 0);\r\n                poke(best_peaks, currPeakVal  , k, 1);\r\n                \r\n                currPeakIndex = tempIndex;\r\n                currPeakVal   = tempVal;\r\n            }    \r\n            \r\n            \r\n            k += 1;\r\n        }    \r\n    } \r\n    \r\n    //poke(buf_out, currBinVal, timeIndex, i);\r\n}\r\n\r\n\r\n// iterate over best_peaks and collect information on them\r\nfor (i = 0; i< numPeaksRetained; i+=1)\r\n{\r\n        peakIndex = peek(best_peaks, i ,0);\r\n        \r\n        peakAmp        = peek(best_peaks, i, 1);  \r\n        peakFreq       = baseFreq * pow(freqRatio, peakIndex);\r\n        peakShape      = peek(buf_deltaA, timeIndex, peakIndex);\r\n        peakPhiSpatial = peek(buf_phiSpatial, timeIndex, peakIndex);\r\n        \r\n        strideAddr = 5; //magic numbers BAD CODER BAD CODER\r\n                                                                                         \r\n        poke (buf_out, peakAmp       , timeIndex, i*strideAddr + 0);\r\n        poke (buf_out, peakFreq      , timeIndex, i*strideAddr + 1);\r\n        poke (buf_out, peakShape     , timeIndex, i*strideAddr + 2);\r\n        poke (buf_out, peakPhiSpatial, timeIndex, i*strideAddr + 3);\r\n}",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 0,
+                    "patching_rect": [ 243.0, 266.0, 898.0, 701.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-16",
                     "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 545.0, 18.115388870239258, 153.0, 75.0 ],
+                    "patching_rect": [ 546.3414764404297, 18.115388870239258, 153.0, 75.0 ],
                     "text": "cheeky but youre not likely to want more than 10 peaks retained right? and gen is weird about VLAs\n"
                 }
             },
@@ -40,7 +107,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 327.0, 106.01807522773743, 82.0, 22.0 ],
+                    "patching_rect": [ 444.0, 161.0, 82.0, 22.0 ],
                     "text": "buffer buf_out"
                 }
             },
@@ -51,21 +118,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 705.0, 150.0, 98.0, 22.0 ],
+                    "patching_rect": [ 595.3125, 210.9375, 98.0, 22.0 ],
                     "text": "channels buf_A0"
-                }
-            },
-            {
-                "box": {
-                    "code": "numBins = in2;\r\npeakPickDepth = 2;\r\nnumPeaksRetained = 4;\r\ntimeIndex = in1;\r\n\r\n// clear the peaks from last frame\r\nfor (i = 0; i<numPeaksRetained; i+=1)\r\n{\r\n    poke(best_peaks, 0, i, 0);\r\n    poke(best_peaks, 0, i, 1);\r\n}\r\n\r\n//iterate over channels\r\nfor (i = 0; i<numBins; i+=1)\r\n{\r\n    // look for local maxima\r\n    currBinVal = peek(buf_A0, timeIndex, i);\r\n    for (j = 1; j<= peakPickDepth; j+= 1)\r\n    {\r\n        upper = peek(buf_A0, timeIndex, i+j);\r\n        lower = peek(buf_A0, timeIndex, i-j);    \r\n        \r\n        if (currBinVal < upper || currBinVal < lower)\r\n        {\r\n            currBinVal = 0;\r\n            break;\r\n        } \r\n\r\n    }\r\n    \r\n    // if we found one, decide if it goes on the list of best peaks\r\n    if (currBinVal > 0)\r\n    {\r\n        currPeakIndex = 0;\r\n        currPeakVal = 0;\r\n        \r\n        //iterate over existing (ordered!) peaks\r\n        k = 0;\r\n        while (k < numPeaksRetained)\r\n        {\r\n            if (peek(best_peaks, k, 1) < currBinVal)\r\n            {\r\n                currPeakIndex = i;\r\n                currPeakVal = currBinVal;\r\n                break;\r\n            }\r\n            \r\n            k += 1;\r\n        }\r\n        \r\n        // if we broke out of the above loop\r\n        // then we need to update the best_peaks array\r\n        \r\n        while (k < numPeaksRetained) \r\n        {\r\n            \r\n            // the loop body (below) preserves sortedness \r\n            // and we initialised to all zeroes which is sorted\r\n            // so we just (implicitly) discard the last value in \r\n            // the list and push all others down by one\r\n            \r\n            // (think of it as one iteration of an insertion sort)\r\n            \r\n            tempIndex = peek(best_peaks, k, 0);\r\n            tempVal   = peek(best_peaks, k, 1);\r\n            \r\n            poke(best_peaks, currPeakIndex, k, 0);\r\n            poke(best_peaks, currPeakVal  , k, 1);\r\n            \r\n            currPeakIndex = tempIndex;\r\n            currPeakVal   = tempVal;\r\n            \r\n            k += 1;\r\n        }    \r\n    } \r\n    \r\n    poke(buf_out, currBinVal, timeIndex, i);\r\n}\r\n\r\n",
-                    "fontface": 0,
-                    "fontname": "<Monospaced>",
-                    "fontsize": 12.0,
-                    "id": "obj-6",
-                    "maxclass": "codebox",
-                    "numinlets": 2,
-                    "numoutlets": 0,
-                    "patching_rect": [ 197.916659116745, 187.49999284744263, 522.9166467189789, 897.9166324138641 ]
                 }
             },
             {
@@ -75,7 +129,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 426.0, 106.01807522773743, 80.0, 22.0 ],
+                    "patching_rect": [ 300.0, 134.0, 80.0, 22.0 ],
                     "text": "buffer buf_A0"
                 }
             },
@@ -115,7 +169,7 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-6", 0 ],
+                    "destination": [ "obj-3", 0 ],
                     "order": 0,
                     "source": [ "obj-1", 0 ]
                 }
@@ -129,7 +183,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-6", 1 ],
+                    "destination": [ "obj-3", 1 ],
                     "source": [ "obj-7", 0 ]
                 }
             }
