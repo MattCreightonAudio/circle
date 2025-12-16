@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
         "boxes": [
             {
                 "box": {
@@ -118,8 +118,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 466.0, 239.0, 89.0, 22.0 ],
-                    "text": "expr $f1 / 1279"
+                    "patching_rect": [ 466.0, 239.0, 82.0, 22.0 ],
+                    "text": "expr $f1 / 799"
                 }
             },
             {

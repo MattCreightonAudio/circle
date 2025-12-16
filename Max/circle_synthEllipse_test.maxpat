@@ -9,8 +9,18 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1493.0, 921.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 352.0, 102.0, 114.0, 20.0 ],
+                    "text": "considered harmful"
+                }
+            },
             {
                 "box": {
                     "id": "obj-56",
