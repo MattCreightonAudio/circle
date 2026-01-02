@@ -1,0 +1,112 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-20",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 170.94017267227173, 570.9401767253876, 37.0, 20.0 ],
+                    "text": "y(t)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-18",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 128.2051295042038, 570.9401767253876, 41.0, 20.0 ],
+                    "text": "x(t)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 44.44444489479065, 156.41025799512863, 24.0, 20.0 ],
+                    "text": "t"
+                }
+            },
+            {
+                "box": {
+                    "code": "Param freq(0);\r\nParam A0(0);\r\nParam Adiff(0);\r\nParam tau(0);  \r\nParam psi(0);\r\n\r\ntime_s = in1/1000;\r\nomega = freq * 6.283185;\r\n\r\n// x(t)\r\nout1 = A0    * cos(tau) * cos(omega * time_s + psi)\r\n     - Adiff * sin(tau) * sin(omega * time_s + psi);\r\n\r\n// y(t)\r\nout2 = A0    * sin(tau) * cos(omega * time_s + psi)\r\n     + Adiff * cos(tau) * sin(omega * time_s + psi);\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-13",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 48.71794921159744, 223.0769253373146, 490.0, 276.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 171.7948735356331, 538.461543917656, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 128.2051295042038, 538.461543917656, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 48.71794921159744, 184.61538648605347, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-13", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}
