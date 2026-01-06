@@ -29,7 +29,7 @@
                     "numinlets": 2,
                     "numoutlets": 0,
                     "patching_rect": [ 413.0, 445.0, 272.0, 22.0 ],
-                    "text": "poly~ circle_1378Hz 1 down 32 args 64 8 0.25 10"
+                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 10"
                 }
             },
             {

@@ -935,7 +935,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
                     "patching_rect": [ 1335.5932521820068, 1733.0508887767792, 174.0, 22.0 ],
-                    "text": "gen~ circle_1378Hz_peakPick"
+                    "text": "gen~ circle_core_peakPick"
                 }
             },
             {
@@ -1213,7 +1213,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
                     "patching_rect": [ 1459.9999651908875, 999.9999761581421, 198.0, 22.0 ],
-                    "text": "mc.gen~ circle_1378Hz_phaseProc"
+                    "text": "mc.gen~ circle_core_phaseProc"
                 }
             },
             {
