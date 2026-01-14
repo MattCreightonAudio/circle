@@ -9,15 +9,36 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 811.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1137.2549378871918, 203.2679802775383, 150.0, 20.0 ],
+                    "text": "tau test"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1008.4967638850212, 203.2679802775383, 122.0, 22.0 ],
+                    "text": "2 0.5 0 0 0 : 0 0 0 0 0"
+                }
+            },
             {
                 "box": {
                     "id": "obj-118",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1188.1578834056854, 299.6842076778412, 150.0, 20.0 ],
+                    "patching_rect": [ 1211.1111493706703, 299.6842076778412, 150.0, 20.0 ],
                     "text": "coathanger"
                 }
             },
@@ -28,8 +49,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1018.75, 298.6842076778412, 156.0, 22.0 ],
-                    "text": "1 1 1 0 2.4 : 2 0.7 -0.3 0 0 0"
+                    "patching_rect": [ 1018.75, 298.6842076778412, 183.0, 22.0 ],
+                    "text": "1 0.5 0.5 0 2.4 : 2 0.5 -0.15 0 0 0"
                 }
             },
             {
@@ -38,7 +59,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1202.6144170761108, 270.6382963657379, 47.71241980791092, 20.0 ],
+                    "patching_rect": [ 1202.6144170761108, 270.6382963657379, 48.0, 20.0 ],
                     "text": "triangle"
                 }
             },
@@ -50,7 +71,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1018.75, 269.6382963657379, 166.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "1 1 1 0 2.4 : 2 0.6 -0.6 0 0 2.4"
                 }
             },
@@ -72,7 +92,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1010.243926525116, 231.19512748718262, 159.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "1 1 1 0 3.14 : 2 1 -1 0 0 3.14"
                 }
             },
@@ -92,7 +111,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1140.625, 182.2194139957428, 78.04878234863281, 20.0 ],
+                    "patching_rect": [ 1130.0653951764107, 169.6274563074112, 78.04878234863281, 20.0 ],
                     "text": "simple circle"
                 }
             },
@@ -127,7 +146,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1018.75, 182.2194139957428, 112.0, 22.0 ],
+                    "patching_rect": [ 1008.4967638850212, 168.6274563074112, 112.0, 22.0 ],
                     "text": "1 1 1 0 0 : 0 0 0 0 0"
                 }
             },
@@ -778,8 +797,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 343.75, 909.375, 272.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 10",
+                    "patching_rect": [ 343.75, 909.375, 268.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 4000",
                     "varname": "poly~_AA"
                 }
             }
@@ -919,6 +938,12 @@
                 "patchline": {
                     "destination": [ "obj-2", 1 ],
                     "source": [ "obj-39", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "source": [ "obj-4", 0 ]
                 }
             },
             {

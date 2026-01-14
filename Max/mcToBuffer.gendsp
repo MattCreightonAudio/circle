@@ -148,7 +148,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 60.66265118122101, 678.3132780790329, 71.0, 22.0 ],
+                    "patching_rect": [ 60.66265118122101, 671.0526251792908, 71.0, 22.0 ],
                     "text": "r writeIndex"
                 }
             },
@@ -297,7 +297,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 45.0, 626.5060472488403, 150.0, 34.0 ],
+                    "patching_rect": [ 65.92580902576447, 617.7631520032883, 150.0, 34.0 ],
                     "text": "output write index for other code to use"
                 }
             },
@@ -331,7 +331,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 45.0, 132.0, 29.5, 22.0 ],
-                    "text": "<"
+                    "text": ">"
                 }
             },
             {
@@ -625,6 +625,7 @@
                     "source": [ "obj-8", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }
