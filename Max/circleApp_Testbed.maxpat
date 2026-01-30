@@ -981,12 +981,12 @@
             {
                 "box": {
                     "id": "obj-5",
-                    "linecount": 8,
+                    "linecount": 9,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 665.625, 875.0, 200.00000476837158, 117.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n10 = TE rolling buffer size (samps)"
+                    "patching_rect": [ 666.0, 875.0, 344.0, 131.0 ],
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n4000 = TE rolling buffer size (samps)\n4 = number of ellipses for k-ness analysis"
                 }
             },
             {
@@ -996,8 +996,8 @@
                     "numinlets": 2,
                     "numoutlets": 12,
                     "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "" ],
-                    "patching_rect": [ 343.75, 909.375, 268.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 4000",
+                    "patching_rect": [ 343.75, 909.375, 278.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 4000 4",
                     "varname": "poly~_AA"
                 }
             }
