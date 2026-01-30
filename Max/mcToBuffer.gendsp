@@ -276,7 +276,7 @@
                     "numinlets": 4,
                     "numoutlets": 0,
                     "patching_rect": [ 238.55422568321228, 496.3855605125427, 95.0, 22.0 ],
-                    "text": "poke buf_deltaA"
+                    "text": "poke buf_S"
                 }
             },
             {
@@ -287,7 +287,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 721.0, 88.0, 100.0, 22.0 ],
-                    "text": "buffer buf_deltaA"
+                    "text": "buffer buf_S"
                 }
             },
             {
