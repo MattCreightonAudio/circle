@@ -9,19 +9,8 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 28.0, 239.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
-            {
-                "box": {
-                    "id": "obj-236",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 16,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 1072.794097185135, 1901.4705519676208, 176.5, 22.0 ],
-                    "text": "mc.unpack~ 16"
-                }
-            },
             {
                 "box": {
                     "id": "obj-85",
@@ -1332,8 +1321,8 @@
                     "id": "obj-75",
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 3,
-                    "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+                    "numoutlets": 1,
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 124.61539649963379, 1880.0001792907715, 148.0, 22.0 ],
                     "text": "mc.gen~ circle_core_PCA"
                 }
@@ -1957,8 +1946,8 @@
                     "id": "obj-47",
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "numoutlets": 3,
+                    "outlettype": [ "signal", "signal", "signal" ],
                     "patching_rect": [ 124.61539649963379, 2477.1242612600327, 249.0, 22.0 ],
                     "text": "gen~ circle_core_peakPick @numEllipses #5",
                     "varname": "gen~_AA"
@@ -3853,12 +3842,6 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-269", 0 ],
-                    "source": [ "obj-262", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-265", 1 ],
                     "source": [ "obj-263", 0 ]
                 }
@@ -4284,12 +4267,6 @@
                     "destination": [ "obj-164", 0 ],
                     "order": 0,
                     "source": [ "obj-75", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-236", 0 ],
-                    "source": [ "obj-75", 1 ]
                 }
             },
             {
