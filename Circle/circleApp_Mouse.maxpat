@@ -239,10 +239,10 @@
                     "id": "obj-1",
                     "maxclass": "newobj",
                     "numinlets": 2,
-                    "numoutlets": 12,
-                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "" ],
+                    "numoutlets": 13,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "" ],
                     "patching_rect": [ 409.0, 444.7761034965515, 278.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 4000 4"
+                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 8000 4"
                 }
             },
             {
