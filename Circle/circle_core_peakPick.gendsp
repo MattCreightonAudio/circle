@@ -9,28 +9,8 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
         "boxes": [
-            {
-                "box": {
-                    "id": "obj-20",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 1017.0, 1082.0, 35.0, 22.0 ],
-                    "text": "out 3"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-19",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 300.0000110864639, 1107.228956580162, 35.0, 22.0 ],
-                    "text": "out 2"
-                }
-            },
             {
                 "box": {
                     "id": "obj-17",
@@ -136,8 +116,7 @@
                     "id": "obj-3",
                     "maxclass": "codebox",
                     "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
+                    "numoutlets": 0,
                     "patching_rect": [ 259.5744662284851, 285.10638093948364, 825.5319089889526, 753.1914839744568 ]
                 }
             },
@@ -242,18 +221,6 @@
                     "destination": [ "obj-9", 0 ],
                     "order": 1,
                     "source": [ "obj-1", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-19", 0 ],
-                    "source": [ "obj-3", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-20", 0 ],
-                    "source": [ "obj-3", 1 ]
                 }
             },
             {
