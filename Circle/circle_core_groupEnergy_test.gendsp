@@ -113,28 +113,6 @@
             },
             {
                 "box": {
-                    "id": "obj-12",
-                    "maxclass": "newobj",
-                    "numinlets": 0,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 1023.0, 141.0, 53.0, 22.0 ],
-                    "text": "data S 6"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-11",
-                    "maxclass": "newobj",
-                    "numinlets": 0,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 920.0, 141.0, 55.0, 22.0 ],
-                    "text": "data G 6"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-10",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -146,7 +124,7 @@
             },
             {
                 "box": {
-                    "code": "// L-statistics based group energy extractor\r\n\r\n\r\n// helper function for k choose 2\r\nchoose2(k) {\r\n    return k * (k-1) * 0.5;\r\n}\r\n\r\n// sortedness is assumed! calling code will need the indices anyway\r\npoke(inputs, in1, 0);\r\npoke(inputs, in2, 1);\r\npoke(inputs, in3, 2);\r\npoke(inputs, in4, 3);\r\npoke(inputs, in5, 4);\r\npoke(inputs, in6, 5);\r\n\r\nnumElements = 6;\r\n\r\n// get total energy\r\nenergy=0;\r\nfor (i=0; i<numElements; i+=1) energy += peek (inputs, i);\r\nif (energy < 0.0001) energy = 0.0001;\r\nE_recip = 1/energy;\r\n\r\n// Gk is the \"group energy\" \r\n// so G3 is \"what proportion of the energy is stored in triples\"\r\n// importantly G1 gives the \"oneness\".\r\n// indexing is off by one so be wary - Gk = G[k-1]\r\nfor (i=0; i<numElements; i+=1)\r\n{\r\n    a_i      = peek(inputs, i);\r\n    a_iPlus1 = peek(inputs, i+1);\r\n    \r\n    Gi = (i+1) * (a_i - a_iPlus1) * E_recip;\r\n    \r\n    poke(G, Gi, i); \r\n}\r\n\r\n// Sk is the \"pair energy up to index k\" \r\n\r\n// i.e S2 is the amount of energy in (1,2)\r\n\r\n// S3 is the amount of pair-energy in (2,3), \r\n// which is equal to the amount of pair-energy in (1,3), \r\n// bc any difference is accounted for in G1\r\n\r\n// S2 != G2 because S2 \"folds in\" the G3 energy\r\n// eg if in1 in2 in3 are all equal and all else zero, G2 is zero but s2 is 1/3\r\n\r\n// indexing - Sk = s[k-1]. also S1 is not meaningful! \r\n// cant have pair energy in 1 element. hence we stop at index 1\r\n\r\n// btw this is such a groovy iteration OOH\r\n// we use the recurrence S_i = (Gi / ichoose2) + S_(i+1)\r\n// and progress backwards (skipping i=0 intentionally)\r\nS_iPlus1 = 0;\r\nS_i = 0;\r\nfor (i=numElements-1; i>0 /*fr fr*/ ; i-=1)\r\n{\r\n    Gi = peek(G,i);\r\n    pikachu_iChoose2 = choose2(i+1);\r\n    S_i = S_iPlus1 + Gi / pikachu_iChoose2;\r\n    \r\n    poke (S, S_i, i);\r\n    S_iPlus1 = S_i;\r\n}\r\n\r\nout1 = peek(G, 0);\r\nout2 = peek(G, 1);\r\nout3 = peek(G, 2);\r\nout4 = peek(G, 3);\r\nout5 = peek(G, 4);\r\nout6 = peek(G, 5);\r\n\r\nout7  = peek(S, 1); // not 0!\r\nout8  = peek(S, 2);\r\nout9  = peek(S, 3);\r\nout10 = peek(S, 4);\r\nout11 = peek(S, 5);\r\n",
+                    "code": "// get the group energy extractor\r\nrequire(\"circle_core_groupEnergy\");\r\n\r\n// data buffers\r\nData G(6);\r\nData S(6);\r\n\r\n// sortedness is assumed! calling code will need the indices anyway\r\npoke(inputs, in1, 0);\r\npoke(inputs, in2, 1);\r\npoke(inputs, in3, 2);\r\npoke(inputs, in4, 3);\r\npoke(inputs, in5, 4);\r\npoke(inputs, in6, 5);\r\n\r\n// hardcoded cause the inputs are hardcoded\r\nnumElements = 6;\r\n\r\n// calculate group energy whoop\r\ncircle_groupEnergy(inputs, numElements, G, S);\r\n\r\nout1 = peek(G, 0);\r\nout2 = peek(G, 1);\r\nout3 = peek(G, 2);\r\nout4 = peek(G, 3);\r\nout5 = peek(G, 4);\r\nout6 = peek(G, 5);\r\n\r\nout7  = peek(S, 1); // not 0! \r\nout8  = peek(S, 2);\r\nout9  = peek(S, 3);\r\nout10 = peek(S, 4);\r\nout11 = peek(S, 5);\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -338,7 +316,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

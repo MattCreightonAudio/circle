@@ -9,17 +9,16 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
         "boxes": [
             {
                 "box": {
-                    "id": "obj-6",
+                    "id": "obj-27",
                     "maxclass": "newobj",
-                    "numinlets": 0,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 937.0, 273.0, 85.0, 22.0 ],
-                    "text": "data Kness 60"
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 958.5366082191467, 971.951242685318, 42.0, 22.0 ],
+                    "text": "out 14"
                 }
             },
             {
@@ -28,48 +27,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 798.0, 504.0, 42.0, 22.0 ],
-                    "text": "out 14"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-21",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 751.0, 504.0, 42.0, 22.0 ],
+                    "patching_rect": [ 913.4146559238434, 971.951242685318, 42.0, 22.0 ],
                     "text": "out 13"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-22",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 695.0, 504.0, 42.0, 22.0 ],
-                    "text": "out 12"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-23",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 645.0, 504.0, 41.0, 22.0 ],
-                    "text": "out 11"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-24",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 595.0, 508.0, 42.0, 22.0 ],
-                    "text": "out 10"
                 }
             },
             {
@@ -78,19 +37,58 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 545.0, 508.0, 35.0, 22.0 ],
+                    "patching_rect": [ 869.5122158527374, 971.951242685318, 42.0, 22.0 ],
+                    "text": "out 12"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-24",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 824.3902635574341, 971.951242685318, 41.0, 22.0 ],
+                    "text": "out 11"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-23",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 780.4878234863281, 971.951242685318, 42.0, 22.0 ],
+                    "text": "out 10"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-22",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 741.4634323120117, 971.951242685318, 35.0, 22.0 ],
                     "text": "out 9"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-21",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 703.6585533618927, 971.951242685318, 35.0, 22.0 ],
+                    "text": "out 8"
                 }
             },
             {
                 "box": {
                     "id": "obj-20",
                     "maxclass": "newobj",
-                    "numinlets": 0,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 890.0, 192.0, 96.0, 22.0 ],
-                    "text": "data Wr_ij 10 10"
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 437.8048884868622, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 7"
                 }
             },
             {
@@ -99,8 +97,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 490.0, 495.0, 35.0, 22.0 ],
-                    "text": "out 8"
+                    "patching_rect": [ 400.00000953674316, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 6"
                 }
             },
             {
@@ -109,8 +107,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 434.0, 495.0, 35.0, 22.0 ],
-                    "text": "out 7"
+                    "patching_rect": [ 362.19513058662415, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 5"
                 }
             },
             {
@@ -119,8 +117,84 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 384.0, 495.0, 35.0, 22.0 ],
-                    "text": "out 6"
+                    "patching_rect": [ 324.3902516365051, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 285.3658604621887, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-15",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 246.34146928787231, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 203.65854144096375, 964.6341693401337, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1709.0, 1504.0, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "require(\"circle_core_groupEnergy\");\r\n\r\ntimeIndex = in1;\r\nellipseStride = 5;\r\n    \r\n// initialise ellipses_sorted \r\n// we only need to track amplitude, we'll use the sorted indices to access everything else.\r\nfor (i=0; i<numEllipses; i+=1) \r\n{\r\n    amp_i = peek(buf_ellipses, i*ellipseStride+1);\r\n\r\n    poke(ellipses_sorted, amp_i, i, 0);\r\n    poke(ellipses_sorted, i, i, 1);\r\n}\r\n\r\n// sort ellipses_sorted - we retain the original indices which is important!\r\n// essentially we memorize the permutation which gets us from buf_ellipses to ellipses_Sorted.\r\nfor (i=1; i<numEllipses; i+=1)\r\n{\r\n    amp_i = peek(ellipses_sorted, i, 0);\r\n    idx_i = peek(ellipses_sorted, i, 1);\r\n    \r\n    j = i-1;\r\n    \r\n    while (j >= 0 && peek(ellipses_sorted, j, 0) > amp_i)\r\n    {\r\n        poke(ellipses_sorted, peek(ellipses_sorted, j, 0), j+1, 0);\r\n        poke(ellipses_sorted, peek(ellipses_sorted, j, 1), j+1, 1);\r\n        \r\n        j -= 1;    \r\n    } \r\n    \r\n    poke (ellipses_sorted, amp_i, i, 0);\r\n    poke (ellipses_sorted, idx_i, i, 1);\r\n\r\n}\r\n\r\n// figure out the group energies Gk and pair energies Sk\r\ncircle_groupEnergy(ellipses_sorted, numEllipses, G, S);\r\n\r\nkNessWriteIdx = 1; // skip 0 - we'll use it for oneness later\r\nfor (i=0; i<numEllipses; i+=1)\r\n{\r\n    i_unsorted = peek(ellipses_sorted, i, 1) * ellipseStride;\r\n    freq_i = peek(buf_ellipses, timeIndex, i_unsorted+0); \r\n    \r\n    for (j=i+1; j<numEllipses; j+=1)\r\n    {\r\n        j_unsorted = peek(ellipses_sorted, i, 1) * ellipseStride;\r\n        freq_j = peek(buf_ellipses, timeIndex, j_unsorted+0);\r\n        \r\n        hiFreq = 1;\r\n        loFreq = 1;\r\n        \r\n        if (freq_i > freq_j) \r\n        {\r\n            hiFreq = freq_i;\r\n            loFreq = freq_j;\r\n        } \r\n        else \r\n        {\r\n            loFreq = freq_i;\r\n            hiFreq = freq_j;\r\n        }\r\n        \r\n        if (loFreq < 0.001) loFreq = 0.001;\r\n        freqRatio = hiFreq/loFreq;\r\n        \r\n        // pair energy for this pair\r\n        // S_j depends only on j, not on i. funky but it works. \r\n        S_j = peek(S, j);\r\n        \r\n        // write into kNesses buffer \r\n        // super weird indexing!\r\n        poke (kNesses, freqRatio, kNessWriteIdx, 0);\r\n        poke (kNesses, S_j, kNessWriteIdx, 1);\r\n        \r\n        kNessWriteIdx += 1;\r\n    } \r\n}\r\n\r\n\r\n// oneness energy (far out dudeee)\r\npoke (kNesses, 1, 0, 0);  // dummy freq ratio of 1, for now.\r\npoke (kNesses, peek(G,0), 0, 1); \r\n\r\n\r\nout1 = peek(kNesses, 0, 0); // oneness energy\r\nout2 = peek(kNesses, 1, 0); // 1-2ness energy\r\nout3 = peek(kNesses, 2, 0); // 1-3ness energy\r\nout4 = peek(kNesses, 3, 0); // 1-4ness energy\r\nout5 = peek(kNesses, 4, 0); // 2-3ness energy\r\nout6 = peek(kNesses, 5, 0); // 2-4ness energy\r\nout7 = peek(kNesses, 6, 0); // 3-4ness energy\r\n\r\nout8 = peek(kNesses,  0, 1); // oneness freqRatio\r\nout9 = peek(kNesses,  1, 1); // 1-2ness freqRatio\r\nout10 = peek(kNesses, 2, 1); // 1-3ness freqRatuo\r\nout11 = peek(kNesses, 3, 1); // 1-4ness freqRatio\r\nout12 = peek(kNesses, 4, 1); // 2-3ness freqRatio\r\nout13 = peek(kNesses, 5, 1); // 2-4ness freqRatio\r\nout14 = peek(kNesses, 6, 1); // 3-4ness freqRatio",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 14,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 194.0, 145.0, 821.0, 777.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 541.0, 92.0, 108.0, 22.0 ],
+                    "text": "data kNesses 20 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 459.0, 92.0, 60.0, 22.0 ],
+                    "text": "data S 20"
                 }
             },
             {
@@ -130,73 +204,19 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 870.0, 115.0, 89.0, 22.0 ],
-                    "text": "data S_ij 10 10"
+                    "patching_rect": [ 367.0, 92.0, 61.0, 22.0 ],
+                    "text": "data G 20"
                 }
             },
             {
                 "box": {
-                    "id": "obj-3",
+                    "id": "obj-6",
                     "maxclass": "newobj",
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 713.0, 68.0, 67.0, 22.0 ],
-                    "text": "data Gk 10"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-15",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 334.0, 499.0, 35.0, 22.0 ],
-                    "text": "out 5"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-14",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 284.0, 499.0, 35.0, 22.0 ],
-                    "text": "out 4"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-13",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 219.0, 499.0, 35.0, 22.0 ],
-                    "text": "out 3"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-12",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 176.0, 499.0, 35.0, 22.0 ],
-                    "text": "out 2"
-                }
-            },
-            {
-                "box": {
-                    "code": "ellipseStride=5;\r\noffset_freq=0;\r\noffset_A=1;\r\ntimeIndex = in1;\r\n\r\n//find total energy\r\nEtotal = 0;  \r\nfor (i = 0; i<numEllipses; i+=1)\r\n{\r\n    Etotal += peek(buf_ellipses, timeIndex, i*ellipseStride+offset_A);\r\n}\r\nout1 = Etotal;\r\n\r\n//reciprocate for efficiency\r\nEtotal_recip = 1 / Etotal;\r\n\r\n// find group energy values\r\nfor (k = 0; k<numEllipses; k+=1)\r\n{\r\n    a_k = peek(buf_ellipses, timeIndex, k*ellipseStride+offset_A);\r\n    \r\n    // we have to do the bounds checking here \r\n    // cant rely on the inbuilt bounds checking in max \r\n    // cause array bounds != true bounds\r\n    // cause max has no VLAs grr\r\n    a_kplus1 = \r\n      (k+1 == numEllipses) \r\n      ? 0 \r\n      : peek(buf_ellipses, timeIndex, (k+1)*ellipseStride+offset_A);\r\n      \r\n    diff_k = a_k - a_kplus1;\r\n    \r\n    // find and store G_k\r\n    // our index is zero based, hence the (k+1)\r\n    G_k = (k+1) * diff_k * Etotal_recip;\r\n    poke(Gk, G_k, k);\r\n}\r\n\r\n//clear Kness buffer\r\nfor (i = 0; i<60; i+=1) \r\n{  \r\n    poke(Kness, 0, i);\r\n}\r\n\r\n// How much energy is concentrated in the largest single peak?\r\nS_0 = peek(Gk, 0);\r\n\r\n\r\nfor (i=0; i<numEllipses; i+=1)\r\n{\r\n    for (j=i+1; j<numEllipses; j+=1)\r\n    {\r\n        // How much energy is concentrated in the peak-pair i,j?\r\n        pairEnergy = 0;\r\n\r\n        for (n=j; n<numEllipses; n +=1)\r\n        {\r\n            nChoose2 = (n+1) * n; // + not - because of indexing!!\r\n            G_n = peek(Gk, n);\r\n            pairEnergy += G_n/nChoose2;\r\n        }\r\n     \r\n        //IMPORTANT: we can only index into S_ij if we respect i<j\r\n        // we could fill out the other half of the matrix here \r\n        // since (lightly abusing notation) S[i][j] = S[j][i]\r\n        // but its inefficent and redundant\r\n        poke (S_ij, pairEnergy, i, j);\r\n        \r\n        //what freqRatio is associated with this pair?\r\n        omega_i = peek(buf_ellipses, timeIndex, i*ellipseStride+offset_freq);\r\n        omega_j = peek(buf_ellipses, timeIndex, j*ellipseStride+offset_freq);\r\n        omega_r = (omega_i > omega_j) ? omega_i/omega_j : omega_j/omega_i;\r\n        omega_r_semitones = 12 * log2(omega_r);\r\n        omega_r_semitones = round(omega_r_semitones);\r\n        \r\n        poke (Wr_ij, omega_r_semitones, i, j);\r\n        \r\n        // fill in Kness array with amounts at each semitine interval\r\n        // later we need to find the k-Ar, k-phi, blah BLAH\r\n        curr_Kness = peek(Kness, omega_r_semitones);\r\n        poke(Kness, curr_Kness+pairEnergy, omega_r_semitones);        \r\n    }\r\n}\r\n\r\n/*\r\nout1 = S_0;\r\nout2 = peek(S_ij, 0, 1);\r\nout3 = peek(S_ij, 0, 2);\r\nout4 = peek(S_ij, 0, 3);\r\nout5 = peek(S_ij, 1, 2);\r\nout6 = peek(S_ij, 1, 3);\r\nout7 = peek(S_ij, 2, 3);\r\n\r\nout8  = peek(Wr_ij, 0, 1);\r\nout9  = peek(Wr_ij, 0, 2);\r\nout10 = peek(Wr_ij, 0, 3);\r\nout11 = peek(Wr_ij, 1, 2);\r\nout12 = peek(Wr_ij, 1, 3);\r\nout13 = peek(Wr_ij, 2, 3);\r\n*/\r\n\r\nout1 = S_0;\r\nout2 = peek (Kness, 7);  // 3/2 ness\r\nout3 = peek (Kness, 12); // 2 ness\r\nout4 = peek (Kness, 19); // 3 ness\r\nout5 = peek (Kness, 24); // 4 ness ",
-                    "fontface": 0,
-                    "fontname": "<Monospaced>",
-                    "fontsize": 12.0,
-                    "id": "obj-10",
-                    "maxclass": "codebox",
-                    "numinlets": 1,
-                    "numoutlets": 5,
-                    "outlettype": [ "", "", "", "", "" ],
-                    "patching_rect": [ 184.0, 147.0, 619.0, 333.0 ]
+                    "patching_rect": [ 624.0, 49.0, 142.0, 22.0 ],
+                    "text": "data ellipses_sorted 20 2"
                 }
             },
             {
@@ -206,7 +226,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 375.0, 89.0, 111.0, 22.0 ],
+                    "patching_rect": [ 367.0, 49.0, 111.0, 22.0 ],
                     "text": "param numEllipses"
                 }
             },
@@ -258,7 +278,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 502.0, 89.0, 106.0, 22.0 ],
+                    "patching_rect": [ 494.0, 49.0, 106.0, 22.0 ],
                     "text": "buffer buf_ellipses"
                 }
             }
@@ -266,46 +286,92 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-12", 0 ],
-                    "source": [ "obj-10", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-13", 0 ],
-                    "source": [ "obj-10", 1 ]
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-14", 0 ],
-                    "source": [ "obj-10", 2 ]
+                    "source": [ "obj-3", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-15", 0 ],
-                    "source": [ "obj-10", 3 ]
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-16", 0 ],
+                    "source": [ "obj-3", 2 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-17", 0 ],
-                    "source": [ "obj-10", 4 ]
+                    "source": [ "obj-3", 3 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-10", 0 ],
-                    "order": 0,
-                    "source": [ "obj-2", 0 ]
+                    "destination": [ "obj-18", 0 ],
+                    "source": [ "obj-3", 4 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-5", 0 ],
-                    "order": 1,
-                    "source": [ "obj-2", 0 ]
+                    "destination": [ "obj-19", 0 ],
+                    "source": [ "obj-3", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-20", 0 ],
+                    "source": [ "obj-3", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-21", 0 ],
+                    "source": [ "obj-3", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-22", 0 ],
+                    "source": [ "obj-3", 8 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-23", 0 ],
+                    "source": [ "obj-3", 9 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-24", 0 ],
+                    "source": [ "obj-3", 10 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-25", 0 ],
+                    "source": [ "obj-3", 11 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-26", 0 ],
+                    "source": [ "obj-3", 12 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-27", 0 ],
+                    "source": [ "obj-3", 13 ]
                 }
             }
         ]

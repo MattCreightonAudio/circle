@@ -1,0 +1,61 @@
+// helper function for k choose 2
+choose2(k) {
+    return k * (k-1) * 0.5;
+}
+
+// L-statistics based group energy extractor
+// input sortedness is assumed! calling code will need the indices anyway
+circle_groupEnergy(buf_inputs, numElements, G_out, S_out) {
+
+    // get total energy
+    energy=0;
+    for (i=0; i<numElements; i+=1) energy += peek (buf_inputs, i);
+    if (energy < 0.0001) energy = 0.0001;
+    E_recip = 1/energy;
+
+    
+    // Gk is the "group energy" 
+    // so G3 is "what proportion of the energy is stored in triples"
+    // importantly G1 gives the "oneness".
+    // indexing is off by one so be wary - Gk = G[k-1]
+    for (i=0; i<numElements; i+=1)
+    {
+        a_i      = peek(buf_inputs, i);
+        a_iPlus1 = peek(buf_inputs, i+1);
+        
+        Gi = (i+1) * (a_i - a_iPlus1) * E_recip;
+        
+        poke(G_out, Gi, i); 
+    }
+
+    // Sk is the "pair energy up to index k" 
+
+    // i.e S2 is the amount of energy in (1,2)
+
+    // S3 is the amount of pair-energy in (2,3), 
+    // which is equal to the amount of pair-energy in (1,3), 
+    // bc any difference is accounted for in G1
+
+    // S2 != G2 because S2 "folds in" the G3 energy
+    // eg if in1 in2 in3 are all equal and all else zero, G2 is zero but s2 is 1/3
+
+    // indexing - Sk = s[k-1]. also S1 is not meaningful! 
+    // cant have pair energy in 1 element. hence we stop at index 1
+
+    // btw this is such a groovy iteration OOH
+    // we use the recurrence S_i = (Gi / ichoose2) + S_(i+1)
+    // and progress backwards (skipping i=0 intentionally)
+    S_iPlus1 = 0;
+    S_i = 0;
+    for (i=numElements-1; i>0 /*fr fr*/ ; i-=1)
+    {
+        Gi = peek(G_out,i);
+        pikachu_iChoose2 = choose2(i+1);
+        S_i = S_iPlus1 + Gi / pikachu_iChoose2;
+        
+        poke (S_out, S_i, i);
+        S_iPlus1 = S_i;
+    }
+
+    return 0;
+}

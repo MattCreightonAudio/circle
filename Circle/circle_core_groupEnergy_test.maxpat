@@ -1007,8 +1007,8 @@
                     "numinlets": 6,
                     "numoutlets": 11,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 752.0, 516.0, 172.0, 22.0 ],
-                    "text": "gen~ circle_core_groupEnergy"
+                    "patching_rect": [ 752.0, 516.0, 198.0, 22.0 ],
+                    "text": "gen~ circle_core_groupEnergy_test"
                 }
             }
         ],
