@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, -973.0, 1612.0, 891.0 ],
         "boxes": [
             {
                 "box": {
@@ -49,8 +49,8 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 327.0, 208.0, 156.0, 22.0 ],
-                    "text": "expr in1 * pow (in2\\, in3*0.5)"
+                    "patching_rect": [ 325.29413121938705, 210.58824408054352, 163.0, 22.0 ],
+                    "text": "expr in1 * pow (in2\\, in3*0.25)"
                 }
             },
             {

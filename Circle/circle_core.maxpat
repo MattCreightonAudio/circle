@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, -973.0, 1612.0, 891.0 ],
         "boxes": [
             {
                 "box": {
@@ -1209,7 +1209,7 @@
                     "numinlets": 1,
                     "numoutlets": 14,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 143.76923076923077, 2723.684184551239, 272.0, 22.0 ],
+                    "patching_rect": [ 143.76923076923077, 2723.684184551239, 271.0, 22.0 ],
                     "text": "gen~ circle_core_kNessExtract @numEllipses #5",
                     "varname": "gen~_AB"
                 }
@@ -1769,7 +1769,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 1032.3077907562256, 3444.615713119507, 227.0, 22.0 ],
+                    "patching_rect": [ 1043.0, 3437.0, 227.0, 22.0 ],
                     "text": "mc.r~ #0_XYCoVarAtan @chans #1"
                 }
             },
@@ -3138,7 +3138,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1135.38472366333, 2996.9233627319336, 40.0, 22.0 ],
-                    "text": "* 128."
+                    "text": "* 256."
                 }
             },
             {
@@ -3573,7 +3573,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 667.7419402599335, 245.16129207611084, 120.0, 22.0 ],
-                    "text": "mcs.fffb~ #1 1 1.1 30"
+                    "text": "mcs.fffb~ #1 1 1.1 10"
                 }
             },
             {
@@ -3626,8 +3626,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 283.87096977233887, 221.29032063484192, 120.0, 22.0 ],
-                    "text": "mcs.fffb~ #1 1 1.1 30"
+                    "patching_rect": [ 295.80645394325256, 226.47058391571045, 120.0, 22.0 ],
+                    "text": "mcs.fffb~ #1 1 1.1 10"
                 }
             },
             {
@@ -4530,6 +4530,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-154", 0 ],
+                    "source": [ "obj-195", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-111", 0 ],
                     "source": [ "obj-196", 0 ]
                 }
@@ -4842,6 +4848,12 @@
                 "patchline": {
                     "destination": [ "obj-267", 1 ],
                     "source": [ "obj-261", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-269", 0 ],
+                    "source": [ "obj-262", 0 ]
                 }
             },
             {
