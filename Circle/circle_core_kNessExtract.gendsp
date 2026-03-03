@@ -13,102 +13,13 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-27",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 958.5366082191467, 971.951242685318, 42.0, 22.0 ],
-                    "text": "out 14"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-26",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 913.4146559238434, 971.951242685318, 42.0, 22.0 ],
-                    "text": "out 13"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-25",
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 869.5122158527374, 971.951242685318, 42.0, 22.0 ],
-                    "text": "out 12"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-24",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 824.3902635574341, 971.951242685318, 41.0, 22.0 ],
-                    "text": "out 11"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-23",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 780.4878234863281, 971.951242685318, 42.0, 22.0 ],
-                    "text": "out 10"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-22",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 741.4634323120117, 971.951242685318, 35.0, 22.0 ],
-                    "text": "out 9"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-21",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 703.6585533618927, 971.951242685318, 35.0, 22.0 ],
-                    "text": "out 8"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-20",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 437.8048884868622, 964.6341693401337, 35.0, 22.0 ],
-                    "text": "out 7"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-19",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 400.00000953674316, 964.6341693401337, 35.0, 22.0 ],
-                    "text": "out 6"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-18",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 362.19513058662415, 964.6341693401337, 35.0, 22.0 ],
-                    "text": "out 5"
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1108.4746026992798, 690.6779825687408, 67.0, 22.0 ],
+                    "text": "phasewrap"
                 }
             },
             {
@@ -117,28 +28,29 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 324.3902516365051, 964.6341693401337, 35.0, 22.0 ],
-                    "text": "out 4"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-16",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 285.3658604621887, 964.6341693401337, 35.0, 22.0 ],
-                    "text": "out 3"
+                    "patching_rect": [ 101.0, 311.0, 35.0, 22.0 ],
+                    "text": "out 2"
                 }
             },
             {
                 "box": {
                     "id": "obj-15",
                     "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 308.0, 55.0, 117.0, 22.0 ],
+                    "text": "param numFeatures"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 246.34146928787231, 964.6341693401337, 35.0, 22.0 ],
-                    "text": "out 2"
+                    "patching_rect": [ 58.0, 237.0, 72.0, 20.0 ],
+                    "text": "pass it on!"
                 }
             },
             {
@@ -147,8 +59,41 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 203.65854144096375, 964.6341693401337, 35.0, 22.0 ],
+                    "patching_rect": [ 54.0, 283.0, 35.0, 22.0 ],
                     "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 309.0, 85.0, 115.0, 22.0 ],
+                    "text": "param featureStride"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 440.5, 85.0, 109.0, 22.0 ],
+                    "text": "buffer buf_features"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 716.9491696357727, 49.0, 319.49153304100037, 34.0 ],
+                    "text": "the \"real\" size of kNesses is (num ellipses choose 2) + 1\nso we would go to 5 ellipses without reallocating but not 6"
                 }
             },
             {
@@ -163,15 +108,14 @@
             },
             {
                 "box": {
-                    "code": "require(\"circle_core_groupEnergy\");\r\n\r\ntimeIndex = in1;\r\nellipseStride = 5;\r\n    \r\n// initialise ellipses_local \r\nfor (i=0; i<numEllipses; i+=1) \r\n{\r\n    amp_i = peek(buf_ellipses, timeIndex, i*ellipseStride+1);\r\n\r\n    poke(ellipses_local, amp_i, i, 0);\r\n}\r\n\r\n// figure out the group energies Gk and pair energies Sk\r\ncircle_groupEnergy(ellipses_local, numEllipses, G, S);\r\n\r\nkNessWriteIdx = 1; // skip 0 - we'll use it for oneness later\r\nfor (i=1; i<numEllipses; i+=1) // iterate from 1 btw!\r\n{\r\n    freq_i = peek(buf_ellipses, timeIndex, i*ellipseStride+0); \r\n    \r\n    for (j=0; j<i; j+=1) // j is always less than i (thats why i starts at 1)\r\n    {\r\n        freq_j = peek(buf_ellipses, timeIndex, j*ellipseStride+0);\r\n        \r\n        hiFreq = 1;\r\n        loFreq = 1;\r\n        \r\n        if (freq_i > freq_j) \r\n        {\r\n            hiFreq = freq_i;\r\n            loFreq = freq_j;\r\n        } \r\n        else \r\n        {\r\n            loFreq = freq_i;\r\n            hiFreq = freq_j;\r\n        }\r\n        \r\n        if (loFreq < 0.001) loFreq = 0.001;\r\n        freqRatio = hiFreq/loFreq;\r\n        \r\n        // pair energy for this pair\r\n        // it depends only on i, not on j. funky but it works. \r\n        S_i = peek(S, i);\r\n        \r\n        // write into kNesses buffer \r\n        // super weird indexing!\r\n        poke (kNesses, S_i, kNessWriteIdx, 0);\r\n        poke (kNesses, freqRatio, kNessWriteIdx, 1);\r\n        kNessWriteIdx += 1;\r\n    } \r\n}\r\n\r\npoke (kNesses, peek(G,0), 0, 0); // oneness energy (thats far out dudeee)\r\npoke (kNesses, 1, 0, 1);         // dummy oneness freq ratio of 1\r\n\r\nout1 = peek(kNesses, 0, 0); // oneness energy\r\nout2 = peek(kNesses, 1, 0); // 1-2ness energy\r\nout3 = peek(kNesses, 2, 0); // 1-3ness energy\r\nout4 = peek(kNesses, 3, 0); // 2-3ness energy\r\nout5 = peek(kNesses, 4, 0); // 1-4ness energy\r\nout6 = peek(kNesses, 5, 0); // 2-4ness energy\r\nout7 = peek(kNesses, 6, 0); // 3-4ness energy\r\n\r\nout8 = peek(kNesses,  0, 1); // oneness freqRatio\r\nout9 = peek(kNesses,  1, 1); // 1-2ness freqRatio\r\nout10 = peek(kNesses, 2, 1); // 1-3ness freqRatuo\r\nout11 = peek(kNesses, 3, 1); // 2-3ness freqRatio\r\nout12 = peek(kNesses, 4, 1); // 1-4ness freqRatio\r\nout13 = peek(kNesses, 5, 1); // 2-4ness freqRatio\r\nout14 = peek(kNesses, 6, 1); // 3-4ness freqRatio\r\n",
+                    "code": "require(\"circle_core_groupEnergy\");\r\n\r\ntimeIndex = in1;\r\nellipseStride = 5;\r\n    \r\n// initialise ellipses_local \r\nfor (i=0; i<numEllipses; i+=1) \r\n{\r\n    freq_i = peek(buf_ellipses, timeIndex, i*ellipseStride+0);\r\n    amp_i = peek(buf_ellipses, timeIndex, i*ellipseStride+1);\r\n\r\n    poke(ellipses_local, amp_i, i);\r\n}\r\n\r\n// figure out the group energies Gk and pair energies Sk\r\ncircle_groupEnergy(ellipses_local, numEllipses, G, S);\r\n\r\nfeatureWriteIdx = 1; // skip 0 - we'll use it for oneness later\r\nfor (i=1; i<numEllipses; i+=1) // iterate from 1 btw!\r\n{\r\n    freq_i = peek(buf_ellipses, timeIndex, i*ellipseStride+0); \r\n    \r\n    for (j=0; j<i; j+=1) // j is always less than i (thats why i starts at 1)\r\n    {\r\n        freq_j = peek(buf_ellipses, timeIndex, j*ellipseStride+0);\r\n        \r\n        hiFreq = 1;\r\n        loFreq = 1;\r\n        lo = 0;\r\n        hi = 0;\r\n        \r\n        if (freq_i > freq_j) \r\n        {\r\n            hiFreq = freq_i;\r\n            loFreq = freq_j;\r\n            lo = j;\r\n            hi = i;\r\n        } \r\n        else \r\n        {\r\n            loFreq = freq_i;\r\n            hiFreq = freq_j;\r\n            lo = i;\r\n            hi = j;\r\n        }\r\n        \r\n        if (loFreq < 0.001) loFreq = 0.001;\r\n        freqRatio = hiFreq/loFreq;\r\n        \r\n        // pair energy for this pair\r\n        // it depends only on i, not on j. funky but it works. \r\n        S_i = peek(S, i);\r\n        \r\n        // get vals for calculating features\r\n        A_lo     = peek(buf_ellipses, timeIndex, lo*ellipseStride+1);\r\n        A_hi     = peek(buf_ellipses, timeIndex, hi*ellipseStride+1);\r\n        shape_lo = peek(buf_ellipses, timeIndex, lo*ellipseStride+2);\r\n        shape_hi = peek(buf_ellipses, timeIndex, hi*ellipseStride+2);\r\n        phi_lo   = peek(buf_ellipses, timeIndex, lo*ellipseStride+3);\r\n        phi_hi   = peek(buf_ellipses, timeIndex, hi*ellipseStride+3);\r\n        tau_lo   = peek(buf_ellipses, timeIndex, lo*ellipseStride+4);\r\n        tau_hi   = peek(buf_ellipses, timeIndex, hi*ellipseStride+4);\r\n        \r\n        // calculate features\r\n        Asum = A_lo + A_hi;\r\n        if (Asum < 0.0001) Asum = 0.0001;\r\n        Abal = A_hi - A_lo / Asum;\r\n        sLo_x, sLo_y = poltocar(shape_lo, tau_lo);\r\n        sHi_x, sHi_y = poltocar(shape_hi, tau_hi);\r\n        phi = phasewrap(phi_lo * freqRatio - phi_hi); // lol imagine if this just works\r\n        \r\n        // cleans out degenerate values with very high freq ratios\r\n        energy = freqRatio < 17 ? S_i : 0; \r\n        \r\n        // write into features buffer\r\n        poke(buf_features, energy,    timeIndex, featureWriteIdx*featureStride+0); // E\r\n        poke(buf_features, freqRatio, timeIndex, featureWriteIdx*featureStride+1); // Wr\r\n        poke(buf_features, loFreq,    timeIndex, featureWriteIdx*featureStride+2); // W0\r\n        poke(buf_features, Asum,      timeIndex, featureWriteIdx*featureStride+3); // Asum\r\n        poke(buf_features, Abal,      timeIndex, featureWriteIdx*featureStride+4); // Abal\r\n        poke(buf_features, sLo_x,     timeIndex, featureWriteIdx*featureStride+5); // sLo_x\r\n        poke(buf_features, sLo_y,     timeIndex, featureWriteIdx*featureStride+6); // sLo_y\r\n        poke(buf_features, sHi_x,     timeIndex, featureWriteIdx*featureStride+7); // sHi_x\r\n        poke(buf_features, sHi_y,     timeIndex, featureWriteIdx*featureStride+8); // sHi_y\r\n        poke(buf_features, phi,       timeIndex, featureWriteIdx*featureStride+9); // phi\r\n              \r\n        featureWriteIdx += 1;\r\n    } \r\n}\r\n\r\n// calculate oneness features \r\nE_1        = peek(G,0);\r\nW0_1       = peek(buf_ellipses, timeIndex, 0+0);\r\nA_1        = peek(buf_ellipses, timeIndex, 0+1);\r\nshape_1    = peek(buf_ellipses, timeIndex, 0+2);\r\ntau_1      = peek(buf_ellipses, timeIndex, 0+4);\r\ns1_x, s1_y = poltocar(shape_1, tau_1);\r\n\r\n// write oneness features \r\n// we hardcode the meaningless ones to suitable values\r\n// (this representation IS consistent with the model and stuff - \r\n// just with Abal = -1. So in a sense its a 2-Ellipse curve like any other)\r\npoke(buf_features, E_1,  timeIndex, 0+0); // E\r\npoke(buf_features, 1,    timeIndex, 0+1); // Wr\r\npoke(buf_features, W0_1, timeIndex, 0+2); // W0\r\npoke(buf_features, A_1,  timeIndex, 0+3); // Asum\r\npoke(buf_features, -1,   timeIndex, 0+4); // Abal\r\npoke(buf_features, s1_x, timeIndex, 0+5); // sLo_x\r\npoke(buf_features, s1_y, timeIndex, 0+6); // sLo_y\r\npoke(buf_features, 0,    timeIndex, 0+7); // sHi_x\r\npoke(buf_features, 0,    timeIndex, 0+8); // sHi_y\r\npoke(buf_features, 0,    timeIndex, 0+9); // phi",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
                     "numinlets": 1,
-                    "numoutlets": 14,
-                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+                    "numoutlets": 0,
                     "patching_rect": [ 194.0, 145.0, 821.0, 777.0 ]
                 }
             },
@@ -182,8 +126,8 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 541.0, 92.0, 108.0, 22.0 ],
-                    "text": "data kNesses 20 2"
+                    "patching_rect": [ 817.7966296672821, 89.6779670715332, 108.0, 22.0 ],
+                    "text": "data kNesses 20 3"
                 }
             },
             {
@@ -193,7 +137,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 459.0, 92.0, 60.0, 22.0 ],
+                    "patching_rect": [ 628.0, 85.0, 60.0, 22.0 ],
                     "text": "data S 20"
                 }
             },
@@ -204,7 +148,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 367.0, 92.0, 61.0, 22.0 ],
+                    "patching_rect": [ 565.0, 85.0, 61.0, 22.0 ],
                     "text": "data G 20"
                 }
             },
@@ -215,7 +159,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 624.0, 49.0, 123.0, 22.0 ],
+                    "patching_rect": [ 565.0, 49.0, 123.0, 22.0 ],
                     "text": "data ellipses_local 20"
                 }
             },
@@ -226,7 +170,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 367.0, 49.0, 111.0, 22.0 ],
+                    "patching_rect": [ 309.0, 20.512820720672607, 111.0, 22.0 ],
                     "text": "param numEllipses"
                 }
             },
@@ -258,7 +202,7 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 494.0, 49.0, 106.0, 22.0 ],
+                    "patching_rect": [ 442.0, 49.0, 106.0, 22.0 ],
                     "text": "buffer buf_ellipses"
                 }
             }
@@ -266,92 +210,22 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-3", 0 ],
-                    "source": [ "obj-2", 0 ]
+                    "destination": [ "obj-17", 0 ],
+                    "source": [ "obj-15", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-14", 0 ],
-                    "source": [ "obj-3", 0 ]
+                    "order": 1,
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-15", 0 ],
-                    "source": [ "obj-3", 1 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-16", 0 ],
-                    "source": [ "obj-3", 2 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-17", 0 ],
-                    "source": [ "obj-3", 3 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-18", 0 ],
-                    "source": [ "obj-3", 4 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-19", 0 ],
-                    "source": [ "obj-3", 5 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-20", 0 ],
-                    "source": [ "obj-3", 6 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-21", 0 ],
-                    "source": [ "obj-3", 7 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-22", 0 ],
-                    "source": [ "obj-3", 8 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-23", 0 ],
-                    "source": [ "obj-3", 9 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-24", 0 ],
-                    "source": [ "obj-3", 10 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-25", 0 ],
-                    "source": [ "obj-3", 11 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-26", 0 ],
-                    "source": [ "obj-3", 12 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-27", 0 ],
-                    "source": [ "obj-3", 13 ]
+                    "destination": [ "obj-3", 0 ],
+                    "order": 0,
+                    "source": [ "obj-2", 0 ]
                 }
             }
         ]
