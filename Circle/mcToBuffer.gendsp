@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, -973.0, 1612.0, 891.0 ],
         "boxes": [
             {
                 "box": {
@@ -232,8 +232,8 @@
                     "maxclass": "newobj",
                     "numinlets": 4,
                     "numoutlets": 0,
-                    "patching_rect": [ 380.72290563583374, 496.3855605125427, 114.0, 22.0 ],
-                    "text": "poke buf_phiSpatial"
+                    "patching_rect": [ 380.72290563583374, 496.3855605125427, 101.0, 22.0 ],
+                    "text": "poke buf_phiPlus"
                 }
             },
             {
@@ -243,8 +243,8 @@
                     "numinlets": 0,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 830.0, 88.0, 118.0, 22.0 ],
-                    "text": "buffer buf_phiSpatial"
+                    "patching_rect": [ 830.0, 88.0, 105.0, 22.0 ],
+                    "text": "buffer buf_phiPlus"
                 }
             },
             {
@@ -625,7 +625,6 @@
                     "source": [ "obj-8", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }
