@@ -13,12 +13,13 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-79",
+                    "id": "obj-35",
                     "maxclass": "newobj",
-                    "numinlets": 1,
+                    "numinlets": 2,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 1270.339013338089, 977.9661250114441, 100.0, 22.0 ]
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 2364.0, 1118.0, 43.0, 22.0 ],
+                    "text": "cycle~"
                 }
             },
             {
@@ -242,7 +243,8 @@
                     "numoutlets": 13,
                     "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "" ],
                     "patching_rect": [ 409.0, 444.7761034965515, 278.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 8000 4"
+                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 8000 4",
+                    "varname": "poly~"
                 }
             },
             {
