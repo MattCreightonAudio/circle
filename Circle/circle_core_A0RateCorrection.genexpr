@@ -1,0 +1,6 @@
+circle_getRateCorrectionFactor(baseFreq, freqRatio, binIndex)
+{
+	rateCorrectionAmount = 0.25; // hardcoded here so it matches across the project
+
+	return baseFreq * pow(freqRatio, binIndex * rateCorrectionAmount);
+}
