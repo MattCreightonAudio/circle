@@ -198,7 +198,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 593.0, 1259.0, 50.0, 22.0 ]
+                    "patching_rect": [ 560.0, 1148.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -207,7 +207,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 654.0, 1256.0, 245.18517714738846, 20.0 ],
+                    "patching_rect": [ 621.0, 1145.0, 245.18517714738846, 20.0 ],
                     "text": "A_r (non-normalised amp ratio)"
                 }
             },
@@ -327,7 +327,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 654.0, 1224.0, 245.18517714738846, 20.0 ],
+                    "patching_rect": [ 621.0, 1113.0, 245.18517714738846, 20.0 ],
                     "text": "A_bal (amp ratio, normalised into [-1,1]"
                 }
             },
@@ -337,7 +337,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 594.0, 1181.0, 56.017123170874356, 20.0 ],
+                    "patching_rect": [ 561.0, 1070.0, 56.017123170874356, 20.0 ],
                     "text": "omega_r"
                 }
             },
@@ -347,7 +347,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 344.0, 1267.0, 31.52173939347267, 20.0 ],
+                    "patching_rect": [ 311.0, 1156.0, 31.52173939347267, 20.0 ],
                     "text": "Tau"
                 }
             },
@@ -357,7 +357,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 344.0, 1239.0, 26.811594426631927, 20.0 ],
+                    "patching_rect": [ 311.0, 1128.0, 26.811594426631927, 20.0 ],
                     "text": "S"
                 }
             },
@@ -367,7 +367,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 347.0, 1208.0, 21.01449292898178, 20.0 ],
+                    "patching_rect": [ 314.0, 1097.0, 21.01449292898178, 20.0 ],
                     "text": "A"
                 }
             },
@@ -377,7 +377,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 333.0, 1176.0, 49.275362730026245, 20.0 ],
+                    "patching_rect": [ 300.0, 1065.0, 49.275362730026245, 20.0 ],
                     "text": "Omega"
                 }
             },
@@ -390,7 +390,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 594.0, 1223.0, 50.0, 22.0 ]
+                    "patching_rect": [ 561.0, 1112.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -402,7 +402,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 537.0, 1180.0, 50.0, 22.0 ]
+                    "patching_rect": [ 504.0, 1069.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -414,7 +414,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 440.0, 1266.0, 50.0, 22.0 ]
+                    "patching_rect": [ 407.0, 1155.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -426,7 +426,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 440.0, 1239.0, 50.0, 22.0 ]
+                    "patching_rect": [ 407.0, 1128.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -438,7 +438,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 440.0, 1206.0, 50.0, 22.0 ]
+                    "patching_rect": [ 407.0, 1095.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -450,7 +450,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 440.0, 1176.0, 50.0, 22.0 ]
+                    "patching_rect": [ 407.0, 1065.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -462,7 +462,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 388.0, 1266.0, 50.0, 22.0 ]
+                    "patching_rect": [ 355.0, 1155.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -474,7 +474,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 388.0, 1239.0, 50.0, 22.0 ]
+                    "patching_rect": [ 355.0, 1128.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -486,7 +486,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 388.0, 1206.0, 50.0, 22.0 ]
+                    "patching_rect": [ 355.0, 1095.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -498,7 +498,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 388.0, 1175.0, 50.0, 22.0 ]
+                    "patching_rect": [ 355.0, 1064.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -528,7 +528,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 939.75, 144.0, 58.0, 20.0 ],
+                    "patching_rect": [ 942.25, 168.0, 58.0, 20.0 ],
                     "text": "tau test"
                 }
             },
@@ -622,8 +622,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 929.75, 169.0, 78.04878234863281, 20.0 ],
-                    "text": "simple circle"
+                    "patching_rect": [ 941.0, 143.0, 56.75, 20.0 ],
+                    "text": "circle"
                 }
             },
             {
@@ -1162,7 +1162,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 701.0, 1045.0, 344.0, 131.0 ],
+                    "patching_rect": [ 668.0, 934.0, 344.0, 131.0 ],
                     "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = number of ellipses for k-ness analysis"
                 }
             },
@@ -1173,7 +1173,7 @@
                     "numinlets": 2,
                     "numoutlets": 13,
                     "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-                    "patching_rect": [ 379.0, 1079.0, 278.0, 22.0 ],
+                    "patching_rect": [ 346.0, 968.0, 278.0, 22.0 ],
                     "text": "poly~ circle_core 1 down 32 args 64 8 0.25 8000 4",
                     "varname": "poly~_AA"
                 }
@@ -1780,7 +1780,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 1 ],
-                    "order": 0,
+                    "order": 1,
                     "source": [ "obj-93", 0 ]
                 }
             },
@@ -1794,7 +1794,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-96", 1 ],
-                    "order": 1,
+                    "order": 0,
                     "source": [ "obj-93", 0 ]
                 }
             }
