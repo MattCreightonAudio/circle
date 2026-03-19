@@ -9,8 +9,60 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 58.0, -831.0, 1594.0, 873.0 ],
+        "rect": [ 34.0, -973.0, 1612.0, 891.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 949.0, 802.0, 35.0, 22.0 ],
+                    "text": "out 5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-15",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 712.0, 789.0, 35.0, 22.0 ],
+                    "text": "out 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 447.0, 797.0, 35.0, 22.0 ],
+                    "text": "out 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 852.0, 117.0, 167.0, 22.0 ],
+                    "text": "param smoothAmount_cycles"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 661.0, 141.0, 166.0, 22.0 ],
+                    "text": "buffer buf_smoothedFeatures"
+                }
+            },
             {
                 "box": {
                     "id": "obj-8",
@@ -39,22 +91,22 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 259.0, 652.0, 35.0, 22.0 ],
+                    "patching_rect": [ 196.0, 797.0, 35.0, 22.0 ],
                     "text": "out 2"
                 }
             },
             {
                 "box": {
-                    "code": "uRound_maxDenom3(k)\r\n{\r\n    // we're assuming k>0 here, hence \"uRound\"\r\n    whole = floor(k);\r\n    fract = k - whole;\r\n    \r\n    // round the fractional part in  sixths\r\n    n = round(fract * 6); \r\n    \r\n    // after this if statment the possible values for the fractional part are:\r\n    // 0/6 == 0, 2/6 == 1/3, 3/6 == 1/2, 4/6 == 2/3\r\n    // this gives all the possible fractional values with max denom 3\r\n    // integers have a stronger \"attraction\" than other numbers\r\n    if (n == 1 || n == 5) n = 0;\r\n    \r\n    return whole + n/6;\r\n}\r\n\r\nuRound_maxDenom4(k)\r\n{\r\n    // we're assuming k>0 here, hence \"uRound\"\r\n    whole = floor(k);\r\n    fract = k - whole;\r\n    \r\n    // round fractional part in 12ths\r\n    n = round (fract * 12);  \r\n    \r\n    // after these two statements the possible values for the fractional part are:\r\n    // 0/12 == 0, 3/12 = 1/4, 4/12 = 1/3, 6/12 = 1/2, 8/12 = 2/3, 9/12 = 3/4\r\n    // this gives all the possible fractional values with max denom 4\r\n    // integers and half-integers have a stronger \"attraction\" than other numbers - \r\n    // with integers having the strongest pull of all.\r\n    if (n <= 2 || n >= 10) n = 0;\r\n    if (n == 5 || n == 7)  n = 6;\r\n    \r\n    return whole + n/12;\r\n}\r\n\r\n/* so we make a lil data object. 1-D with length len(buf_ratiosOfInterest)\r\ninitialise it to all -1's\r\nthen we iterate over buf_features (rounding Wr remember) and for \r\nech of those features we figure out which index in ratiosOfInterest they correspond to\r\n(this is the same as the eventual buf_smoothed_features index) \r\nthen we go and write in our lil data buffuer: buf[ROI_Idx] = Features_Idx\r\n(thats why we had to initialise it to -1s btw.)\r\n\r\nthen we iterate over buf_smoothedFeatures in strides of smoothedFeatureStride (maybe \r\nthis is the same as featureStride), and its smooth sailing from there on out\r\nwe just look in our little auxillary buffer and it tells us where to get the values to smooth towards \r\n(or we use a bunch of default values if its a -1 entry) \r\nand we do the smoothing based on a control input \r\n(so that we can have \"sustain pedal\" style interaction later)\r\nwe can do the unwrapping of tau and phi (lel lel lel) by just smoothing toward the possible phi/tau value thats closest \r\nmod 2 pi or pi or whatever the current vibe is\r\n\r\nthat handles the \"cycles\" input, what about the \"exponent\" input? \r\nwell... we do need to scale by the energy (AFTER smoothing) \r\n(soooo maybe the time has come to finally require euclidian params)\r\nmaybe we can actually steal a march by just taking an exponent on the energy \r\n(which after all is in [0..1] already) before we multiply through the params. \r\n\r\n",
+                    "code": "uRound_maxDenom3(k)\r\n{\r\n    // we're assuming k>0 here, hence \"uRound\"\r\n    whole = floor(k);\r\n    fract = k - whole;\r\n    \r\n    // round the fractional part in  sixths\r\n    n = round(fract * 6); \r\n    \r\n    // after this if statment the possible values for the fractional part are:\r\n    // 0/6 == 0\r\n    // 2/6 == 1/3\r\n    // 3/6 == 1/2\r\n    // 4/6 == 2/3\r\n    // this gives all the possible fractional values with max denom 3\r\n    // integers have a stronger \"attraction\" than other numbers\r\n    if (n == 1 || n == 5) n = 0;\r\n    \r\n    return whole + n/6;\r\n}\r\n\r\nuRound_maxDenom4(k)\r\n{\r\n    // we're assuming k>0 here, hence \"uRound\"\r\n    whole = floor(k);\r\n    fract = k - whole;\r\n    \r\n    // round fractional part in 12ths\r\n    n = round (fract * 12);  \r\n    \r\n    // after these two statements the possible values for the fractional part are:\r\n    // 0/12 == 0\r\n    // 3/12 == 1/4\r\n    // 4/12 == 1/3\r\n    // 6/12 == 1/2\r\n    // 8/12 == 2/3\r\n    // 9/12 == 3/4\r\n    // this gives all the possible fractional values with max denom 4\r\n    // integers and half-integers have a stronger \"attraction\" than other numbers - \r\n    // with integers having the strongest pull of all.\r\n    if (n <= 2 || n >= 10) n = 0;\r\n    if (n == 5 || n == 7)  n = 6;\r\n    \r\n    return whole + n/12;\r\n}\r\n\r\nlerp(current, target, timeConst_sec)\r\n{\r\n    //rule of thumb: \r\n    // after 3 time constants you're 95% of the way there\r\n    // after 5 time constants you're 99.3% (pretty dang settled)\r\n    timeConst_samps = timeConst_sec * samplerate;\r\n    lerpAmount = 1 - exp(-1 / timeConst_samps);\r\n    \r\n    return current + lerpAmount * (target - current);\r\n}\r\n\r\nsmooth(current, target, freq, cycles)\r\n{\r\n    // find time constant for smoothing\r\n    // as a rule of theumb the \"response time\" is 3 time constants\r\n    // so multiply period by number of cycles and triple it\r\n    period = 1/freq;\r\n    timeConst = 3 * period * cycles;\r\n    \r\n    return lerp(current, target, timeConst);\r\n}\r\n\r\nout1 = numSmoothedFeatures;\r\nout2 = smoothAmount_cycles;\r\nout3 = numFeatures;\r\nout4 = featureStride; \r\n\r\ntimeIndex = in1;\r\nbuf_feature_idx = 0;\r\nfor (i=0; i<numSmoothedFeatures; i+=1)\r\n{\r\n    Wr_target = uRound_maxDenom3( peek(buf_ratiosOfInterest,i) );  \r\n    \r\n    // given our current Wr_target, figure out where in buf_features we should be looking\r\n    // we're relying on features being sorted by Wr here btw \r\n    Wr_current = -1;\r\n    while (Wr_current < Wr_target && buf_feature_idx < numFeatures) {\r\n\r\n        Wr_current = peek(buf_features, timeIndex, buf_feature_idx*featureStride+1); \r\n        Wr_current = uRound_maxDenom3(Wr_current);\r\n        \r\n        if (Wr_current < Wr_target) buf_feature_idx += 1;\r\n    }\r\n    \r\n    //////////////////////////////////////////////////////////////////////////////////////////////////////////////\r\n    // lets run down the conditions at while loop exit cause its a bit fucky -\r\n    //\r\n    // either : buf_feature_idx ran off the end of buf_features (while Wr_current < Wr_target was still true)\r\n    // or     : Wr_current == Wr_target\r\n    // or     : Wr_current > Wr_target (and buf_feature_idx holds the LOWEST value for which this is true)\r\n    //\r\n    // if Wr_current = Wr_target, great. Thats a hit. No cleanup to do.\r\n    // (although its a bit arbitrary if there were multiple indices where Wr_current == Wr_target)\r\n    //\r\n    // if we ran off the end of buf_features - that means Wr_target is larger than any of the Wrs in \r\n    // buf_features. And there's no cleanup to do since we WANT an early exit on the next i also\r\n    //\r\n    // if Wr_current > Wr_target - well, we know that (buf_feature_idx-1) gives an Wr smaller \r\n    // than our current target. And we know that our next Wr_target will be even bigger.\r\n    // so the smallest index which could result in a hit is ALREADY held in buf_feature_idx.\r\n    // again, no cleanup\r\n    //\r\n    // so it really LOOKS fragile but all the cases are indeed handled. phewf!\r\n    ///////////////////////////////////////////////////////////////////////////////////////////////////////////\r\n    \r\n    // this if is always entered (note the || 1) \r\n    // but it makes gen~ notice the buf_feature_idx dependency and generate the right code \r\n    if (buf_feature_idx || 1) \r\n    {\r\n        // determine whether we \"smooth toward a feature\" or whether we \"smooth toward zero\"\r\n        if (Wr_current == Wr_target) {\r\n            \r\n            // hit - smooth the values in smoothedFeatures towards the feature we identified \r\n            \r\n            // get W0 \r\n            // we dont smooth W0 we just take the new value as gospel and write it in\r\n            // got to do this first so that other things can be smoothed correctly\r\n            loFreq = peek(buf_features, timeIndex, buf_feature_idx*featureStride+2);\r\n            poke(buf_smoothedFeatures, loFreq, timeIndex, i*featureStride+2);\r\n            \r\n            // smooth and write E \r\n            E_target  = peek(buf_features,         timeIndex, buf_feature_idx*featureStride+0);\r\n            E_current = peek(buf_smoothedFeatures, timeIndex,               i*featureStride+0);\r\n            E_smooth  = smooth(E_current, E_target, loFreq, smoothAmount_cycles);\r\n            poke(buf_smoothedFeatures, E_smooth, timeIndex, i*featureStride+0);\r\n            \r\n            // write Wr (no smoothing)\r\n            poke(buf_smoothedFeatures, Wr_target, timeIndex, i*featureStride+1);\r\n\r\n            // j starts at 2 cause we're skipping E, W0 and Wr (handled above)\r\n            for(j=2; j<featureStride; j+=1) \r\n            {\r\n                // read, smooth, write\r\n                val_current = peek(buf_smoothedFeatures, timeIndex,               i*featureStride+j);\r\n                val_target  = peek(buf_features,         timeIndex, buf_feature_idx*featureStride+j);\r\n                val_smooth  = smooth(val_current, val_target, loFreq, smoothAmount_cycles);\r\n                poke(buf_smoothedFeatures, val_smooth, timeIndex, i*featureStride+j);\r\n            }\r\n             \r\n        } \r\n        else // miss - smooth the values in smoothedFeatures towards 0\r\n        {\r\n            \r\n            // get W0 \r\n            // we wont smooth it - hence no poke() \r\n            // but we need the value to smooth other things correctly\r\n            loFreq = peek(buf_smoothedFeatures, timeIndex, i*featureStride+2);\r\n            \r\n            // smooth and write E\r\n            energy = peek(buf_smoothedFeatures, timeIndex, i*featureStride+0);\r\n            energy = smooth(energy, 0, loFreq, smoothAmount_cycles);\r\n            poke (buf_smoothedFeatures, energy, timeIndex, i*featureStride+0);\r\n            \r\n            // write Wr (no smoothing)\r\n            poke(buf_smoothedFeatures, Wr_target, timeIndex, i*featureStride+1);\r\n            \r\n            // j starts at 2 cause we're skipping E, W0 and Wr (handled above)\r\n            for (j = 2; j<featureStride; j+=1) \r\n            {\r\n                // read, smooth, write\r\n                val = peek(buf_smoothedFeatures, timeIndex, i*featureStride+j);\r\n                val = smooth(val, 0, loFreq, smoothAmount_cycles);\r\n                poke (buf_smoothedFeatures, val, timeIndex, i*featureStride+j);\r\n            }\r\n        }   \r\n    }\r\n}\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-2",
                     "maxclass": "codebox",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 211.0, 233.0, 782.0, 389.0 ]
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 186.0, 222.0, 782.0, 389.0 ]
                 }
             },
             {
@@ -115,8 +167,40 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-4", 0 ],
+                    "destination": [ "obj-2", 0 ],
+                    "order": 0,
                     "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "order": 1,
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "source": [ "obj-2", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-15", 0 ],
+                    "source": [ "obj-2", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-16", 0 ],
+                    "source": [ "obj-2", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-2", 0 ]
                 }
             }
         ]
