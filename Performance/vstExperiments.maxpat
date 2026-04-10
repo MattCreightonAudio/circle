@@ -48,14 +48,14 @@
                         "subtype": "Undefined",
                         "embed": 1,
                         "snapshot": {
-                            "pluginname": "RAVE.vst3",
-                            "plugindisplayname": "RAVE",
+                            "pluginname": "DDSP Effect.vst3",
+                            "plugindisplayname": "DDSP Effect",
                             "pluginsavedname": "",
                             "pluginsaveduniqueid": 0,
                             "version": 1,
                             "isbank": 0,
                             "isbase64": 1,
-                            "blob": "2093.VMjLgPBB...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCM3TiKV0jZLclYXEjKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOIUQpUUQYUEVxU0UYQURWk0ZAI0TOEEUQwDLogzT3XTXlciZho1ZrE1YIckV0EDZQcVSGMFZyLzSPUjZTEDLDgzaQY0SnQjQYcVPGM1aYcUVkcmUXoWUrEVZq0FRlg0UXIWUWkENHIESz4RZHU2LC8DTEoFUAACQH8VTV8DZLYjVmQCags1cwb0b3XTVqkjPHESQFEFLUY0SnQTZKYGR3sTN1MDUAkTUP0TPRokZvjFRuQiQhASTxbUaEYkVzkjPHESQFEFLUY0SnoGdMY2LBwDZ2f1S23RUPIUQTMkYpYTV3fjTZQWPWMld3rlXmE0UZUWRBgTLEYTXvTkUOgFQosjcHg2R4X2PTETRUAUSAIkVpASZH8FMFIFLQIyU5cFahsVSGoUc2YTVn4BZic1cVM1ZvjFR1MiPLg1Mn8zMtTETRUDUSYlZFkENHITXmE0UYQWSVQVYvDSXpUEaHYFVWgkbUcUV3fjTLg2LBwDZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyUnslUXkGNEwDZtf1XmcmUisFLogzcyHDSzP0TNQiZ40zchkWS2gzPMYGRogTcyLzSPUjZTEDLDgzaQY0SnYmUXoWUrEld3rFVuUTLhUVQogjYXcEVxU0UYgCRRsjcyHTSw.0PLYmKC0TLLMTSyPUdMcmXC4DZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyUnslUXkGNqwDZtf1XmcmUisFLogzbtj1R4QzTLQiZS4jLpkWSyfzTLYGTC0DMHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbUdHIDRwTjQgASUV8DZtj1R5Q0TMQiZS4zLTMES3gTZMMiKo0TLHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbkdHIDRwTjQgASUV8DZtj1RwX1PNYmK4wDLPMDS1wzTNYGVowDLHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbELHIDRwTjQgASUV8DZtj1R3gTdLQiZS4DLtLDS3I1PMECUC4DdHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbULHIDRwTjQgASUV8DZtj1RwX1PLYmKCwjLlkFS1QTZLQCSS4DLHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbkLHIDRwTjQgASUV8DZDk1R2gzPNYmKCwDdTMkS4o1TNoGQC0DZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyUvslQioWUrIFZtf1XmcmUisFLogjcyHESvn1TNQiZS4DMXMTS3wTdMgGQ4wDZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyU40jUXIWUwbkcHIDRwTjQgASUV8DZtj1R1gDdKkicCQUPIUETMEjTZoFLogjbEYzXqQiQiUVSxf0Y2YUVkUTZHYFVWgkbUcUV3fjPLQmKogTcyLzSPUjZTEDLDgzaQY0SnYmUXoWUrEld3.iXoUjQgsFNqwDZtf1XmcmUisFLogjcyHDSncCZOciKUAkTEQ0TlolQYgCRBE1YQcUVzEkLWkWSVgkbUEyU4gjPHESQFEFLUY0Sn4RZKYGR3sTN1MDUAkTUP0TPRokZvjFRxUjQisFMFMVYMICVmcmUYUVTogjYXcEVxU0UYgCRBwDctjFR0MyPOAUQpQUPvPDRuEkUOglcVgkdUwVX5gCLhkVQFE1Z3TUSn4BZic1cVM1ZvjFR1MiPLg1Mn8zMtTETRUDUSYlZFkENHITXmE0UYQWTxbUdMYEVxUULWECRBgTLEYTXvTkUOglKosjcHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXk0jLXc1cVkUYikFRlg0UXIWUWkENHIDSz4RZHU2LC8DTEoFUAACQH8VTV8DZ5Y0X5UULWIyZFMla3TjXxUjUjgVQwfUbIIDRwTjQgASUV8DZtj1R1gDdKkicCQUPIUETMEjTZoFLogTcUcjX5U0QiUVTrIFMicUV5kjPHESQFEFLUY0SnQzPLY2LBwDZ2f1S23RUPIUQTMkYpYTV3fDdgASTGIFLQIyUsUjUZQWRBgTLEYTXvTkUOglKosjcHg2R4X2PTETRUAUSAIkVpASZHUWUGMlcUczXkcmUZM2ZFMFZtf1XmcmUisFLogzcyHDSncCZOciKUAkTEQ0TlolQYgCR3EFLQcjXvDkLWIyZFkkdmwFRlg0UXIWUWkENHIES14RZKYGR3sTN1MDUAkTUP0TPRokZvjFR1kzUZUWRxbkdUYUX1UEahcVTWMFdUwFRlg0UXIWUWkENHIESz4RZHU2LC8DTEoFUAACQH8VTV8DZTIiXqgSQhg2ZwDFdIIDRwTjQgASUV8DZtj1R1gDdKkic4sjTEoVUEkUUXIWUWkEUIcUVqQyPt3hKt3hKt3hKt3hYRUUSTEETIckVwTjQisVTTgkdEYjKAQjYPQSPWgUdMcjKAQjct3hdA4hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEV77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9.."
+                            "blob": "946.VMjLgj5....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9XiL03hUMoFSmYGZt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPUDahsFMFMVN1MDUAkTUP0TUDUUQIACU4X2PTETRUAUSAIkVpASZHgTQrI1b3vVXu0TLQc1ZrEFZtf1XmcmUisFLogjcyHUS2o1TNQiZS4zLtLkS3g0TMcGS40DZ2f1S23RUPIUQTMkYpYTV3fjTRQWPWMldiQEVuQCaHYFVWgkbUcUV3fjPLQmKCwDMpMkSzn1TNYGTo0TdHMUSwXVdLECR3sTN1MDUAkTUP0TPRokZvjFRIQiQhASTGQ0aQICVtkjPHESQFEFLUY0Sn4RZKYGR3sTN1MDUAkTUP0TPRokZvjFRNgiUZkWUwD0YqwVXn4BZic1cVM1ZvjFR1MiTMgmZS4DMpMkSxPTdLMiZ40jLtLUSncCZOciKUAkTEQ0TlolQYgCR3MELQcjXvDkLQc1ZrEFZtf1XmcmUisFLogjcyHDSncCZOciKUAkTEQ0TlolQYgCRBQ0aQICVt0TQZ8VVFMFZtf1XmcmUisFLogTLyHDSncCZOciKUAkTEQ0TlolQYgCRnQ0ZYcUV3kjQQcFLFI1azDSVn4BZic1cVM1ZvjFR1MiPLQiZS4DMpMkSz.0PLkmZS0TdTMUS3gDdKkicCQUPIUETMEjTZoFLogjTUw1XqkTaXM0ZrQ1ZIIDRwTjQgASUV8DZtj1R4o1TNQiZS4DMhkVS2Q0PNcGTowzcHg2R4X2PTETRUAUSAIkVpASZHIUUrM1ZI0FVWUkQiglKnM1Y2Y0XqASZHY2LR4TdtLDS14xPLYmXSwDLHMUSvH1PMg1Mn8zM2HDUAkTUP0TUDUUQIACU4X2TgUWTVkkbQUkVyUULhoWQVElcAIzXuAiUYkWTWg0bAc0SngzPLgGRSsjcTM0R1o1PUcGUo4jdXklS3gUZKICV4wzcLMTSncCZOcyMBQ0YIcUVzEUaO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
                         },
                         "snapshotlist": {
                             "current_snapshot": 0,
@@ -65,26 +65,26 @@
                                     "version": 2,
                                     "minorversion": 0,
                                     "name": "RAVE",
-                                    "origin": "RAVE.vst3",
+                                    "origin": "DDSP Effect.vst3",
                                     "type": "VST3",
                                     "subtype": "AudioEffect",
-                                    "embed": 0,
+                                    "embed": 1,
                                     "snapshot": {
-                                        "pluginname": "RAVE.vst3",
-                                        "plugindisplayname": "RAVE",
+                                        "pluginname": "DDSP Effect.vst3",
+                                        "plugindisplayname": "DDSP Effect",
                                         "pluginsavedname": "",
                                         "pluginsaveduniqueid": 0,
                                         "version": 1,
                                         "isbank": 0,
                                         "isbase64": 1,
-                                        "blob": "2093.VMjLgPBB...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DCM3TiKV0jZLclYXEjKt3xSqX1UgIWPnM1ZIIiXugCaggCRRwDctjFRlQEagkFNFk0azDSV3fjTUQUVTszLHg2S43hPOIUQpUUQYUEVxU0UYQURWk0ZAI0TOEEUQwDLogzT3XTXlciZho1ZrE1YIckV0EDZQcVSGMFZyLzSPUjZTEDLDgzaQY0SnQjQYcVPGM1aYcUVkcmUXoWUrEVZq0FRlg0UXIWUWkENHIESz4RZHU2LC8DTEoFUAACQH8VTV8DZLYjVmQCags1cwb0b3XTVqkjPHESQFEFLUY0SnQTZKYGR3sTN1MDUAkTUP0TPRokZvjFRuQiQhASTxbUaEYkVzkjPHESQFEFLUY0SnoGdMY2LBwDZ2f1S23RUPIUQTMkYpYTV3fjTZQWPWMld3rlXmE0UZUWRBgTLEYTXvTkUOgFQosjcHg2R4X2PTETRUAUSAIkVpASZH8FMFIFLQIyU5cFahsVSGoUc2YTVn4BZic1cVM1ZvjFR1MiPLg1Mn8zMtTETRUDUSYlZFkENHITXmE0UYQWSVQVYvDSXpUEaHYFVWgkbUcUV3fjTLg2LBwDZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyUnslUXkGNEwDZtf1XmcmUisFLogzcyHDSzP0TNQiZ40zchkWS2gzPMYGRogTcyLzSPUjZTEDLDgzaQY0SnYmUXoWUrEld3rFVuUTLhUVQogjYXcEVxU0UYgCRRsjcyHTSw.0PLYmKC0TLLMTSyPUdMcmXC4DZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyUnslUXkGNqwDZtf1XmcmUisFLogzbtj1R4QzTLQiZS4jLpkWSyfzTLYGTC0DMHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbUdHIDRwTjQgASUV8DZtj1R5Q0TMQiZS4zLTMES3gTZMMiKo0TLHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbkdHIDRwTjQgASUV8DZtj1RwX1PNYmK4wDLPMDS1wzTNYGVowDLHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbELHIDRwTjQgASUV8DZtj1R3gTdLQiZS4DLtLDS3I1PMECUC4DdHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbULHIDRwTjQgASUV8DZtj1RwX1PLYmKCwjLlkFS1QTZLQCSS4DLHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXkkjUZcVSxbkLHIDRwTjQgASUV8DZDk1R2gzPNYmKCwDdTMkS4o1TNoGQC0DZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyUvslQioWUrIFZtf1XmcmUisFLogjcyHESvn1TNQiZS4DMXMTS3wTdMgGQ4wDZ2f1S23RUPIUQTMkYpYTV3fjPgcVTWkEcQIyU40jUXIWUwbkcHIDRwTjQgASUV8DZtj1R1gDdKkicCQUPIUETMEjTZoFLogjbEYzXqQiQiUVSxf0Y2YUVkUTZHYFVWgkbUcUV3fjPLQmKogTcyLzSPUjZTEDLDgzaQY0SnYmUXoWUrEld3.iXoUjQgsFNqwDZtf1XmcmUisFLogjcyHDSncCZOciKUAkTEQ0TlolQYgCRBE1YQcUVzEkLWkWSVgkbUEyU4gjPHESQFEFLUY0Sn4RZKYGR3sTN1MDUAkTUP0TPRokZvjFRxUjQisFMFMVYMICVmcmUYUVTogjYXcEVxU0UYgCRBwDctjFR0MyPOAUQpQUPvPDRuEkUOglcVgkdUwVX5gCLhkVQFE1Z3TUSn4BZic1cVM1ZvjFR1MiPLg1Mn8zMtTETRUDUSYlZFkENHITXmE0UYQWTxbUdMYEVxUULWECRBgTLEYTXvTkUOglKosjcHg2R4X2PTETRUAUSAIkVpASZHIWQFM1ZzXzXk0jLXc1cVkUYikFRlg0UXIWUWkENHIDSz4RZHU2LC8DTEoFUAACQH8VTV8DZ5Y0X5UULWIyZFMla3TjXxUjUjgVQwfUbIIDRwTjQgASUV8DZtj1R1gDdKkicCQUPIUETMEjTZoFLogTcUcjX5U0QiUVTrIFMicUV5kjPHESQFEFLUY0SnQzPLY2LBwDZ2f1S23RUPIUQTMkYpYTV3fDdgASTGIFLQIyUsUjUZQWRBgTLEYTXvTkUOglKosjcHg2R4X2PTETRUAUSAIkVpASZHUWUGMlcUczXkcmUZM2ZFMFZtf1XmcmUisFLogzcyHDSncCZOciKUAkTEQ0TlolQYgCR3EFLQcjXvDkLWIyZFkkdmwFRlg0UXIWUWkENHIES14RZKYGR3sTN1MDUAkTUP0TPRokZvjFR1kzUZUWRxbkdUYUX1UEahcVTWMFdUwFRlg0UXIWUWkENHIESz4RZHU2LC8DTEoFUAACQH8VTV8DZTIiXqgSQhg2ZwDFdIIDRwTjQgASUV8DZtj1R1gDdKkic4sjTEoVUEkUUXIWUWkEUIcUVqQyPt3hKt3hKt3hKt3hYRUUSTEETIckVwTjQisVTTgkdEYjKAQjYPQSPWgUdMcjKAQjct3hdA4hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEV77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9.."
+                                        "blob": "946.VMjLgj5....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9XiL03hUMoFSmYGZt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPUDahsFMFMVN1MDUAkTUP0TUDUUQIACU4X2PTETRUAUSAIkVpASZHgTQrI1b3vVXu0TLQc1ZrEFZtf1XmcmUisFLogjcyHUS2o1TNQiZS4zLtLkS3g0TMcGS40DZ2f1S23RUPIUQTMkYpYTV3fjTRQWPWMldiQEVuQCaHYFVWgkbUcUV3fjPLQmKCwDMpMkSzn1TNYGTo0TdHMUSwXVdLECR3sTN1MDUAkTUP0TPRokZvjFRIQiQhASTGQ0aQICVtkjPHESQFEFLUY0Sn4RZKYGR3sTN1MDUAkTUP0TPRokZvjFRNgiUZkWUwD0YqwVXn4BZic1cVM1ZvjFR1MiTMgmZS4DMpMkSxPTdLMiZ40jLtLUSncCZOciKUAkTEQ0TlolQYgCR3MELQcjXvDkLQc1ZrEFZtf1XmcmUisFLogjcyHDSncCZOciKUAkTEQ0TlolQYgCRBQ0aQICVt0TQZ8VVFMFZtf1XmcmUisFLogTLyHDSncCZOciKUAkTEQ0TlolQYgCRnQ0ZYcUV3kjQQcFLFI1azDSVn4BZic1cVM1ZvjFR1MiPLQiZS4DMpMkSz.0PLkmZS0TdTMUS3gDdKkicCQUPIUETMEjTZoFLogjTUw1XqkTaXM0ZrQ1ZIIDRwTjQgASUV8DZtj1R4o1TNQiZS4DMhkVS2Q0PNcGTowzcHg2R4X2PTETRUAUSAIkVpASZHIUUrM1ZI0FVWUkQiglKnM1Y2Y0XqASZHY2LR4TdtLDS14xPLYmXSwDLHMUSvH1PMg1Mn8zM2HDUAkTUP0TUDUUQIACU4X2TgUWTVkkbQUkVyUULhoWQVElcAIzXuAiUYkWTWg0bAc0SngzPLgGRSsjcTM0R1o1PUcGUo4jdXklS3gUZKICV4wzcLMTSncCZOcyMBQ0YIcUVzEUaO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO.."
                                     },
                                     "fileref": {
                                         "name": "RAVE",
-                                        "filename": "RAVE_20260407_3.maxsnap",
+                                        "filename": "RAVE_20260407_4.maxsnap",
                                         "filepath": "~/Documents/Max 9/Snapshots",
                                         "filepos": -1,
-                                        "snapshotfileid": "4aaa8d85a82a7b9e32f4ca3c8876e6cd"
+                                        "snapshotfileid": "c0883b95fd3c066f0d888b4427d3c072"
                                     }
                                 }
                             ]
@@ -114,7 +114,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 333.5526283979416, 246.05262923240662, 103.0, 22.0 ],
-                    "text": "onepole~ 500. Hz"
+                    "text": "onepole~ 100. Hz"
                 }
             },
             {
@@ -136,7 +136,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 210.0, 277.63157629966736, 103.0, 22.0 ],
-                    "text": "onepole~ 500. Hz"
+                    "text": "onepole~ 100. Hz"
                 }
             },
             {
@@ -241,7 +241,7 @@
                                 "filename": "World Must BE coming to an end.wav",
                                 "filekind": "audiofile",
                                 "id": "u359000463",
-                                "selection": [ 0.0, 1.0 ],
+                                "selection": [ 0.0, 0.7530864197530864 ],
                                 "loop": 1,
                                 "content_state": {
                                     "loop": 1
@@ -300,7 +300,7 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 210.0, 81.69934898614883, 150.0, 92.0 ],
+                    "patching_rect": [ 210.0, 100.0, 150.0, 92.0 ],
                     "quality": "basic",
                     "saved_attribute_attributes": {
                         "candicane2": {
@@ -374,7 +374,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-12", 1 ],
+                    "destination": [ "obj-1", 0 ],
                     "source": [ "obj-10", 0 ]
                 }
             },
@@ -386,7 +386,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-14", 0 ],
+                    "destination": [ "obj-1", 1 ],
                     "source": [ "obj-15", 0 ]
                 }
             },
@@ -410,8 +410,14 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-15", 0 ],
+                    "destination": [ "obj-1", 1 ],
                     "source": [ "obj-7", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "obj-7", 0 ]
                 }
             },
             {
