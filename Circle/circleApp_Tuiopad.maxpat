@@ -9,8 +9,30 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "number",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 348.0, 537.0, 50.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 347.5, 490.0, 187.0, 22.0 ],
+                    "text": "circle~ circleApp_Tuiopad_circle1"
+                }
+            },
             {
                 "box": {
                     "id": "obj-4",
@@ -63,20 +85,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 732.0588534474373, 384.41178011894226, 200.00000476837158, 144.0 ],
-                    "presentation_linecount": 10,
                     "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n4000 = TE rolling buffer size (samps)\n4 = num_ellipses"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-2",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 13,
-                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-                    "patching_rect": [ 397.5, 477.0, 278.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 8000 4",
-                    "varname": "poly~"
                 }
             },
             {
@@ -188,6 +197,12 @@
                 "patchline": {
                     "destination": [ "obj-24", 0 ],
                     "source": [ "obj-16", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {
