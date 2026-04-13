@@ -9,11 +9,44 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 1046.0, -695.0, 1253.0, 912.0 ],
         "boxes": [
             {
                 "box": {
-                    "code": "timeIndex = in1;\r\nfor(i = 0; i<smoothedFeatureBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_smoothedFeatures, timeIndex, i);\r\n    poke(bufOut_features, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i = 0; i<ellipseBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_ellipses, timeIndex, i);\r\n    poke(bufOut_ellipses, tmp, timeIndex, i);\r\n}",
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 495.0, 184.0, 126.0, 22.0 ],
+                    "text": "param A0BufferChans"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 377.0, 184.0, 100.0, 22.0 ],
+                    "text": "buffer bufOut_A0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 226.0, 173.0, 80.0, 22.0 ],
+                    "text": "buffer buf_A0"
+                }
+            },
+            {
+                "box": {
+                    "code": "timeIndex = in1;\r\nfor(i = 0; i<smoothedFeatureBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_smoothedFeatures, timeIndex, i);\r\n    poke(bufOut_features, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i = 0; i<ellipseBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_ellipses, timeIndex, i);\r\n    poke(bufOut_ellipses, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i=0; i<A0BufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_A0, timeIndex, i);\r\n    poke(bufOut_A0, tmp, timeIndex, i);\r\n}",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -52,7 +85,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 73.0, 232.0, 70.0, 20.0 ],
+                    "patching_rect": [ 91.0, 201.0, 70.0, 20.0 ],
                     "text": "timeIndex"
                 }
             },
@@ -117,7 +150,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                    "patching_rect": [ 117.0, 523.0, 35.0, 22.0 ],
                     "text": "out 1"
                 }
             }
@@ -126,6 +159,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-13", 0 ],
+                    "order": 0,
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "order": 1,
                     "source": [ "obj-1", 0 ]
                 }
             }
