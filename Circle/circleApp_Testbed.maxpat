@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-5",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 595.0, 956.0, 150.0, 62.0 ],
+                    "text": "NB can't use #0 in root-level patches - hence the awkward truly-global identifier"
+                }
+            },
+            {
+                "box": {
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,

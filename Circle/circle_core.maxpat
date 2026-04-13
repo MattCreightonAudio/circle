@@ -13,6 +13,50 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-156",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 2638.518432021141, 104.16666269302368, 150.0, 34.0 ],
+                    "text": "identifier for this instance of circle"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-142",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2527.0, 191.66665935516357, 150.3703654408455, 22.0 ],
+                    "text": "circleApp_Mouse_circle1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-139",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2527.0, 158.33332711458206, 41.0, 22.0 ],
+                    "text": "set $1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-101",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2527.0, 115.0, 142.0, 22.0 ],
+                    "text": "#6"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-8",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -8162,6 +8206,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-139", 0 ],
+                    "source": [ "obj-101", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-47", 0 ],
                     "source": [ "obj-102", 0 ]
                 }
@@ -8402,6 +8452,12 @@
                     "destination": [ "obj-92", 0 ],
                     "order": 1,
                     "source": [ "obj-133", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-142", 0 ],
+                    "source": [ "obj-139", 0 ]
                 }
             },
             {
@@ -10267,6 +10323,12 @@
                 "patchline": {
                     "destination": [ "obj-481", 0 ],
                     "source": [ "obj-477", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-101", 0 ],
+                    "source": [ "obj-478", 3 ]
                 }
             },
             {

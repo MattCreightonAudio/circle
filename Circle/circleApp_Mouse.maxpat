@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-4",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 664.0, 436.0, 150.0, 62.0 ],
+                    "text": "NB can't use #0 in root-level patches - hence the awkward truly-global identifier"
+                }
+            },
+            {
+                "box": {
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
@@ -33,8 +44,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 456.0, 447.0, 139.0, 22.0 ],
-                    "text": "circle~ circleApp_Mouse"
+                    "patching_rect": [ 456.0, 447.0, 180.0, 22.0 ],
+                    "text": "circle~ circleApp_Mouse_circle1"
                 }
             },
             {

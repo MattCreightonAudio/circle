@@ -41,7 +41,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 726.0, 79.0, 30.0, 30.0 ]
                 }
             },
@@ -53,7 +53,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 368.0, 85.0, 30.0, 30.0 ]
                 }
             },
@@ -64,8 +64,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 376.0, 154.0, 418.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 32 args 64 8 0.25 8000 4 #1",
+                    "patching_rect": [ 376.0, 154.0, 408.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.25 8000 4 #1",
                     "varname": "poly~"
                 }
             }

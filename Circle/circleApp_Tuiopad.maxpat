@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-6",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 562.0, 490.0, 150.0, 62.0 ],
+                    "text": "NB can't use #0 in root-level patches - hence the awkward truly-global identifier"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-11",
                     "maxclass": "number",
                     "numinlets": 1,
@@ -75,17 +86,6 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 405.0, 349.0, 32.0, 22.0 ],
                     "text": "$1 1"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "linecount": 10,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 732.0588534474373, 384.41178011894226, 200.00000476837158, 144.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 32\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n4000 = TE rolling buffer size (samps)\n4 = num_ellipses"
                 }
             },
             {
