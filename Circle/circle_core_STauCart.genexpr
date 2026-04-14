@@ -1,0 +1,67 @@
+
+// forward transform from the "angle plus chirality" Tau-S representation
+// to a 6D "cartesian with sum constraints" representation
+// (these parameters encode the scale invariant & freq invariant "shape" for a single ellipse) 
+tauSToCart(tau,S)
+{
+    // transforms from a 2d (tau,s) representation of an individual ellipse shape
+    // to a 6d, non negative rectangular representation
+    // subject to : sum of all 6 dimensions = 1
+    // all output params range over [0,1]
+    
+    // double angle cos and sin representation
+    // double because tau only ranges -pi to pi
+    Q_hv = cos(2*tau);
+    Q_ud = sin(2*tau);
+    
+    // sort out S first
+    Splus  = max(0,  S); // "anticlockwise-ness"
+    Sminus = max(0, -S); // "clockwise-ness"
+    
+    //leftover "budget" after S params
+    R = 1-abs(S);
+    
+    // sin-cos normalisation factor
+    // we need this to get the sum of T's to be constant with changing tau
+    // manhattan vs euclidian distance and all that 
+    N = abs(Q_hv) + abs(Q_ud);
+    
+    T_h = R * max(0,    Q_hv / N); // "horizontalness"
+    T_v = R * max(0, -1*Q_hv / N); // "verticalness"
+    T_u = R * max(0,    Q_ud / N); // "upward diagonalness"
+    T_d = R * max(0, -1*Q_ud / N); // "downward diagonalness"
+    
+    return Splus, Sminus, T_h, T_v, T_u, T_d;
+}
+
+// inverse transform from 6D cartesian to "angle-plus-chirality" representation
+// (these parameters encode the scale invariant & freq invariant "shape" for a single ellipse) 
+cartToTauS(Splus, Sminus, T_h, T_v, T_u, T_d)
+{
+    // Reconstruct S
+    // Since Splus = max(0, S) and Sminus = max(0, -S)
+    S = Splus - Sminus;
+
+    // Reconstruct the double angle representation (Q_hv, Q_ud)
+    // theyre actually off by a scaling factor (R/N - see forward transform)
+    // but we're plugging it straight into atan2 so only the ratio matters
+    Q_hv_scaled = T_h - T_v;
+    Q_ud_scaled = T_u - T_d;
+
+    // -----------------------------------------------------------------------------------------------------------
+    // Extract the angle tau
+    // if we're (close to) a perfect circle then the T vals are near 0 and the tau val is unstable
+    // calling code needs to handle this instability. (your code should be insensitive to tau when abs(S) is near 1)
+    // its actually possible to get atan2(0,0) in normal use in this application - an undefined value!
+    // but genexpr just returns 0. this function is NaN-free afaik
+    // -----------------------------------------------------------------------------------------------------------
+    // The cartesian representation does not have this stability problem - thats what we created it for.
+    // So use that if you can.
+    // we're just assuming that anyone whos using the inverse transform has a good reason and knows what theyre doing
+    // -----------------------------------------------------------------------------------------------------------
+    twoTau = atan2(Q_ud_scaled, Q_hv_scaled);
+    
+    tau = twoTau / 2;
+
+    return tau, S;
+}
