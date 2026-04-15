@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
         "boxes": [
             {
                 "box": {
@@ -831,7 +831,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1028.125, 44.875, 43.0, 20.0 ],
-                    "text": "Adiff"
+                    "text": "S"
                 }
             },
             {
@@ -840,8 +840,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 976.5625, 38.625, 24.0, 20.0 ],
-                    "text": "A0"
+                    "patching_rect": [ 940.625, 58.0, 24.0, 20.0 ],
+                    "text": "A"
                 }
             },
             {
@@ -910,7 +910,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "bang" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 341.0, 98.0, 30.0, 30.0 ]
                 }
             },

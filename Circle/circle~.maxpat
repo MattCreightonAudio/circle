@@ -62,7 +62,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1188.0, 366.0, 209.0, 22.0 ],
+                    "patching_rect": [ 1188.0, 366.0, 249.0, 22.0 ],
                     "text": "r #1_A0_width"
                 }
             },
@@ -84,7 +84,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1320.0, 459.0, 187.0, 22.0 ],
+                    "patching_rect": [ 1320.0, 459.0, 227.0, 22.0 ],
                     "text": "buf #1_A0"
                 }
             },
@@ -139,7 +139,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 805.0, 393.0, 234.0, 22.0 ],
+                    "patching_rect": [ 805.0, 393.0, 274.0, 22.0 ],
                     "text": "r #1_ellipses_width"
                 }
             },
@@ -161,7 +161,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 885.0, 496.0, 212.0, 22.0 ],
+                    "patching_rect": [ 885.0, 496.0, 252.0, 22.0 ],
                     "text": "buf #1_ellipses"
                 }
             },
@@ -205,7 +205,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 306.0, 391.0, 237.0, 22.0 ],
+                    "patching_rect": [ 306.0, 391.0, 277.0, 22.0 ],
                     "text": "r #1_features_width"
                 }
             },
@@ -227,7 +227,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 418.0, 517.0, 215.0, 22.0 ],
+                    "patching_rect": [ 418.0, 517.0, 255.0, 22.0 ],
                     "text": "buf #1_features"
                 }
             },
@@ -284,7 +284,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 757.0, 188.0, 428.0, 22.0 ],
+                    "patching_rect": [ 757.0, 188.0, 468.0, 22.0 ],
                     "text": "poly~ circle_core 1 down 8 args 64 8 0.25 8000 4 #1 20",
                     "varname": "poly~"
                 }
