@@ -9,8 +9,19 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-21",
+                    "maxclass": "slider",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 1165.0, 152.0, 20.0, 140.0 ]
+                }
+            },
             {
                 "box": {
                     "comment": "",
@@ -284,8 +295,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 757.0, 188.0, 468.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.25 8000 4 #1 20",
+                    "patching_rect": [ 757.0, 192.0, 418.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.5 8000 4 #1 10",
                     "varname": "poly~"
                 }
             }

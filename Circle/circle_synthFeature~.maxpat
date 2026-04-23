@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 999.0, -995.0, 890.0, 912.0 ],
         "boxes": [
             {
                 "box": {
@@ -39,7 +39,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 747.5, 125.0, 37.0, 20.0 ],
+                    "patching_rect": [ 505.00000166893005, 129.0, 37.0, 20.0 ],
                     "text": "phi"
                 }
             },
@@ -47,12 +47,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-28",
-                    "index": 9,
+                    "index": 5,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 751.0, 147.0, 30.0, 30.0 ]
+                    "patching_rect": [ 508.00000166893005, 151.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -367,7 +367,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-18",
-                    "index": 8,
+                    "index": 9,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -379,7 +379,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-17",
-                    "index": 7,
+                    "index": 8,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -391,7 +391,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-16",
-                    "index": 6,
+                    "index": 7,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -403,7 +403,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-15",
-                    "index": 5,
+                    "index": 6,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,

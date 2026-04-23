@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -20,7 +20,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1330.0770282745361, 1038.4616374969482, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -47,7 +46,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1270.0770225524902, 1038.4616374969482, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -74,7 +72,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1213.1539402008057, 1038.4616374969482, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -101,7 +98,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1153.1539344787598, 1038.4616374969482, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -128,7 +124,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1103.9231605529785, 1038.4616374969482, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -155,7 +150,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 1047.000078201294, 1038.4616374969482, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -182,7 +176,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 940.8462219238281, 1032.3077907562256, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -209,7 +202,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 879.3077545166016, 1032.3077907562256, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -236,7 +228,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 823.9231338500977, 1032.3077907562256, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -263,7 +254,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 763.9231281280518, 1032.3077907562256, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -290,7 +280,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 714.6923542022705, 1032.3077907562256, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -317,7 +306,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 657.7692718505859, 1032.3077907562256, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -344,7 +332,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 947.7457414865494, 852.1276534795761, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -371,7 +358,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 886.9408565759659, 852.1276534795761, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -398,7 +384,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 830.843294262886, 852.1276534795761, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -425,7 +410,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 770.4961371719837, 852.1276534795761, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -452,7 +436,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 722.3067063093185, 852.1276534795761, 53.19148898124695, 36.0 ],
-                    "presentation_linecount": 2,
                     "text": "snapshot~ 10"
                 }
             },
@@ -1450,17 +1433,6 @@
                     "range": 128,
                     "signed": 1,
                     "size": 64
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-4",
-                    "linecount": 4,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 664.0, 436.0, 150.0, 62.0 ],
-                    "text": "NB can't use #0 in root-level patches - hence the awkward truly-global identifier"
                 }
             },
             {
