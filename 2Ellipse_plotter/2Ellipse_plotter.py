@@ -27,14 +27,14 @@ t = np.linspace(0, 10 * 2 * np.pi, 2000)
 
 # Initial parameter values (Model I)
 initial_omega_0 = 1.0   
-initial_N = 2.0         # Default 2
-initial_M = 1.0         # Default 1
-initial_A_0 = 3.0       # Renamed from A_avg
-initial_A_r = 0.0       # Default changed to 0.0
+initial_N = 2.0         
+initial_M = 1.0         
+initial_A_0 = 3.0       
+initial_A_r = 0.0       
 initial_S1 = 1.0        
 initial_S2 = 1.0        
-initial_theta = np.pi / 2.0   
-initial_tau = 0.0             
+initial_tau1 = 0.0            # Renamed from tau
+initial_tau2 = np.pi / 2.0    # New absolute phase (Replacing relative theta)
 initial_phi = np.pi / 2.0     
 initial_Psi = 0.0 
 
@@ -60,12 +60,13 @@ def get_model_a_params():
     
     current_Psi = initial_Psi 
     
-    phi_r1 = slider_tau.val + current_Psi
-    phi_l1 = current_Psi - slider_tau.val
+    # Absolute phase mapping for Ellipse 1
+    phi_r1 = slider_tau1.val + current_Psi
+    phi_l1 = current_Psi - slider_tau1.val
     
-    # Model I derivation for phase alignment
-    phi_r2 = (slider_tau.val + slider_theta.val) + (slider_phi.val + W_r * current_Psi)
-    phi_l2 = (slider_phi.val + W_r * current_Psi) - (slider_tau.val + slider_theta.val)
+    # Absolute phase mapping for Ellipse 2 (Using tau2 instead of tau1 + theta)
+    phi_r2 = slider_tau2.val + (slider_phi.val + W_r * current_Psi)
+    phi_l2 = (slider_phi.val + W_r * current_Psi) - slider_tau2.val
     
     return Ar1, Al1, phi_r1, phi_l1, omega_0, Ar2, Al2, phi_r2, phi_l2, W_r * omega_0
 
@@ -83,46 +84,43 @@ ax.set_ylabel('y(t)')
 ax.set_title('Kinematic Ellipse Renderer')
 ax.grid(True, alpha=0.3)
 ax.set_aspect('equal', adjustable='box')
-# Narrower crop for the interactive preview to match export
 ax.set_xlim(-8, 8)
 ax.set_ylim(-8, 8)
 
 # --- 3. UI Sliders ---
-# v_pos lowered to give plot axis labels room
 v_pos = 0.40 
 v_step = 0.032
-s_width = 0.75 # Wider sliders to extend past the plot edge
+s_width = 0.75 
 
-# Group 1: Base Parameters (W0, A0, S1, tau)
+# Group 1: Base Parameters (W0, A0, S1, tau1)
 ax_omega_0 = plt.axes([0.15, v_pos, s_width, 0.022])
 ax_A_0 = plt.axes([0.15, v_pos - v_step, s_width, 0.022])
 ax_S1 = plt.axes([0.15, v_pos - 2*v_step, s_width, 0.022])
-ax_tau = plt.axes([0.15, v_pos - 3*v_step, s_width, 0.022])
+ax_tau1 = plt.axes([0.15, v_pos - 3*v_step, s_width, 0.022])
 
 # Group 2: Frequency Ratios (wr num, wr den)
 v_pos -= (4 * v_step + 0.02)
 ax_N = plt.axes([0.15, v_pos, s_width, 0.022]) 
 ax_M = plt.axes([0.15, v_pos - v_step, s_width, 0.022])
 
-# Group 3: Balance and Orientation (Ar, S2, theta, phi)
+# Group 3: Balance and Orientation (Ar, S2, tau2, phi)
 v_pos -= (2 * v_step + 0.02)
 ax_A_r = plt.axes([0.15, v_pos, s_width, 0.022]) 
 ax_S2 = plt.axes([0.15, v_pos - v_step, s_width, 0.022])
-ax_theta = plt.axes([0.15, v_pos - 2*v_step, s_width, 0.022])
+ax_tau2 = plt.axes([0.15, v_pos - 2*v_step, s_width, 0.022])
 ax_phi = plt.axes([0.15, v_pos - 3*v_step, s_width, 0.022])
 
-# Slider Definitions
 slider_omega_0 = Slider(ax=ax_omega_0, label='$\omega_0$', valmin=0.1, valmax=5.0, valinit=initial_omega_0)
 slider_A_0 = Slider(ax=ax_A_0, label='$A_0$', valmin=0.0, valmax=6.0, valinit=initial_A_0) 
 slider_S1 = Slider(ax=ax_S1, label='$S_1$', valmin=-1.0, valmax=1.0, valinit=initial_S1)
-slider_tau = Slider(ax=ax_tau, label=r'$\tau$', valmin=-np.pi, valmax=np.pi, valinit=initial_tau)
+slider_tau1 = Slider(ax=ax_tau1, label=r'$\tau_1$', valmin=-np.pi, valmax=np.pi, valinit=initial_tau1)
 
 slider_N = Slider(ax=ax_N, label=r'$\omega_r$ num', valmin=1, valmax=5, valinit=initial_N, valstep=1.0) 
 slider_M = Slider(ax=ax_M, label=r'$\omega_r$ den', valmin=1, valmax=3, valinit=initial_M, valstep=1.0) 
 
 slider_A_r = Slider(ax=ax_A_r, label='$A_r$', valmin=-1.0, valmax=1.0, valinit=initial_A_r) 
 slider_S2 = Slider(ax=ax_S2, label='$S_2$', valmin=-1.0, valmax=1.0, valinit=initial_S2)
-slider_theta = Slider(ax=ax_theta, label=r'$\theta$', valmin=-np.pi, valmax=np.pi, valinit=initial_theta)
+slider_tau2 = Slider(ax=ax_tau2, label=r'$\tau_2$', valmin=-np.pi, valmax=np.pi, valinit=initial_tau2)
 slider_phi = Slider(ax=ax_phi, label=r'$\phi$', valmin=-np.pi, valmax=np.pi, valinit=initial_phi)
 
 # --- Tooltip System ---
@@ -130,16 +128,15 @@ tooltips = {
     slider_omega_0: "fundamental frequency. Effect not visible on plot",
     slider_A_0: "overall amplitude",
     slider_S1: "shape of lower-frequency ellipse. -1 : CW circle, 0: line, 1: CCW circle",
-    slider_tau: "principal axis angle of lower-frequency ellipse (play with S1 first)",
+    slider_tau1: "principal axis angle of lower-frequency ellipse (play with S1 first)",
     slider_N: "inter-ellipse frequency ratio (numerator)",
     slider_M: "inter-ellipse frequency ratio (denominator)",
     slider_A_r: "relative amplitude of ellipses, mapped into [-1,1]. -1: lower-frequency ellipse only. 0: equal amplitudes. 1: higher-frequency ellipse only",
     slider_S2: "shape of higher-frequency ellipse. -1 : CW circle, 0: line, 1: CCW circle",
-    slider_theta: "angle between ellipse principle axes. by using a relative angle here, we ensure tau is an \"overall rotation\" parameter independently of shape",
+    slider_tau2: "principal axis angle of higher-frequency ellipse (play with S2 first)",
     slider_phi: "inter-ellipse phase difference. psi (absolute starting phase) does not affect shape, but phi does."
 }
 
-# Help text box at the very bottom
 help_ax = plt.axes([0.15, 0.01, 0.6, 0.03], frameon=False)
 help_ax.set_xticks([])
 help_ax.set_yticks([])
@@ -176,28 +173,26 @@ def update(val):
     lc.set_segments(segments)
     fig.canvas.draw_idle()
 
-for s in [slider_omega_0, slider_A_0, slider_S1, slider_tau, slider_N, slider_M, slider_A_r, slider_S2, slider_theta, slider_phi]:
+for s in [slider_omega_0, slider_A_0, slider_S1, slider_tau1, slider_N, slider_M, slider_A_r, slider_S2, slider_tau2, slider_phi]:
     s.on_changed(update)
 
 def save_images(event):
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    # Get current parameters
     Ar1, Al1, pr1, pl1, o1, Ar2, Al2, pr2, pl2, o2 = get_model_a_params()
     x1, y1 = calculate_ellipse(t, Ar1, Al1, pr1, pl1, o1)
     x2, y2 = calculate_ellipse(t, Ar2, Al2, pr2, pl2, o2)
     x_t, y_t = x1 + x2, y1 + y2
-    
     pts = np.array([x_t, y_t]).T.reshape(-1, 1, 2)
     segs = np.concatenate([pts[:-1], pts[1:]], axis=1)
 
-    # Save 1: Plot Area Only (With Axes, No Sliders, Narrower Crop)
+    # Save 1: Plot with Axes (Tightly Cropped)
     plot_fig, plot_ax = plt.subplots(figsize=(16, 16))
+    plot_fig.subplots_adjust(left=0, right=1, top=1, bottom=0) # Fill canvas
     plot_ax.set_aspect('equal')
     plot_ax.grid(True, alpha=0.3)
     plot_ax.set_xlabel('x(t)')
     plot_ax.set_ylabel('y(t)')
-    # Removed title as requested
     plot_ax.set_xlim(-8, 8)
     plot_ax.set_ylim(-8, 8)
     
@@ -206,11 +201,12 @@ def save_images(event):
     plot_ax.add_collection(lc_plot)
     
     plot_name = f"curve_{ts}_axes.png"
-    plot_fig.savefig(plot_name, dpi=75)
+    plot_fig.savefig(plot_name, dpi=75, bbox_inches='tight', pad_inches=0)
     plt.close(plot_fig)
     
-    # Save 2: Pure Curve (Narrower Crop)
+    # Save 2: Pure Curve (Tightly Cropped)
     pure_fig, pure_ax = plt.subplots(figsize=(16, 16))
+    pure_fig.subplots_adjust(left=0, right=1, top=1, bottom=0) # Fill canvas
     pure_ax.set_aspect('equal')
     pure_ax.axis('off')
     pure_fig.patch.set_facecolor('white')
@@ -223,13 +219,11 @@ def save_images(event):
     pure_ax.set_ylim(-8, 8)
     
     pure_name = f"curve_{ts}_print.png"
-    pure_fig.savefig(pure_name, dpi=75)
+    # pure_fig.savefig(pure_name, dpi=75, bbox_inches='tight', pad_inches=0)
     plt.close(pure_fig)
     
-    print(f"Exported: {plot_name} (Plot with Axes) and {pure_name} (Pure Curve)")
+    print(f"Exported: {plot_name} and {pure_name}")
 
-# Positioning Export button to the right of the plot and above the sliders
-# Left edge at 0.84 is near the plot's right edge (0.82)
 ax_export = plt.axes([0.84, 0.45, 0.1, 0.03])
 btn_export = Button(ax_export, 'Export', color='lightgray', hovercolor='skyblue')
 btn_export.on_clicked(save_images)
