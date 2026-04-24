@@ -58,8 +58,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 28.125, 556.25, 167.0, 22.0 ],
-                    "presentation_linecount": 2,
+                    "patching_rect": [ 21.125, 553.2169106602669, 167.0, 22.0 ],
                     "text": "1.5 1.5 2. 0.5 -1.6 0. 1. 1.6 -1."
                 }
             },
@@ -70,8 +69,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 28.125, 528.125, 163.0, 22.0 ],
-                    "presentation_linecount": 2,
+                    "patching_rect": [ 21.125, 524.9816153645515, 163.0, 22.0 ],
                     "text": "1.5 1.5 2. 0.5 -1.6 0. 1. 1.6 1."
                 }
             },
@@ -82,8 +80,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 28.125, 582.8125, 163.0, 22.0 ],
-                    "presentation_linecount": 2,
+                    "patching_rect": [ 21.125, 579.6875, 163.0, 22.0 ],
                     "text": "1.5 1.5 2. 0.5 -1.6 0. 0. 1.6 0."
                 }
             },
@@ -94,8 +91,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 25.0, 476.5625, 160.0, 22.0 ],
-                    "presentation_linecount": 2,
+                    "patching_rect": [ 18.18382340669632, 473.21690732240677, 160.0, 22.0 ],
                     "text": "3. 0.5 2. 0.5 -1.6 0. 1. 1.6 -1."
                 }
             },
@@ -106,8 +102,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 25.0, 450.0, 156.0, 22.0 ],
-                    "presentation_linecount": 2,
+                    "patching_rect": [ 18.18382340669632, 446.74631798267365, 156.0, 22.0 ],
                     "text": "3. 0.5 2. 0.5 -1.6 0. 1. 1.6 1."
                 }
             },
@@ -118,8 +113,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 25.0, 503.125, 156.0, 22.0 ],
-                    "presentation_linecount": 2,
+                    "patching_rect": [ 18.18382340669632, 499.6874966621399, 156.0, 22.0 ],
                     "text": "3. 0.5 2. 0.5 -1.6 0. 0. 1.6 0."
                 }
             },
@@ -153,7 +147,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 32.8125, 193.75, 153.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "2. 1. 2. 0.5 -1.6 0. 1. 1.6 -1."
                 }
             },
@@ -269,7 +262,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 182.8125, 390.625, 103.74331247806549, 48.0 ],
-                    "presentation_linecount": 3,
                     "text": "\"Coathanger\" 2 (between Co2 and Contra2)"
                 }
             },
@@ -281,7 +273,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 182.8125, 337.5, 103.74331247806549, 48.0 ],
-                    "presentation_linecount": 3,
                     "text": "\"Bomb\" 2 (between Co2 and Contra2)"
                 }
             },
@@ -292,7 +283,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 182.8125, 307.8125, 103.74331247806549, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "Liss 2 phase shift"
                 }
             },
@@ -382,12 +372,12 @@
             {
                 "box": {
                     "id": "obj-263",
-                    "linecount": 9,
+                    "linecount": 10,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1043.0, 68.73077964782715, 512.0, 131.0 ],
-                    "text": "FEATURE TESTBED -\ncircle_synthFeature~ synthesizes a test case based on inputs from sliders or presets\nusing TauSToCart the testbed generates the expected output \nCircle~ analyses the output of synthEllipse~ looking for features\nthe operation of circle~ can be verified by comparing predicted outputs to measured outputs across many presets/states\n\nmake sure to enable \"overdrive\" (in options -> preferences)\nand \"show connections over objects\" (lower left taskbar) "
+                    "patching_rect": [ 1043.0, 68.73077964782715, 512.0, 144.0 ],
+                    "text": "FEATURE TESTBED -\ncircle_synthFeature~ synthesizes a test case based on inputs from sliders or presets\nusing TauSToCart the testbed generates the expected output \nCircle~ analyses the output of synthEllipse~ looking for features\nthe operation of circle~ can be verified by comparing predicted outputs to measured outputs across many presets/states\n\nmake sure to enable \"overdrive\" (in options -> preferences)\nand \"show connections over objects\" (lower left taskbar) \nturn DSP on (bottom right)"
                 }
             },
             {
@@ -4350,7 +4340,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 592.5983617305756, 184.6154022216797, 52.95618176460266, 130.0 ],
                     "size": 8,
-                    "value": 0
+                    "value": 1
                 }
             },
             {
@@ -4699,7 +4689,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "int", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 1033.0, 60.0, 534.0, 152.0 ],
+                    "patching_rect": [ 1033.3332994580269, 59.99999803304672, 534.0740565657616, 157.77777260541916 ],
                     "pointcolor": [ 0.08235294117647059, 0.25098039215686274, 0.43137254901960786, 1.0 ],
                     "range": 128,
                     "size": 2

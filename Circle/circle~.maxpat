@@ -13,17 +13,6 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-21",
-                    "maxclass": "slider",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 1165.0, 152.0, 20.0, 140.0 ]
-                }
-            },
-            {
-                "box": {
                     "comment": "",
                     "id": "obj-13",
                     "index": 3,
