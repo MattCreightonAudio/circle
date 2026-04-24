@@ -9,8 +9,42 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "format": 6,
+                    "id": "obj-57",
+                    "maxclass": "flonum",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 326.6990246474743, 737.9164287745953, 50.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-45",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "float" ],
+                    "patching_rect": [ 366.01941245794296, 701.0232253968716, 29.5, 22.0 ],
+                    "text": "- 1."
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-41",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "float" ],
+                    "patching_rect": [ 366.01941245794296, 659.7610900402069, 29.5, 22.0 ],
+                    "text": "f -0."
+                }
+            },
             {
                 "box": {
                     "id": "obj-53",
@@ -57,46 +91,13 @@
             },
             {
                 "box": {
-                    "id": "obj-62",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 332.0, 697.0, 31.0, 22.0 ],
-                    "text": "pipe"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-61",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "bang", "bang" ],
-                    "patching_rect": [ 371.0, 675.0, 32.0, 22.0 ],
-                    "text": "t b b"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-54",
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 411.0, 735.0, 66.0, 22.0 ],
-                    "text": "countSet 1"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-56",
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 337.0, 735.0, 66.0, 22.0 ],
-                    "text": "countSet 0"
+                    "patching_rect": [ 326.6990246474743, 764.61545753479, 73.0, 22.0 ],
+                    "text": "countSet $1"
                 }
             },
             {
@@ -680,11 +681,11 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+                        "rect": [ -320.0, 171.0, 1213.0, 642.0 ],
                         "boxes": [
                             {
                                 "box": {
-                                    "code": "Param period_sec(200);\r\nParam countSet(0);\r\n\r\nData countSetSentinel (1);\r\nperiod_ms = period_sec * 1000;\r\n\r\nif (peek(countSetSentinel, 0) != countSet)\r\n{\r\n    out1 = countSet;    \r\n    poke(countSetSentinel, countSet, 0);    \r\n}\r\nelse\r\n{\r\n    out1 = (in1 + (1000/SAMPLERATE)) % period_ms;\r\n}",
+                                    "code": "Param period_sec(200);\r\nParam countSet(0);\r\n\r\nData countSetSentinel (1);\r\nperiod_ms = period_sec * 1000;\r\n\r\nif (peek(countSetSentinel, 0) != countSet)\r\n{\r\n    out1 = max(countSet,0);    \r\n    poke(countSetSentinel, countSet, 0);    \r\n}\r\nelse\r\n{\r\n    out1 = (in1 + (1000/SAMPLERATE)) % period_ms;\r\n}",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,
@@ -759,7 +760,8 @@
                         ]
                     },
                     "patching_rect": [ 198.46155738830566, 778.461612701416, 44.0, 22.0 ],
-                    "text": "gen~"
+                    "text": "gen~",
+                    "varname": "gen~_AB"
                 }
             },
             {
@@ -862,7 +864,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "bang" ],
                     "patching_rect": [ 1167.1875, 98.0, 30.0, 30.0 ]
                 }
             },
@@ -910,7 +912,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "bang" ],
                     "patching_rect": [ 341.0, 98.0, 30.0, 30.0 ]
                 }
             },
@@ -1129,7 +1131,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-61", 0 ],
+                    "destination": [ "obj-41", 0 ],
                     "source": [ "obj-34", 0 ]
                 }
             },
@@ -1177,6 +1179,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-45", 0 ],
+                    "source": [ "obj-41", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-10", 0 ],
                     "source": [ "obj-42", 0 ]
                 }
@@ -1185,6 +1193,20 @@
                 "patchline": {
                     "destination": [ "obj-21", 0 ],
                     "source": [ "obj-44", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-41", 1 ],
+                    "order": 0,
+                    "source": [ "obj-45", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-57", 0 ],
+                    "order": 1,
+                    "source": [ "obj-45", 0 ]
                 }
             },
             {
@@ -1214,37 +1236,19 @@
             {
                 "patchline": {
                     "destination": [ "obj-72", 0 ],
-                    "source": [ "obj-54", 0 ]
+                    "source": [ "obj-56", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-72", 0 ],
-                    "source": [ "obj-56", 0 ]
+                    "destination": [ "obj-56", 0 ],
+                    "source": [ "obj-57", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-6", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-54", 0 ],
-                    "source": [ "obj-61", 1 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-62", 0 ],
-                    "source": [ "obj-61", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-56", 0 ],
-                    "source": [ "obj-62", 0 ]
                 }
             },
             {
