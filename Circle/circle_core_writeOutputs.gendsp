@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 1046.0, -695.0, 1253.0, 912.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -46,7 +46,7 @@
             },
             {
                 "box": {
-                    "code": "timeIndex = in1;\r\nfor(i = 0; i<smoothedFeatureBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_smoothedFeatures, timeIndex, i);\r\n    poke(bufOut_features, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i = 0; i<ellipseBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_ellipses, timeIndex, i);\r\n    poke(bufOut_ellipses, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i=0; i<A0BufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_A0, timeIndex, i);\r\n    poke(bufOut_A0, tmp, timeIndex, i);\r\n}",
+                    "code": "// copy relevant buffers in the patch to their externally visible counterparts\r\n// this allows us to make architectural changes later without disturbing compaitibility\r\n\r\ntimeIndex = in1;\r\nfor(i = 0; i<smoothedFeatureBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_smoothedFeatures, timeIndex, i);\r\n    poke(bufOut_features, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i = 0; i<ellipseBufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_ellipses, timeIndex, i);\r\n    poke(bufOut_ellipses, tmp, timeIndex, i);\r\n}\r\n\r\nfor(i=0; i<A0BufferChans; i+=1)\r\n{\r\n    tmp = peek(buf_A0, timeIndex, i);\r\n    poke(bufOut_A0, tmp, timeIndex, i);\r\n}",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
