@@ -13,6 +13,16 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2795.8332266807556, 1868.7499287128448, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-29",
                     "linecount": 3,
                     "maxclass": "comment",

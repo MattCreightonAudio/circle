@@ -13,13 +13,22 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-21",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 151.80723452568054, 1059.0361837148666, 150.0, 20.0 ],
+                    "text": "overall feature vals"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-72",
                     "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 833.0, 704.0, 250.0, 62.0 ],
-                    "presentation_linecount": 6,
                     "text": "single-ellipse outputs (rather than 2-ellipse features)\n\ncurrently quite noisy! use at own risk"
                 }
             },
@@ -160,7 +169,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 439.17648899555206, 968.6470991969109, 26.470589339733124, 20.0 ],
+                    "patching_rect": [ 439.17648899555206, 968.6470991969109, 27.0, 20.0 ],
                     "text": "S+ "
                 }
             },
@@ -220,7 +229,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 8.496732294559479, 971.5882659554482, 84.44535309076309, 20.0 ],
+                    "patching_rect": [ 8.496732294559479, 971.5882659554482, 85.0, 20.0 ],
                     "text": "E values here "
                 }
             },
@@ -461,7 +470,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 340.9090608358383, 425.75753819942474, 156.0, 75.0 ],
-                    "presentation_linecount": 5,
                     "text": "convert features buffer back up to the sample rate of the containing patch and output as a multichannel signal"
                 }
             },
@@ -472,20 +480,18 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1206.0604996681213, 416.66662991046906, 156.0, 62.0 ],
-                    "presentation_linecount": 4,
+                    "patching_rect": [ 1206.0604996681213, 416.66662991046906, 159.0, 62.0 ],
                     "text": "convert A0 buffer back up to the sample rate of the containing patch and output as a multichannel signal"
                 }
             },
             {
                 "box": {
                     "id": "obj-22",
-                    "linecount": 5,
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 801.5150808095932, 425.75753819942474, 153.0, 75.0 ],
-                    "presentation_linecount": 5,
+                    "patching_rect": [ 801.5150808095932, 425.75753819942474, 156.0, 62.0 ],
                     "text": "convert ellipses buffer back up to the sample rate of the containing patch and output as a multichannel signal"
                 }
             },

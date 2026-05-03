@@ -13,13 +13,22 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-219",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 807.2272646427155, 835.0909011363983, 167.0, 20.0 ],
+                    "text": "Z- (clockwise components)"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-546",
                     "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 652.1080644130707, 3132.926903963089, 151.0, 48.0 ],
-                    "presentation_linecount": 3,
                     "text": "write buffered values back to multichannel for visualisation / debug "
                 }
             },
@@ -31,7 +40,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 547.8923983573914, 4803.3332188129425, 151.0, 48.0 ],
-                    "presentation_linecount": 3,
                     "text": "write buffered values back to multichannel for visualisation / debug "
                 }
             },
@@ -43,7 +51,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 684.1154091358185, 3564.4443275928497, 151.0, 48.0 ],
-                    "presentation_linecount": 3,
                     "text": "write buffered values back to multichannel for visualisation / debug "
                 }
             },
@@ -55,7 +62,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 753.333315372467, 4869.999883890152, 151.0, 48.0 ],
-                    "presentation_linecount": 3,
                     "text": "write buffered values back to multichannel for visualisation / debug "
                 }
             },
@@ -66,7 +72,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 643.9024543762207, 4053.6586332321167, 150.0, 48.0 ],
+                    "patching_rect": [ 643.9024543762207, 4053.6586332321167, 151.0, 48.0 ],
                     "text": "write buffered values back to multichannel for visualisation / debug "
                 }
             },
@@ -78,7 +84,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1153.3333058357239, 5196.666542768478, 320.0, 75.0 ],
-                    "presentation_linecount": 5,
                     "text": "write selected values from the processing chain into externally visible buffers\ncircle~ (the containing patch) handles the process of upsampling these values to the sample rate of the max environment"
                 }
             },
@@ -89,7 +94,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 993.3333096504211, 4586.666557312012, 316.0, 103.0 ],
+                    "patching_rect": [ 993.3333096504211, 4586.666557312012, 320.0, 103.0 ],
                     "text": "combine instantaneous feature representations into a persistent feature representation by smoothing over time. This block tracks values for all \"features of interest\" simultaneously, even if those features currently contain no energy. this means indexing into smoothedFeatures is consistent and predictable, unlike representations earlier in the chain. "
                 }
             },
@@ -122,7 +127,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 279.1518956422806, 5389.999871492386, 150.0, 34.0 ],
-                    "presentation_linecount": 2,
                     "text": "pass timeIndex to the containing object (circle~) "
                 }
             },
@@ -134,7 +138,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 275.8185623884201, 5229.999875307083, 150.0, 34.0 ],
-                    "presentation_linecount": 2,
                     "text": "receive timeIndex and pass on down the chain"
                 }
             },
@@ -146,7 +149,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 280.5882470011711, 4601.9239901304245, 150.0, 34.0 ],
-                    "presentation_linecount": 2,
                     "text": "receive timeIndex and pass on down the chain"
                 }
             },
@@ -276,7 +278,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 346.10389280319214, 96.75324583053589, 507.5378818511963, 103.0 ],
+                    "patching_rect": [ 343.3333251476288, 183.33332896232605, 507.5378818511963, 103.0 ],
                     "text": "process incoming XY data  through a pair of constant-ratio filterbanks\nextract the \"analytic components\" - i.e. seperate the anticlockwise-rotating frequency components (Z+) from the clockwise components (Z-)\ncalculate Asum (amplitude), S (similar to eccentricity) and psi (phase offset) values for all frequencies \nelementwise-square Asum to generate A0\nwrite outputs as multichannel signals"
                 }
             },
@@ -333,7 +335,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 989.9999763965607, 3823.3332421779633, 461.36363196372986, 29.0 ],
-                    "presentation_linecount": 3,
                     "text": "INSTANTANEOUS FEATURE EXTRACTION"
                 }
             },
@@ -368,7 +369,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 684.461578130722, 2642.5531725883484, 654.0, 47.0 ],
-                    "presentation_linecount": 2,
                     "text": "CORE SIGNAL PROCESSING"
                 }
             },
@@ -381,7 +381,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 469.5, 1582.0, 653.0, 47.0 ],
-                    "presentation_linecount": 2,
                     "text": "BUFFER INITIALISATIONS"
                 }
             },
@@ -405,7 +404,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 277.72726464271545, 33.33333206176758, 656.0, 47.0 ],
+                    "patching_rect": [ 273.33332681655884, 119.99999713897705, 656.0, 47.0 ],
                     "text": "ANALYTIC SIGNAL DECOMPOSITION"
                 }
             },
@@ -8659,22 +8658,12 @@
             },
             {
                 "box": {
-                    "id": "obj-121",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 809.0909013748169, 836.3636283874512, 24.44444364309311, 20.0 ],
-                    "text": "Z-"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-118",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 347.72726941108704, 840.9090828895569, 30.370369374752045, 20.0 ],
-                    "text": "Z+"
+                    "patching_rect": [ 208.0, 841.9090828895569, 184.0, 20.0 ],
+                    "text": "Z+ (anticlockwise components)"
                 }
             },
             {
