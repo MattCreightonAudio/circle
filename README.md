@@ -8,7 +8,7 @@ how to build:
 
 fork/clone/whatever
 put it somewhere max can see it
-its dependency free except for the Rave demos which use rzve (unsurprisingly)
+its dependency free except for the Rave demos which use the rave VST (you can get from ircam here https://forum.ircam.fr/projects/detail/rave-vst/)
 dont open circle~ by itself - need a containing patch (circleApp_xxxxx)
 
 First time use:

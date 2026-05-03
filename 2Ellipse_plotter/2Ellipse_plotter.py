@@ -222,7 +222,7 @@ def save_images(event):
     # pure_fig.savefig(pure_name, dpi=75, bbox_inches='tight', pad_inches=0)
     plt.close(pure_fig)
     
-    print(f"Exported: {plot_name} and {pure_name}")
+    print(f"Exported: {plot_name}")
 
 ax_export = plt.axes([0.84, 0.45, 0.1, 0.03])
 btn_export = Button(ax_export, 'Export', color='lightgray', hovercolor='skyblue')
