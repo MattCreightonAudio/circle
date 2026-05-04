@@ -1,7 +1,7 @@
 RESEARCH AND EVALUATION LICENSE
 
 Project: Circle~
-Copyright © 2026 Matthew Creighton. All rights reserved.
+Copyright © 2026 ---anonymised for review---. All rights reserved.
 
 1. PERMITTED USE
 
@@ -9,7 +9,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 2. RESTRICTIONS
 
-This is a "source-available" license, not an open-source license. The following actions are strictly prohibited without prior written consent from the copyright holder:
+The following actions are strictly prohibited without prior written consent from the copyright holder:
 
     Redistribution: You may not redistribute, sub-license, or sell the Software, in whole or in part.
 
@@ -20,10 +20,6 @@ This is a "source-available" license, not an open-source license. The following 
 3. OWNERSHIP AND FUTURE LICENSING
 
 The copyright holder retains all rights, title, and interest in and to the Software.
-
-    Notice: The designers are actively considering their long-term licensing position and are open to discussing the project's future. We are currently seeking collaborators, commercial partners, and interested researchers for further development.
-
-    For inquiries or partnership proposals, please contact us through Github
 
 4. DISCLAIMER
 
