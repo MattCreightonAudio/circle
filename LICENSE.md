@@ -9,7 +9,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 2. RESTRICTIONS
 
-This is a "source-available" license, not an open-source license. The following actions are strictly prohibited without prior written consent from the copyright holder:
+The following actions are strictly prohibited without prior written consent from the copyright holder:
 
     Redistribution: You may not redistribute, sub-license, or sell the Software, in whole or in part.
 
