@@ -480,7 +480,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1206.0604996681213, 416.66662991046906, 159.0, 62.0 ],
+                    "patching_rect": [ 1206.0604996681213, 416.66662991046906, 161.0, 62.0 ],
                     "text": "convert A0 buffer back up to the sample rate of the containing patch and output as a multichannel signal"
                 }
             },
@@ -491,7 +491,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 801.5150808095932, 425.75753819942474, 156.0, 62.0 ],
+                    "patching_rect": [ 801.5150808095932, 425.75753819942474, 159.0, 62.0 ],
                     "text": "convert ellipses buffer back up to the sample rate of the containing patch and output as a multichannel signal"
                 }
             },

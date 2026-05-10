@@ -1,4 +1,4 @@
-
+ 
 // forward transform from the "angle plus chirality" Tau-S representation
 // to a 6D "cartesian with sum constraints" representation
 // (these parameters encode the scale invariant & freq invariant "shape" for a single ellipse) 
