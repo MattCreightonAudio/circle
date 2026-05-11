@@ -7,7 +7,7 @@ it takes in xy data and looks for cyclic gestures in it. then you get a big feat
 how to build:
 
 fork/clone/whatever
-put it somewhere max can see it
+symlink the Circle/ directory into the max packages folder (this is a bit of a workaround - we'll make it better soon!) 
 it's dependency free except for the Rave demos which use the rave VST (you can get from ircam here https://forum.ircam.fr/projects/detail/rave-vst/)
 dont open circle~ by itself - it needs a containing patch (theyre named like "circleApp_xxxxx")
 
