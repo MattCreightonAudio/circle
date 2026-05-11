@@ -558,7 +558,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 1184.8483803272247, 622.7272177934647, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {
@@ -635,7 +635,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 754.5453879833221, 653.030245423317, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {
@@ -701,7 +701,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 296.9696707725525, 684.8484244346619, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {

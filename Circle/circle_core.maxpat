@@ -278,7 +278,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 500.0, 1683.0, 602.0, 48.0 ],
-                    "text": "most of the buffers in this file are circular - mcToBuffer (below left) writes the current state of its multichannel input onto the \"channels\" axis of the buffers at some sample index, then advances the sample index ready for the next frame, then outputs its index to the next processing object. we refer to this index as the timeIndex"
+                    "text": "most of the buffers in this file are circular - circle_mcToBuffer (below left) writes the current state of its multichannel input onto the \"channels\" axis of the buffers at some sample index, then advances the sample index ready for the next frame, then outputs its index to the next processing object. we refer to this index as the timeIndex"
                 }
             },
             {
@@ -5140,7 +5140,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 726.6666493415833, 4769.999886274338, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {
@@ -7252,7 +7252,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 815.8536779880524, 4053.6586332321167, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {
@@ -7635,7 +7635,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 840.5696091651917, 3137.8049528598785, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {
@@ -8154,7 +8154,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 840.5696091651917, 3573.0770423412323, 117.0, 22.0 ],
-                    "text": "mc.gen~ bufferToMc"
+                    "text": "mc.gen~ circle_bufferToMc"
                 }
             },
             {
@@ -8264,7 +8264,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 146.15385103225708, 2119.2308399677277, 119.0, 22.0 ],
-                    "text": "mc.gen~ mcToBuffer"
+                    "text": "mc.gen~ circle_mcToBuffer"
                 }
             },
             {
