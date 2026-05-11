@@ -557,7 +557,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 1184.8483803272247, 622.7272177934647, 117.0, 22.0 ],
+                    "patching_rect": [ 1184.8483803272247, 622.7272177934647, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -634,7 +634,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 754.5453879833221, 653.030245423317, 117.0, 22.0 ],
+                    "patching_rect": [ 754.5453879833221, 653.030245423317, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -700,7 +700,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 296.9696707725525, 684.8484244346619, 117.0, 22.0 ],
+                    "patching_rect": [ 296.9696707725525, 684.8484244346619, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -718,12 +718,12 @@
             {
                 "box": {
                     "id": "obj-6",
-                    "linecount": 13,
+                    "linecount": 14,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1202.0, 101.0, 200.00000476837158, 186.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n20 = filterbank Q"
+                    "patching_rect": [ 1257.5163795948029, 96.73202919960022, 200.00000476837158, 213.0 ],
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n10 = filterbank Q\n1 = smoothing multiplier\n"
                 }
             },
             {
@@ -768,8 +768,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 757.0, 192.0, 461.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 10",
+                    "patching_rect": [ 747.0, 192.23202919960022, 439.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 10 1",
                     "varname": "poly~"
                 }
             }

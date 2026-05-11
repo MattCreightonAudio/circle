@@ -14,13 +14,12 @@
             {
                 "box": {
                     "id": "obj-48",
-                    "linecount": 7,
+                    "linecount": 16,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 826.8292880058289, 860.9756302833557, 150.0, 103.0 ],
-                    "presentation_linecount": 7,
-                    "text": "second outlet gives the pairwise products of the shape params\n\nuseful for various mapping tasks of more or less esoteric kind "
+                    "patching_rect": [ 798.0, 849.0, 153.0, 227.0 ],
+                    "text": "second outlet gives the pairwise products of the shape params\n\nuseful for various mapping tasks of more or less esoteric kind \n\nTHE ORDERING IS DIFFERENT, with clockwise/ anticlockwise on opposite ends of the rows/ columns.\nthere are spiffy diagrams showing why this should be so. not here tho"
                 }
             },
             {

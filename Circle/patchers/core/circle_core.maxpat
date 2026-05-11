@@ -13,6 +13,50 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-499",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 3525.0, 297.0, 24.0, 24.0 ]
+                }
+            },
+            {
+                "box": {
+                    "format": 6,
+                    "id": "obj-224",
+                    "maxclass": "flonum",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 3505.0, 403.0, 50.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-211",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 3553.0, 364.41464281082153, 150.0, 20.0 ],
+                    "text": "smoothing amount"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-139",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "int" ],
+                    "patching_rect": [ 3512.1952056884766, 363.41464281082153, 29.5, 22.0 ],
+                    "text": "#8"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-173",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -137,7 +181,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1274.5613913536072, 5533.3332805633545, 100.0, 22.0 ]
+                    "patching_rect": [ 2045.45436501503, 6151.514608860016, 100.0, 22.0 ]
                 }
             },
             {
@@ -277,7 +321,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 500.0, 1683.0, 602.0, 48.0 ],
+                    "patching_rect": [ 500.0, 1683.0, 619.0, 48.0 ],
                     "text": "most of the buffers in this file are circular - circle_mcToBuffer (below left) writes the current state of its multichannel input onto the \"channels\" axis of the buffers at some sample index, then advances the sample index ready for the next frame, then outputs its index to the next processing object. we refer to this index as the timeIndex"
                 }
             },
@@ -842,7 +886,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 3156.6665914058685, 336.66665863990784, 150.0, 34.0 ],
+                    "patching_rect": [ 3184.0, 351.41464281082153, 150.0, 34.0 ],
                     "text": "identifier for this instance of circle"
                 }
             },
@@ -853,19 +897,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 3043.3332607746124, 426.6666564941406, 181.0, 22.0 ],
-                    "text": "circle_constellation_help_circle1"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-139",
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 3043.3332607746124, 393.3333239555359, 41.0, 22.0 ],
-                    "text": "set $1"
+                    "patching_rect": [ 3043.9025115966797, 426.6666564941406, 315.8536660671234, 22.0 ],
+                    "text": "circleApp_Mouse_circle1"
                 }
             },
             {
@@ -5074,8 +5107,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 511.39239835739136, 4421.518929362297, 139.0, 22.0 ],
-                    "text": "smoothAmount_cycles 1"
+                    "patching_rect": [ 511.39239835739136, 4421.518929362297, 146.0, 22.0 ],
+                    "text": "smoothAmount_cycles #8"
                 }
             },
             {
@@ -5139,7 +5172,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 726.6666493415833, 4769.999886274338, 117.0, 22.0 ],
+                    "patching_rect": [ 726.6666493415833, 4769.999886274338, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -7251,7 +7284,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 815.8536779880524, 4053.6586332321167, 117.0, 22.0 ],
+                    "patching_rect": [ 815.8536779880524, 4053.6586332321167, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -7634,7 +7667,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 840.5696091651917, 3137.8049528598785, 117.0, 22.0 ],
+                    "patching_rect": [ 840.5696091651917, 3137.8049528598785, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -8153,7 +8186,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 840.5696091651917, 3573.0770423412323, 117.0, 22.0 ],
+                    "patching_rect": [ 840.5696091651917, 3573.0770423412323, 152.0, 22.0 ],
                     "text": "mc.gen~ circle_bufferToMc"
                 }
             },
@@ -8263,7 +8296,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 146.15385103225708, 2119.2308399677277, 119.0, 22.0 ],
+                    "patching_rect": [ 146.15385103225708, 2119.2308399677277, 153.0, 22.0 ],
                     "text": "mc.gen~ circle_mcToBuffer"
                 }
             },
@@ -9065,7 +9098,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-139", 0 ],
+                    "destination": [ "obj-142", 1 ],
                     "source": [ "obj-101", 0 ]
                 }
             },
@@ -9330,7 +9363,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-142", 0 ],
+                    "destination": [ "obj-224", 0 ],
                     "source": [ "obj-139", 0 ]
                 }
             },
@@ -11398,6 +11431,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-139", 0 ],
+                    "source": [ "obj-478", 1 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-162", 0 ],
                     "source": [ "obj-478", 2 ]
                 }
@@ -11672,6 +11711,12 @@
                 "patchline": {
                     "destination": [ "obj-929", 0 ],
                     "source": [ "obj-498", 12 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-139", 0 ],
+                    "source": [ "obj-499", 0 ]
                 }
             },
             {
