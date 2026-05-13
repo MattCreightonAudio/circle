@@ -111,17 +111,6 @@
             },
             {
                 "box": {
-                    "id": "obj-24",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 618.6440825462341, 961.8644297122955, 97.0, 22.0 ],
-                    "text": "mc.minimum~ 1."
-                }
-            },
-            {
-                "box": {
                     "id": "obj-3",
                     "maxclass": "newobj",
                     "numinlets": 2,
@@ -540,12 +529,6 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-2", 0 ],
-                    "source": [ "obj-24", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-27", 1 ],
                     "source": [ "obj-26", 0 ]
                 }
@@ -684,7 +667,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-24", 0 ],
+                    "destination": [ "obj-2", 0 ],
                     "source": [ "obj-3", 0 ]
                 }
             },

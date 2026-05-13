@@ -9,8 +9,40 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 84.0, 1196.0, 627.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 419.0, 452.0, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 350.0, 45.0, 100.0, 22.0 ],
+                    "text": "param timeConst"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 387.0, 82.0, 131.0, 22.0 ],
+                    "text": "param timeConstDown"
+                }
+            },
             {
                 "box": {
                     "id": "obj-29",
@@ -18,8 +50,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 442.0, 90.0, 100.0, 22.0 ],
-                    "text": "param timeConst"
+                    "patching_rect": [ 458.0, 45.0, 115.0, 22.0 ],
+                    "text": "param timeConstUp"
                 }
             },
             {
@@ -55,16 +87,16 @@
             },
             {
                 "box": {
-                    "code": "out1 = in2 + (in1 - in2) * in3;",
+                    "code": "tau = 0;\r\n\r\nif (in1 >= in2) tau = timeConstUp;\r\nif (in1 < in2) tau = timeConstDown;\r\n\r\n// intentional fallthrough!\r\nif (timeConst > 0) tau = timeConst; \r\n\r\n\r\ntau_samp = mstosamps(max(tau, 0.1));\r\nalpha = 1-exp(-1/tau_samp);\r\n\r\nout1 = in2 + (in1 - in2) * alpha;\r\nout2 = tau;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-23",
                     "maxclass": "codebox",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 28.0, 155.0, 325.0, 72.0 ]
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 28.0, 152.0, 465.0, 228.0 ]
                 }
             },
             {
@@ -77,29 +109,9 @@
                     "patching_rect": [ 74.0, 57.0, 28.0, 22.0 ],
                     "text": "in 1"
                 }
-            },
-            {
-                "box": {
-                    "code": "tau_samp = mstosamps(max(in1, 0.1));\r\nout1 = 1-exp(-1/tau_samp);",
-                    "fontface": 0,
-                    "fontname": "<Monospaced>",
-                    "fontsize": 12.0,
-                    "id": "obj-21",
-                    "maxclass": "codebox",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 438.0, 137.0, 313.0, 176.0 ]
-                }
             }
         ],
         "lines": [
-            {
-                "patchline": {
-                    "destination": [ "obj-23", 2 ],
-                    "source": [ "obj-21", 0 ]
-                }
-            },
             {
                 "patchline": {
                     "destination": [ "obj-23", 0 ],
@@ -122,14 +134,14 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-23", 1 ],
-                    "source": [ "obj-25", 0 ]
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-23", 1 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-21", 0 ],
-                    "source": [ "obj-29", 0 ]
+                    "destination": [ "obj-23", 1 ],
+                    "source": [ "obj-25", 0 ]
                 }
             }
         ]
