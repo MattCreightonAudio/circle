@@ -1,0 +1,239 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 709.0, 42.0, 138.0, 22.0 ],
+                    "text": "param releaseMax 1000"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1052.0, 547.0, 35.0, 22.0 ],
+                    "text": "out 7"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 821.0, 91.0, 143.0, 22.0 ],
+                    "text": "param releaseMultiplier 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 558.0, 108.0, 151.0, 22.0 ],
+                    "text": "param curveWindowMs 10"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 926.0, 91.0, 28.0, 22.0 ],
+                    "text": "in 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 967.6923999786377, 532.3077430725098, 35.0, 22.0 ],
+                    "text": "out 6"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 829.0, 545.0, 35.0, 22.0 ],
+                    "text": "out 5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 290.0, 128.0, 145.0, 22.0 ],
+                    "text": "param windowTimeMs 10"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-26",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 694.0, 527.0, 35.0, 22.0 ],
+                    "text": "out 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-25",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 491.0, 527.0, 35.0, 22.0 ],
+                    "text": "out 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-24",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 297.0, 527.0, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-23",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 120.0, 513.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "code": "lerp(curr, tgt, ms)\r\n{\r\n    alpha = 1 / (max(1, ms * 0.001 * samplerate));\r\n    return curr + alpha * (tgt - curr);\r\n}\r\n\r\nDelay xDelta_delay (44100);\r\nDelay yDelta_delay (44100);\r\nDelay heading_delay(44100);\r\nDelay curve_delay  (44100);\r\nDelay thrust_delay (44100);\r\n\r\nHistory xDelta_mean;\r\nHistory yDelta_mean;\r\nHistory curve_mean;\r\nHistory release;\r\nHistory gestOn_last;\r\nHistory velocity;\r\n\r\ngestOn = in3;\r\n\r\ndelaySamps = mstosamps(windowTimeMs);\r\ndelaySamps_r = 1/delaySamps;\r\n\r\ncurveDelaySamps = mstosamps(curveWindowMs);\r\ncurveDelaySamps_r = 1/curveDelaySamps;\r\n\r\nxAbs = in1;\r\nyAbs = in2;\r\nxDelta = delta(in1) * samplerate;\r\nyDelta = delta(in2) * samplerate;\r\n\r\nxDelta_mean = xDelta_mean + xDelta * delaySamps_r - xDelta_delay.read(delaySamps) * delaySamps_r;\r\nyDelta_mean = yDelta_mean + yDelta * delaySamps_r - yDelta_delay.read(delaySamps) * delaySamps_r;\r\n\r\nxDelta_delay.write(xDelta);\r\nyDelta_delay.write(yDelta);\r\n\r\nrate, heading = cartopol(xDelta_mean, yDelta_mean);\r\ncurve = wrap(heading - heading_delay.read(delaySamps), -pi, pi) * samplerate;\r\nheading_delay.write(heading);\r\n\r\ncurve_mean = curve_mean + curve * curveDelaySamps_r - curve_delay.read(curveDelaySamps) * curveDelaySamps_r;\r\ncurve_delay.write(curve);\r\n\r\nif (gestOn != gestOn_last)\r\n{\r\n    if (!gestOn)\r\n    {\r\n        release = min(rate*releaseMultiplier,releaseMax);\r\n    }\r\n    gestOn_last = gestOn;\r\n}\r\nif(gestOn)\r\n{\r\n    velocity = rate;\r\n}\r\nelse\r\n{\r\n    velocity = lerp(velocity, 0, release);\r\n}\r\n\r\nout1 = xDelta_mean;\r\nout2 = yDelta_mean;\r\nout3 = rate;\r\nout4 = heading; \r\nout5 = curve_mean * curveDelaySamps_r;\r\nout6 = velocity;\r\n//out7 = 1 / (max(1, 1000 * 0.001 * samplerate));\r\nout7 = release;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-13",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 7,
+                    "outlettype": [ "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 126.0, 212.0, 914.0, 276.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 318.0, 25.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-13", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-23", 0 ],
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-24", 0 ],
+                    "source": [ "obj-13", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-25", 0 ],
+                    "source": [ "obj-13", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-26", 0 ],
+                    "source": [ "obj-13", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-13", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-13", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 2 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            }
+        ]
+    }
+}
