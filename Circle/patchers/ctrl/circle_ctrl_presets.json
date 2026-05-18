@@ -1,0 +1,13 @@
+{
+    "pattrstorage": {
+        "name": "circle_ctrl_presets.json",
+        "slots": {
+            "1": {
+                "id": 1,
+                "data": {
+                    "circle_ctrl_XY::u066000926": [ 4 ]
+                }
+            }
+        }
+    }
+}
