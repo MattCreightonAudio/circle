@@ -9,8 +9,39 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1025.0, 538.0, 35.0, 22.0 ],
+                    "text": "out 9"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 922.5, 549.0, 35.0, 22.0 ],
+                    "text": "out 8"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 870.0, 98.0, 197.0, 22.0 ],
+                    "text": "param releaseDecisionWindow 200"
+                }
+            },
             {
                 "box": {
                     "id": "obj-9",
@@ -18,8 +49,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 709.0, 42.0, 138.0, 22.0 ],
-                    "text": "param releaseMax 1000"
+                    "patching_rect": [ 709.0, 42.0, 146.0, 22.0 ],
+                    "text": "param baseRelease 1000"
                 }
             },
             {
@@ -28,7 +59,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1052.0, 547.0, 35.0, 22.0 ],
+                    "patching_rect": [ 786.0, 558.0, 35.0, 22.0 ],
                     "text": "out 7"
                 }
             },
@@ -39,8 +70,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 821.0, 91.0, 143.0, 22.0 ],
-                    "text": "param releaseMultiplier 1"
+                    "patching_rect": [ 723.0, 138.0, 171.0, 22.0 ],
+                    "text": "param thrustReleaseAmount 1"
                 }
             },
             {
@@ -50,8 +81,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 558.0, 108.0, 151.0, 22.0 ],
-                    "text": "param curveWindowMs 10"
+                    "patching_rect": [ 558.0, 108.0, 134.0, 22.0 ],
+                    "text": "param curveTimeMs 10"
                 }
             },
             {
@@ -71,7 +102,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 967.6923999786377, 532.3077430725098, 35.0, 22.0 ],
+                    "patching_rect": [ 702.0, 543.0, 35.0, 22.0 ],
                     "text": "out 6"
                 }
             },
@@ -81,7 +112,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 829.0, 545.0, 35.0, 22.0 ],
+                    "patching_rect": [ 563.0, 556.0, 35.0, 22.0 ],
                     "text": "out 5"
                 }
             },
@@ -102,7 +133,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 694.0, 527.0, 35.0, 22.0 ],
+                    "patching_rect": [ 428.0, 538.0, 35.0, 22.0 ],
                     "text": "out 4"
                 }
             },
@@ -112,7 +143,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 491.0, 527.0, 35.0, 22.0 ],
+                    "patching_rect": [ 366.0, 524.0, 35.0, 22.0 ],
                     "text": "out 3"
                 }
             },
@@ -122,7 +153,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 297.0, 527.0, 35.0, 22.0 ],
+                    "patching_rect": [ 251.0, 524.0, 35.0, 22.0 ],
                     "text": "out 2"
                 }
             },
@@ -132,22 +163,22 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 120.0, 513.0, 35.0, 22.0 ],
+                    "patching_rect": [ 134.0, 538.0, 35.0, 22.0 ],
                     "text": "out 1"
                 }
             },
             {
                 "box": {
-                    "code": "lerp(curr, tgt, ms)\r\n{\r\n    alpha = 1 / (max(1, ms * 0.001 * samplerate));\r\n    return curr + alpha * (tgt - curr);\r\n}\r\n\r\nDelay xDelta_delay (44100);\r\nDelay yDelta_delay (44100);\r\nDelay heading_delay(44100);\r\nDelay curve_delay  (44100);\r\nDelay thrust_delay (44100);\r\n\r\nHistory xDelta_mean;\r\nHistory yDelta_mean;\r\nHistory curve_mean;\r\nHistory release;\r\nHistory gestOn_last;\r\nHistory velocity;\r\n\r\ngestOn = in3;\r\n\r\ndelaySamps = mstosamps(windowTimeMs);\r\ndelaySamps_r = 1/delaySamps;\r\n\r\ncurveDelaySamps = mstosamps(curveWindowMs);\r\ncurveDelaySamps_r = 1/curveDelaySamps;\r\n\r\nxAbs = in1;\r\nyAbs = in2;\r\nxDelta = delta(in1) * samplerate;\r\nyDelta = delta(in2) * samplerate;\r\n\r\nxDelta_mean = xDelta_mean + xDelta * delaySamps_r - xDelta_delay.read(delaySamps) * delaySamps_r;\r\nyDelta_mean = yDelta_mean + yDelta * delaySamps_r - yDelta_delay.read(delaySamps) * delaySamps_r;\r\n\r\nxDelta_delay.write(xDelta);\r\nyDelta_delay.write(yDelta);\r\n\r\nrate, heading = cartopol(xDelta_mean, yDelta_mean);\r\ncurve = wrap(heading - heading_delay.read(delaySamps), -pi, pi) * samplerate;\r\nheading_delay.write(heading);\r\n\r\ncurve_mean = curve_mean + curve * curveDelaySamps_r - curve_delay.read(curveDelaySamps) * curveDelaySamps_r;\r\ncurve_delay.write(curve);\r\n\r\nif (gestOn != gestOn_last)\r\n{\r\n    if (!gestOn)\r\n    {\r\n        release = min(rate*releaseMultiplier,releaseMax);\r\n    }\r\n    gestOn_last = gestOn;\r\n}\r\nif(gestOn)\r\n{\r\n    velocity = rate;\r\n}\r\nelse\r\n{\r\n    velocity = lerp(velocity, 0, release);\r\n}\r\n\r\nout1 = xDelta_mean;\r\nout2 = yDelta_mean;\r\nout3 = rate;\r\nout4 = heading; \r\nout5 = curve_mean * curveDelaySamps_r;\r\nout6 = velocity;\r\n//out7 = 1 / (max(1, 1000 * 0.001 * samplerate));\r\nout7 = release;",
+                    "code": "lerp(curr, tgt, ms)\r\n{\r\n    alpha = 1 / (max(1, ms * 0.001 * samplerate));\r\n    return curr + alpha * (tgt - curr);\r\n}\r\n\r\nDelay heading_delay (44100);\r\n\r\nHistory xDelta_lerp;\r\nHistory yDelta_lerp;\r\nHistory curve_lerp;\r\nHistory rate_lerp_long;\r\nHistory gestOn_last;\r\nHistory velocity;\r\nHistory release;\r\nHistory xStart;\r\nHistory yStart;\r\nHistory rate_last;\r\nHistory thrustRatio_out;\r\n\r\n\r\ngestOn = in3;\r\n\r\nxAbs = in1;\r\nyAbs = in2;\r\n\r\nif (gestOn != gestOn_last)\r\n{\r\n    if (gestOn)\r\n    {\r\n        xStart = xAbs;\r\n        yStart = yAbs;\r\n        xDelta_lerp = 0;\r\n        yDelta_lerp = 0;\r\n        curve_lerp  = 0;\r\n        rate_lerp_long = 0.0001;\r\n        rate_last = 0;\r\n    }\r\n    else\r\n    {\r\n        releaseMultiplier = rate_last/rate_lerp_long; // rate_lerp_long should never be 0 so this is ok\r\n        release = releaseMultiplier * (baseRelease * thrustReleaseAmount); \r\n    }\r\n    gestOn_last = gestOn;\r\n}\r\n\r\nwindowTimeSamps = mstosamps(windowTimeMs);\r\ncurveTimeSamps = mstosamps(curveTimeMs);\r\n\r\nxRel = xAbs - xStart;\r\nyRel = yAbs - yStart;\r\nabradius = cartopol(xRel, yRel);\r\n\r\nxDelta = delta(in1) * samplerate;\r\nyDelta = delta(in2) * samplerate;\r\n\r\nxDelta_lerp = lerp(xDelta_lerp, xDelta, windowTimeMs);\r\nyDelta_lerp = lerp(yDelta_lerp, yDelta, windowTimeMs);\r\n\r\nrate, heading = cartopol(xDelta_lerp, yDelta_lerp);\r\nrate_last = rate;\r\ncurve = wrap(heading - heading_delay.read(windowTimeSamps), -pi, pi) * samplerate;\r\nheading_delay.write(heading);\r\n\r\ncurve_lerp = lerp(curve_lerp, curve, curveTimeMs);\r\n\r\nrate_lerp_long = lerp(rate_lerp_long, rate, releaseDecisionWindow);\r\n\r\nif(gestOn)\r\n{\r\n    velocity = rate;\r\n    thrustRatio_out = rate_last/rate_lerp_long;\r\n}\r\nelse\r\n{\r\n    velocity = lerp(velocity, 0, release);\r\n}\r\n\r\nout1 = xDelta_lerp;\r\nout2 = yDelta_lerp;\r\nout3 = rate;\r\nout4 = heading; \r\nout5 = curve_lerp / mstosamps(curveTimeMs);\r\nout6 = velocity;\r\nout7 = release;\r\nout8 = xRel;\r\nout9 = yRel;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-13",
                     "maxclass": "codebox",
                     "numinlets": 3,
-                    "numoutlets": 7,
-                    "outlettype": [ "", "", "", "", "", "", "" ],
-                    "patching_rect": [ 126.0, 212.0, 914.0, 276.0 ]
+                    "numoutlets": 9,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 142.625, 225.0, 914.0, 276.0 ]
                 }
             },
             {
@@ -184,6 +215,18 @@
                 "patchline": {
                     "destination": [ "obj-10", 0 ],
                     "source": [ "obj-13", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "source": [ "obj-13", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "source": [ "obj-13", 8 ]
                 }
             },
             {
