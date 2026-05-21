@@ -40,16 +40,6 @@
             },
             {
                 "box": {
-                    "id": "obj-178",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 1193.1035108566284, 793.1034898757935, 78.0, 20.0 ],
-                    "text": "mediator out"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-176",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -172,7 +162,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 199.99999856948853, 361.70212507247925, 150.0, 89.0 ],
+                    "patching_rect": [ 199.99999856948853, 361.70212507247925, 151.0, 89.0 ],
                     "text": "still need to impl tuiopad gestOn tracking! using the (pretty annoyign) spacebar hack for now. just turn off tracking to get the old behaviour"
                 }
             },
@@ -311,49 +301,6 @@
             },
             {
                 "box": {
-                    "comment": "",
-                    "id": "obj-129",
-                    "index": 4,
-                    "maxclass": "outlet",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 1272.4138598442078, 789.6552138328552, 30.0, 30.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-122",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 1272.4138598442078, 710.3448648452759, 105.0, 22.0 ],
-                    "text": "s~ #0_mediator"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-96",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 1272.4138598442078, 672.4138283729553, 51.0, 22.0 ],
-                    "text": "sig~ 0.5"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-93",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 1272.4138598442078, 744.8276252746582, 103.0, 22.0 ],
-                    "text": "r~ #0_mediator"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-130",
                     "linecount": 3,
                     "maxclass": "comment",
@@ -415,72 +362,8 @@
                         }
                     },
                     "size": 2,
-                    "value": 0,
+                    "value": 1,
                     "varname": "XYSourceRadio[2]"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-125",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 617.0, 45.0, 70.0, 22.0 ],
-                    "text": "loadmess 0"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-124",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 671.0, 23.0, 68.16143727302551, 20.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 69.0, 358.0, 68.16143727302551, 20.0 ],
-                    "text": "Mediator"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-123",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 718.0, 47.0, 70.24390411376953, 20.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 30.0, 381.0, 70.24390411376953, 20.0 ],
-                    "text": "fixed at 0.5"
-                }
-            },
-            {
-                "box": {
-                    "disabled": [ 0 ],
-                    "id": "obj-121",
-                    "itemtype": 0,
-                    "maxclass": "radiogroup",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 1,
-                    "patching_rect": [ 695.0, 47.0, 20.0, 18.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 4.0, 382.0, 20.0, 18.0 ],
-                    "saved_attribute_attributes": {
-                        "valueof": {
-                            "parameter_enum": [ "0", "1", "2", "3" ],
-                            "parameter_linknames": 1,
-                            "parameter_longname": "XYSourceRadio[1]",
-                            "parameter_mmax": 3,
-                            "parameter_modmode": 0,
-                            "parameter_shortname": "XYSourceRadio",
-                            "parameter_type": 2
-                        }
-                    },
-                    "size": 1,
-                    "value": 0,
-                    "varname": "XYSourceRadio[1]"
                 }
             },
             {
@@ -2019,12 +1902,6 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-121", 0 ],
-                    "source": [ "obj-125", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-158", 0 ],
                     "source": [ "obj-126", 0 ]
                 }
@@ -2720,20 +2597,8 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-129", 0 ],
-                    "source": [ "obj-93", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-61", 2 ],
                     "source": [ "obj-95", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-122", 0 ],
-                    "source": [ "obj-96", 0 ]
                 }
             },
             {

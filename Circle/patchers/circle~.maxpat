@@ -13,6 +13,18 @@
         "boxes": [
             {
                 "box": {
+                    "comment": "",
+                    "id": "obj-20",
+                    "index": 3,
+                    "maxclass": "inlet",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1030.4933082461357, 141.25561013817787, 30.0, 30.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-21",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -722,7 +734,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1257.5163795948029, 96.73202919960022, 200.00000476837158, 213.0 ],
+                    "patching_rect": [ 1209.348377943039, 161.0, 200.00000476837158, 213.0 ],
                     "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n10 = filterbank Q\n1 = smoothing multiplier\n"
                 }
             },
@@ -746,7 +758,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 1160.0, 119.0, 30.0, 30.0 ]
+                    "patching_rect": [ 881.61437946558, 131.39013895392418, 30.0, 30.0 ]
                 }
             },
             {
@@ -758,14 +770,14 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 757.0, 119.0, 30.0, 30.0 ]
+                    "patching_rect": [ 754.7085455954075, 131.39013895392418, 30.0, 30.0 ]
                 }
             },
             {
                 "box": {
                     "id": "obj-1",
                     "maxclass": "newobj",
-                    "numinlets": 2,
+                    "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 747.0, 192.23202919960022, 439.0, 22.0 ],
@@ -854,6 +866,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 2 ],
+                    "source": [ "obj-20", 0 ]
                 }
             },
             {
