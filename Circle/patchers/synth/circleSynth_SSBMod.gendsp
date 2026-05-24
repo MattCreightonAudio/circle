@@ -1,0 +1,109 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 223.0, 596.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 603.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 3"
+                }
+            },
+            {
+                "box": {
+                    "code": "// SSB Frequency Shifter (Bipolar)\n// Inputs:\n//   in1: I (In-phase signal from hilbert~ left outlet)\n//   in2: Q (Quadrature signal from hilbert~ right outlet)\n//   in3: Delta F (Bipolar frequency shift in Hz)\n\nHistory phase(0);\n\ndf = in3;                    // Bipolar frequency shift in Hz\ndf_abs = abs(df);            // Absolute rate for the phase increment\ndf_sign = sign(df);          // 1 for positive, -1 for negative, 0 for static\n\n// 1. Accumulate phase for the shift frequency\nphase_step = df_abs / samplerate;\nphase = wrap(phase + phase_step, 0.0, 1.0);\n\n// 2. Generate the quadrature carrier oscillators\nc_cos = cos(phase * twopi);\nc_sin = sin(phase * twopi);\n\n// 3. Single-Sideband Modulation\n// Upward shift:   I * cos - Q * sin\n// Downward shift: I * cos + Q * sin\n// By multiplying the sin term by the sign of df, we get perfect bipolar control!\nout1 = (in1 * c_cos) + (df_sign * in2 * c_sin);",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 110.0, 142.0, 589.0, 424.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}

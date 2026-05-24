@@ -1,0 +1,66 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "code": "// Cubic Soft Clipper with Integrated DC Blocker\n// Inputs:\n//   in1: Audio input (containing the synth signal + the slow DC offset)\n//\n// Named Parameters:\n//   drive: Saturation drive multiplier (1.0 to 4.0)\n\nParam drive(1.0);\n\n// State register for the leaky integrator DC blocker\nHistory dc_state(0.0);\n\n// 1. Boost input gain into the clipping range\nx = in1 * drive;\n\n// 2. Perform normalized cubic waveshaping\n// We clamp the input to [-1.0, 1.0] to prevent the cubic curve from \n// folding back downward if the input exceeds the saturation boundary.\nx_clamped = clamp(x, -1.0, 1.0);\ny = (1.5 * x_clamped) - (0.5 * x_clamped * x_clamped * x_clamped);\n\n// 3. Integrated DC Blocker (Leaky Integrator / High-pass filter)\n// A pole at 0.9995 blocks sub-audio DC drift below ~3.5 Hz at 44.1 kHz,\n// ensuring the output signal is perfectly centered at 0.0.\ndc_block = y - dc_state;\ndc_state = dc_state * 0.9995 + dc_block * 0.0005;\n\n// 4. Output the cleaned, dynamically asymmetrical signal\nout1 = dc_block;\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 95.0, 51.0, 981.0, 461.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 95.0, 560.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}

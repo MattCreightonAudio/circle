@@ -1,0 +1,97 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 350.7692642211914, 760.000072479248, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2163.0771293640137, 880.0000839233398, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "// ==========================================\n// 1. Reusable Biquad Bandpass Function\n// Uses GenExpr multiple return values to update states without pointers.\n// (MUST precede all parameter and history declarations in GenExpr!)\n// ==========================================\nbiquad_bp(x, f, Q, x1, x2, y1, y2) {\n    // Standardize frequency and clamp below Nyquist\n    f_clamped = clamp(f, 20.0, samplerate * 0.49);\n    \n    // Intermediate coefficient maths\n    w0 = twopi * f_clamped / samplerate;\n    alpha = sin(w0) / (2.0 * Q);\n    \n    b0 = alpha;\n    b2 = -alpha;\n    a0 = 1.0 + alpha;\n    a1 = -2.0 * cos(w0);\n    a2 = 1.0 - alpha;\n    \n    // Normalization factors\n    b0_n = b0 / a0;\n    b2_n = b2 / a0;\n    a1_n = a1 / a0;\n    a2_n = a2 / a0;\n    \n    // Difference equation (b1 = 0, saving a multiply!)\n    y = b0_n * x + b2_n * x2 - a1_n * y1 - a2_n * y2;\n    \n    // Return the output AND the shifted states for the next sample:\n    //   y : the filtered output\n    //   x : becomes the new x1 (x[n-1])\n    //   x1: becomes the new x2 (x[n-2])\n    //   y : becomes the new y1 (y[n-1])\n    //   y1: becomes the new y2 (y[n-2])\n    return y, x, x1, y, y1;\n}\n\n// ==========================================\n// 2. Named Parameters\n// ==========================================\nParam celloBody(1.0);  // Now defaults to 1.0 (Cello fully on!)\nParam violinBody(0.0);\nParam bodySize(1.0);\nParam bodyDecay(1.0);\nParam bodyMix(0.25);   // Acoustic sweet-spot default for dry/wet blending\n\n// ==========================================\n// 3. Declare History Registers\n// ==========================================\n// Cello Registers\nHistory cx1_1(0), cx2_1(0), cy1_1(0), cy2_1(0);\nHistory cx1_2(0), cx2_2(0), cy1_2(0), cy2_2(0);\nHistory cx1_3(0), cx2_3(0), cy1_3(0), cy2_3(0);\nHistory cx1_4(0), cx2_4(0), cy1_4(0), cy2_4(0);\nHistory cx1_5(0), cx2_5(0), cy1_5(0), cy2_5(0);\n\n// Violin Registers\nHistory vx1_1(0), vx2_1(0), vy1_1(0), vy2_1(0);\nHistory vx1_2(0), vx2_2(0), vy1_2(0), vy2_2(0);\nHistory vx1_3(0), vx2_3(0), vy1_3(0), vy2_3(0);\nHistory vx1_4(0), vx2_4(0), vy1_4(0), vy2_4(0);\nHistory vx1_5(0), vx2_5(0), vy1_5(0), vy2_5(0);\n\n// ==========================================\n// 4. Process Filters\n// ==========================================\ndry_in = in1;\n\n// Cello Processing\n// We pass the current histories in, and update them directly from the returned values!\nc1, cx1_1, cx2_1, cy1_1, cy2_1 = biquad_bp(dry_in,  95.0 * bodySize, 15.0 * bodyDecay, cx1_1, cx2_1, cy1_1, cy2_1);\nc2, cx1_2, cx2_2, cy1_2, cy2_2 = biquad_bp(dry_in, 170.0 * bodySize, 25.0 * bodyDecay, cx1_2, cx2_2, cy1_2, cy2_2);\nc3, cx1_3, cx2_3, cy1_3, cy2_3 = biquad_bp(dry_in, 350.0 * bodySize,  8.0 * bodyDecay, cx1_3, cx2_3, cy1_3, cy2_3);\nc4, cx1_4, cx2_4, cy1_4, cy2_4 = biquad_bp(dry_in, 550.0 * bodySize, 10.0 * bodyDecay, cx1_4, cx2_4, cy1_4, cy2_4);\nc5, cx1_5, cx2_5, cy1_5, cy2_5 = biquad_bp(dry_in, 800.0 * bodySize,  6.0 * bodyDecay, cx1_5, cx2_5, cy1_5, cy2_5);\ncello_sum = (c1 + c2 + c3 + c4 + c5) * 0.2; // Attenuate parallel buildup\n\n// Violin Processing\nv1, vx1_1, vx2_1, vy1_1, vy2_1 = biquad_bp(dry_in,  275.0 * bodySize, 18.0 * bodyDecay, vx1_1, vx2_1, vy1_1, vy2_1);\nv2, vx1_2, vx2_2, vy1_2, vy2_2 = biquad_bp(dry_in,  460.0 * bodySize, 25.0 * bodyDecay, vx1_2, vx2_2, vy1_2, vy2_2);\nv3, vx1_3, vx2_3, vy1_3, vy2_3 = biquad_bp(dry_in,  540.0 * bodySize, 30.0 * bodyDecay, vx1_3, vx2_3, vy1_3, vy2_3);\nv4, vx1_4, vx2_4, vy1_4, vy2_4 = biquad_bp(dry_in, 2800.0 * bodySize,  1.5 * bodyDecay, vx1_4, vx2_4, vy1_4, vy2_4);\nv5, vx1_5, vx2_5, vy1_5, vy2_5 = biquad_bp(dry_in, 4000.0 * bodySize,  4.0 * bodyDecay, vx1_5, vx2_5, vy1_5, vy2_5);\nviolin_sum = (v1 + v2 + v3 + v4 + v5) * 0.2;\n\n// ==========================================\n// 5. Mediate and Output\n// ==========================================\n// Mix the independent resonant bodies based on the parameters\nwet_mix = (cello_sum * celloBody) + (violin_sum * violinBody);\n\n// Output the mixed signal\nout1 = mix(dry_in, wet_mix, bodyMix);",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 160.0, 63.0, 948.0, 583.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}

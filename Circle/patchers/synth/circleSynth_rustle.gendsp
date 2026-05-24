@@ -1,0 +1,48 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "code": "// Physical bow-friction \"rustle\" noise generator\n//\n// Named Parameters:\n//   mean_ms:     Mean spacing between scraping impulses in milliseconds (0.5 to 100.0 ms)\n//   rustle_hz:   LPF cut-off in Hz to smear the spikes into rustling textures (50.0 to 3000.0 Hz)\n//   bipolar:     1 for bipolar spikes (-1 or +1), 0 for unipolar (+1 only)\n//   jitter:      Randomizes the amplitude of the impulses (0.0 to 1.0)\n//   output_gain: Overall gain scaling\n\nParam mean_ms(12.5);\nParam rustle_hz(350.0);\nParam bipolar(1);\nParam jitter(0.4);\nParam output_gain(0.15);\n\nHistory lp_state(0.0);\n\n// 1. Calculate sample-rate independent probability\nsamples_between = (mean_ms * 0.001) * samplerate;\nprob = 1.0 / max(1.0, samples_between); // Safety clamp to prevent div-by-zero\n\n// 2. Evaluate Poisson impulse event\n// noise() generates uniform random numbers between -1.0 and 1.0\nu = abs(noise()); // Obtain uniform [0.0, 1.0]\nimpulse = 0.0;\n\nif (u < prob) {\n    // Determine amplitude\n    amp_dev = 1.0 - (abs(noise()) * jitter);\n    \n    // Choose direction (bipolar or unipolar)\n    if (bipolar > 0.5) {\n        dir = noise() > 0.0 ? 1.0 : -1.0;\n        impulse = dir * amp_dev;\n    } else {\n        impulse = amp_dev;\n    }\n}\n\n// 3. One-Pole Leaky Integrator (Lowpass Filter)\n// Convert Hz to coefficient\nomega = twopi * clamp(rustle_hz, 10.0, samplerate * 0.45) / samplerate;\ndecay = exp(-omega);\n\nlp_state = (lp_state * decay) + (impulse * (1.0 - decay));\n\n// 4. Output the integrated rustle signal\nout1 = lp_state * output_gain;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 93.0, 51.0, 712.0, 384.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 342.0, 567.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}
