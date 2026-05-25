@@ -14,6 +14,50 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-119",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1459.9999521374702, 657.0370154976845, 40.0, 22.0 ],
+                    "text": "*~ 0.5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-120",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1459.9999521374702, 627.4073868393898, 36.0, 22.0 ],
+                    "text": "+~ 1."
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-96",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1397.7777319550514, 657.0370154976845, 40.0, 22.0 ],
+                    "text": "*~ 0.5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-93",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1397.7777319550514, 627.4073868393898, 36.0, 22.0 ],
+                    "text": "+~ 1."
+                }
+            },
+            {
+                "box": {
                     "bgcolor": [ 0.03137254901960784, 0.03137254901960784, 0.03137254901960784, 1.0 ],
                     "bufsize": 8,
                     "calccount": 370,
@@ -25,7 +69,7 @@
                     "patching_rect": [ 731.0345211029053, 944.8276357650757, 155.0, 151.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 51.69491648674011, 86.15385437011719, 155.0, 151.0 ],
-                    "range": [ -2.0, 2.0 ]
+                    "range": [ 0.0, 1.0 ]
                 }
             },
             {
@@ -162,7 +206,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 199.99999856948853, 361.70212507247925, 151.0, 89.0 ],
+                    "patching_rect": [ 199.99999856948853, 361.70212507247925, 155.0, 89.0 ],
                     "text": "still need to impl tuiopad gestOn tracking! using the (pretty annoyign) spacebar hack for now. just turn off tracking to get the old behaviour"
                 }
             },
@@ -362,7 +406,7 @@
                         }
                     },
                     "size": 2,
-                    "value": 1,
+                    "value": 0,
                     "varname": "XYSourceRadio[2]"
                 }
             },
@@ -668,7 +712,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
-                    "patching_rect": [ 1872.4138913154602, 227.58621883392334, 58.0, 22.0 ],
+                    "patching_rect": [ 1862.2221611738205, 219.99999278783798, 58.0, 22.0 ],
                     "text": "loadbang"
                 }
             },
@@ -690,7 +734,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1889.6552715301514, 444.827609539032, 149.0, 22.0 ],
-                    "text": "2. 1. 2. 0.5 -1.6 0. 0. 1.6 0."
+                    "text": "2. 1. 1. 0.5 -1.6 0. 0. 1.6 0."
                 }
             },
             {
@@ -1595,7 +1639,7 @@
                         }
                     },
                     "size": 3,
-                    "value": 0,
+                    "value": 2,
                     "varname": "XYSourceRadio"
                 }
             },
@@ -1898,6 +1942,18 @@
                 "patchline": {
                     "destination": [ "obj-109", 0 ],
                     "source": [ "obj-110", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 3 ],
+                    "source": [ "obj-119", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-119", 0 ],
+                    "source": [ "obj-120", 0 ]
                 }
             },
             {
@@ -2306,14 +2362,14 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-3", 3 ],
-                    "source": [ "obj-61", 0 ]
+                    "destination": [ "obj-120", 0 ],
+                    "source": [ "obj-61", 1 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-4", 3 ],
-                    "source": [ "obj-61", 1 ]
+                    "destination": [ "obj-93", 0 ],
+                    "source": [ "obj-61", 0 ]
                 }
             },
             {
@@ -2597,8 +2653,20 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-96", 0 ],
+                    "source": [ "obj-93", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-61", 2 ],
                     "source": [ "obj-95", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "source": [ "obj-96", 0 ]
                 }
             },
             {
