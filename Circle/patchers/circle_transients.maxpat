@@ -15,7 +15,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-78",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -67,11 +67,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-61",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 868.6747308969498, 189.15663349628448, 30.0, 30.0 ]
                 }
             },
@@ -79,11 +79,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-59",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 501.20483779907227, 189.15663349628448, 30.0, 30.0 ]
                 }
             },
@@ -91,11 +91,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-58",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 107.22891962528229, 195.1807301044464, 30.0, 30.0 ]
                 }
             },
@@ -191,8 +191,8 @@
                     "numinlets": 3,
                     "numoutlets": 6,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 80.67473089694977, 275.9036246538162, 807.0, 22.0 ],
-                    "text": "gen~ circle_core_transients @windowTimeMs 10 @curveTimeMs 100 @baseRelease 500 @releaseDecisionWindow 200 @thrustReleaseAmount 1.5",
+                    "patching_rect": [ 80.67473089694977, 275.9036246538162, 814.0, 22.0 ],
+                    "text": "gen~ circle_core_transients @windowTimeMs 300 @curveTimeMs 300 @baseRelease 500 @releaseDecisionWindow 200 @thrustReleaseAmount 1.5",
                     "varname": "gen~_AA"
                 }
             }
@@ -268,7 +268,6 @@
                     "source": [ "obj-76", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

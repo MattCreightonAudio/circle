@@ -14,13 +14,34 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-10",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "circleScope_A0.maxpat",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 510.84339237213135, 374.6988090276718, 363.85543513298035, 178.31325960159302 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 270.2926893234253, 15.85365891456604, 363.85543513298035, 178.31325960159302 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-4",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1136.1702046394348, 882.9787170886993, 66.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 488.0, 388.0, 57.0, 20.0 ],
+                    "presentation_rect": [ 480.7229093313217, 416.8674852848053, 57.0, 20.0 ],
                     "text": "mediator"
                 }
             },
@@ -43,7 +64,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1480.851053237915, 861.7021214962006, 58.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 621.6341466903687, 388.0, 55.0, 20.0 ],
+                    "presentation_rect": [ 579.1481244564056, 416.8674852848053, 55.0, 20.0 ],
                     "text": "Audio"
                 }
             },
@@ -55,7 +76,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 889.361695766449, 878.7233979701996, 53.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 341.6666634082794, 388.0, 57.0, 20.0 ],
+                    "presentation_rect": [ 307.22892701625824, 416.8674852848053, 57.0, 20.0 ],
                     "text": "CGL"
                 }
             },
@@ -67,7 +88,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 489.3616986274719, 912.7659509181976, 100.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 160.71428418159485, 388.0, 103.0, 20.0 ],
+                    "presentation_rect": [ 148.1927765607834, 416.8674852848053, 103.0, 20.0 ],
                     "text": "Dynamic Params"
                 }
             },
@@ -79,7 +100,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 144.6808500289917, 968.0850994586945, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 14.634146690368652, 388.0, 57.0, 20.0 ],
+                    "presentation_rect": [ 14.457831859588623, 422.8915818929672, 57.0, 20.0 ],
                     "text": "Pitches"
                 }
             },
@@ -101,7 +122,7 @@
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 1097.872332572937, 699.9999949932098, 188.88888269662857, 135.55555111169815 ],
                     "presentation": 1,
-                    "presentation_rect": [ 488.0, 15.85365891456604, 188.88888269662857, 135.55555111169815 ],
+                    "presentation_rect": [ 269.0878700017929, 340.5301179885864, 190.36145281791687, 67.46988201141357 ],
                     "viewvisibility": 1
                 }
             },
@@ -168,7 +189,7 @@
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 468.08510303497314, 723.4042501449585, 282.0, 163.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 279.2682993412018, 246.34146928787231, 197.5609803199768, 134.14634466171265 ],
+                    "presentation_rect": [ 270.2926893234253, 203.6144653558731, 187.9518141746521, 133.73494470119476 ],
                     "viewvisibility": 1
                 }
             },
@@ -362,7 +383,7 @@
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 110.63829708099365, 648.9361655712128, 245.0, 212.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 279.2682993412018, 15.85365891456604, 197.5609803199768, 215.85366368293762 ],
+                    "presentation_rect": [ 460.24098086357117, 203.6144653558731, 173.90714359283447, 204.3855346441269 ],
                     "viewvisibility": 1
                 }
             },
@@ -384,7 +405,7 @@
                     "outlettype": [ "signal", "signal", "signal" ],
                     "patching_rect": [ 38.4615421295166, 29.230772018432617, 291.7647180557251, 415.2941349744797 ],
                     "presentation": 1,
-                    "presentation_rect": [ 14.634146690368652, 15.85365891456604, 253.65854263305664, 364.6341550350189 ],
+                    "presentation_rect": [ 14.457831859588623, 15.662651181221008, 254.2168768644333, 368.6747124195099 ],
                     "varname": "circle_ctrl_XY",
                     "viewvisibility": 1
                 }
@@ -461,6 +482,12 @@
                 "patchline": {
                     "destination": [ "obj-3", 0 ],
                     "source": [ "obj-29", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-3", 2 ]
                 }
             },
             {

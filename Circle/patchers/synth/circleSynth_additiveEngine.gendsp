@@ -13,12 +13,78 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-18",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1013.5294540524483, 81.17647397518158, 35.0, 22.0 ],
+                    "text": "in 16"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-17",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 961.7647460103035, 68.0, 35.0, 22.0 ],
+                    "text": "in 15"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 911.1765086054802, 64.0, 35.0, 22.0 ],
+                    "text": "in 14"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-15",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 863.5294477939606, 64.0, 35.0, 22.0 ],
+                    "text": "in 13"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 816.4706223011017, 74.0, 35.0, 22.0 ],
+                    "text": "in 12"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 759.4117963910103, 74.0, 34.0, 22.0 ],
+                    "text": "in 11"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-12",
                     "maxclass": "newobj",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1020.0, 71.0, 35.0, 22.0 ],
+                    "patching_rect": [ 684.0, 57.0, 35.0, 22.0 ],
                     "text": "in 10"
                 }
             },
@@ -29,7 +95,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 966.0, 78.0, 28.0, 22.0 ],
+                    "patching_rect": [ 630.0, 64.0, 28.0, 22.0 ],
                     "text": "in 9"
                 }
             },
@@ -40,7 +106,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 896.0, 78.0, 28.0, 22.0 ],
+                    "patching_rect": [ 560.0, 64.0, 28.0, 22.0 ],
                     "text": "in 8"
                 }
             },
@@ -51,7 +117,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 813.0, 78.0, 28.0, 22.0 ],
+                    "patching_rect": [ 512.3999801635742, 68.0, 28.0, 22.0 ],
                     "text": "in 7"
                 }
             },
@@ -62,7 +128,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 691.0, 78.0, 28.0, 22.0 ],
+                    "patching_rect": [ 460.39998016357424, 68.0, 28.0, 22.0 ],
                     "text": "in 6"
                 }
             },
@@ -73,7 +139,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 560.0, 82.0, 28.0, 22.0 ],
+                    "patching_rect": [ 400.39998016357424, 74.0, 28.0, 22.0 ],
                     "text": "in 5"
                 }
             },
@@ -84,7 +150,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 437.0, 82.0, 28.0, 22.0 ],
+                    "patching_rect": [ 365.39998016357424, 78.0, 28.0, 22.0 ],
                     "text": "in 4"
                 }
             },
@@ -95,19 +161,19 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 354.0, 78.0, 28.0, 22.0 ],
+                    "patching_rect": [ 314.0, 74.0, 28.0, 22.0 ],
                     "text": "in 3"
                 }
             },
             {
                 "box": {
-                    "code": "// Modulated Additive Synth Engine (7 Harmonics + Piecewise-Monotonic Odd-PD)\n// Inputs:\n//   in1: Phase (0.0 to 1.0 baseline, but safely accepts out-of-bounds/negative modulations)\n//   in2: Amp Harmonic 1\n//   in3: Amp Harmonic 2\n//   in4: Amp Harmonic 3\n//   in5: Amp Harmonic 4\n//   in6: Amp Harmonic 5\n//   in7: Amp Harmonic 6\n//   in8: Amp Harmonic 7\n// Parameters / Control Inputs:\n//   in9:  CZ Shape PD Amount (0.0 to 1.0) - Warp depth\n//   in10: CZ PD Freq Multiplier Control (0.0 to 1.0) - Crossfades from 1x up to MAX_MULT x (odd only)\n\n// ==========================================\n// Helper Function 1: Classic CZ Knee-Bend Warp\n// (MUST precede all statements/assignments in GenExpr!)\n// ==========================================\ncz_warp(p, amount) {\n    cutoff = 0.5 + (amount * 0.49); // Keep safely below 1.0\n    warped = (p < cutoff) ? \n             (p / cutoff) * 0.5 : \n             0.5 + ((p - cutoff) / (1.0 - cutoff)) * 0.5;\n    return warped;\n}\n\n// ==========================================\n// Helper Function 2: Generalized Mult-Warp\n// This implements the piecewise-monotonic partition warp.\n// ==========================================\ncz_warp_mult(p, amount, mult) {\n    // 1. Determine which phase partition bin we fall into (0 to mult - 1)\n    idx = floor(p * mult);\n    \n    // Safety clamp to prevent out-of-bounds at p = 1.0 edge case\n    idx = clamp(idx, 0.0, mult - 1.0);\n    \n    // 2. Extract the local [0.0, 1.0] phase ramp for this specific partition\n    p_local = (p * mult) - idx;\n    \n    // 3. Apply classic CZ warp to the isolated partition\n    warped_local = cz_warp(p_local, amount);\n    \n    // 4. Compress and shift the warped local phase back into its global bin\n    warped_global = (warped_local + idx) / mult;\n    \n    return warped_global;\n}\n\n// ==========================================\n// CONFIGURATION (Change this to adjust range!)\n// ==========================================\n// Defines the upper limit of the PD modulator multiplier.\n// MUST BE AN ODD NUMBER (e.g., 3.0, 5.0, 7.0, 9.0) to maintain odd-only scaling!\nMAX_MULT = 7.0; \n\n// ==========================================\n// 1. Grab inputs, wrap phase, and setup\n// ==========================================\nphase_raw      = in1;\namp1           = in2;\namp2           = in3;\namp3           = in4;\namp4           = in5;\namp5           = in6;\namp6           = in7;\namp7           = in8;\npd_shape_amount= in9;\npd_mult_ctrl   = in10;\n\n// Upstream Phase Protection: Automatically forces negative or overflowing phase\n// modulations (like rustle noise) into a safe, clean 0.0 to 1.0 coordinate space.\nphase_safe = wrap(phase_raw, 0.0, 1.0);\n\n// ==========================================\n// 2. Monotonic Odd-Multiplier Crossfader\n// ==========================================\n// Calculate how many transition intervals we have.\n// For MAX_MULT = 7, this is (7 - 1) / 2 = 3 intervals (1x-3x, 3x-5x, and 5x-7x)\nnum_intervals = (MAX_MULT - 1.0) / 2.0;\n\n// Map the 0.0 - 1.0 input slider to our interval scale (0.0 to num_intervals)\nscaled_ctrl = clamp(pd_mult_ctrl, 0.0, 1.0) * num_intervals;\n\n// Find the lower interval index, capping it to prevent overrun\nfloor_idx = min(floor(scaled_ctrl), num_intervals - 1.0);\n\n// Calculate the crossfade interpolation coefficient\nfade = scaled_ctrl - floor_idx;\n\n// Convert the interval indices back into actual odd multipliers\nmult_low  = 1.0 + (floor_idx * 2.0);       // e.g., index 0->1, index 1->3, index 2->5\nmult_high = 1.0 + ((floor_idx + 1.0) * 2.0); // e.g., index 0->3, index 1->5, index 2->7\n\n// Calculate the warped phases for both floor and ceiling odd multipliers\n// Passing the guarded 'phase_safe' ensures the functions never div-by-zero or clip.\nwarped_low  = cz_warp_mult(phase_safe, pd_shape_amount, mult_low);\nwarped_high = cz_warp_mult(phase_safe, pd_shape_amount, mult_high);\n\n// Crossfade the warped phases directly in the phase domain.\n// Because both waveforms are strictly monotonic, this weighted sum is also\n// strictly monotonic, guaranteeing zero phase-reversal cancellations!\nwarped_carrier_phase = mix(warped_low, warped_high, fade);\n\n// Generate the base carrier cosine wave for Chebyshev lookup\nx = cos(warped_carrier_phase * twopi);\n\n// ==========================================\n// 3. Additive Waveshaping (Chebyshev Pipeline)\n// ==========================================\nx2 = x * x; // Base squared term\n\nh1 = x;\nh2 = 2.0 * x2 - 1.0;\nh3 = x * (4.0 * x2 - 3.0);\nh4 = 8.0 * x2 * (x2 - 1.0) + 1.0;\nh5 = x * (x2 * (16.0 * x2 - 20.0) + 5.0);\nh6 = x2 * (x2 * (32.0 * x2 - 48.0) + 18.0) - 1.0;\nh7 = x * (x2 * (x2 * (64.0 * x2 - 112.0) + 56.0) - 7.0);\n\n// Weight and sum the harmonics to create the modulated additive output\nraw_additive_sum = (h1 * amp1) + \n                   (h2 * amp2) + \n                   (h3 * amp3) + \n                   (h4 * amp4) + \n                   (h5 * amp5) + \n                   (h6 * amp6) + \n                   (h7 * amp7);\n\n// Normalization (keeps the raw_additive_sum bound roughly between -1.0 and 1.0)\ntotal_weight = abs(amp1) + abs(amp2) + abs(amp3) + abs(amp4) + abs(amp5) + abs(amp6) + abs(amp7);\nnorm_additive = total_weight > 0.0 ? raw_additive_sum / total_weight : 0.0;\n\n// ==========================================\n// 4. Final Outputs\n// ==========================================\nout1 = norm_additive;        // Direct Phase Distorted Additive output\nout2 = warped_carrier_phase; // Useful debugging output showing the warped phase shape\n",
+                    "code": "// Modulated Additive Synth Engine (13 Harmonics + Piecewise-Monotonic Odd-PD)\n// Inputs:\n//   in1:  Phase (0.0 to 1.0 baseline, but safely accepts out-of-bounds/negative modulations)\n//   in2:  Amp Harmonic 1\n//   in3:  Amp Harmonic 2\n//   in4:  Amp Harmonic 3\n//   in5:  Amp Harmonic 4\n//   in6:  Amp Harmonic 5\n//   in7:  Amp Harmonic 6\n//   in8:  Amp Harmonic 7\n//   in9:  Amp Harmonic 8\n//   in10: Amp Harmonic 9\n//   in11: Amp Harmonic 10\n//   in12: Amp Harmonic 11\n//   in13: Amp Harmonic 12\n//   in14: Amp Harmonic 13\n// Parameters / Control Inputs:\n//   in15: CZ Shape PD Amount (0.0 to 1.0) - Warp depth\n//   in16: CZ PD Freq Multiplier Control (0.0 to 1.0) - Crossfades from 1x up to MAX_MULT x (odd only)\n\n// ==========================================\n// Helper Function 1: Classic CZ Knee-Bend Warp\n// (MUST precede all statements/assignments in GenExpr!)\n// ==========================================\ncz_warp(p, amount) {\n    cutoff = 0.5 + (amount * 0.49); // Keep safely below 1.0\n    warped = (p < cutoff) ? \n             (p / cutoff) * 0.5 : \n             0.5 + ((p - cutoff) / (1.0 - cutoff)) * 0.5;\n    return warped;\n}\n\n// ==========================================\n// Helper Function 2: Generalized Mult-Warp\n// This implements the piecewise-monotonic partition warp.\n// ==========================================\ncz_warp_mult(p, amount, mult) {\n    // 1. Determine which phase partition bin we fall into (0 to mult - 1)\n    idx = floor(p * mult);\n    \n    // Safety clamp to prevent out-of-bounds at p = 1.0 edge case\n    idx = clamp(idx, 0.0, mult - 1.0);\n    \n    // 2. Extract the local [0.0, 1.0] phase ramp for this specific partition\n    p_local = (p * mult) - idx;\n    \n    // 3. Apply classic CZ warp to the isolated partition\n    warped_local = cz_warp(p_local, amount);\n    \n    // 4. Compress and shift the warped local phase back into its global bin\n    warped_global = (warped_local + idx) / mult;\n    \n    return warped_global;\n}\n\n// ==========================================\n// CONFIGURATION (Change this to adjust range!)\n// ==========================================\n// Defines the upper limit of the PD modulator multiplier.\n// MUST BE AN ODD NUMBER (e.g., 3.0, 5.0, 7.0, 9.0) to maintain odd-only scaling!\nMAX_MULT = 7.0; \n\n// ==========================================\n// 1. Grab inputs, wrap phase, and setup\n// ==========================================\nphase_raw      = in1;\namp1           = in2;\namp2           = in3;\namp3           = in4;\namp4           = in5;\namp5           = in6;\namp6           = in7;\namp7           = in8;\namp8           = in9;\namp9           = in10;\namp10          = in11;\namp11          = in12;\namp12          = in13;\namp13          = in14;\npd_shape_amount= in15;\npd_mult_ctrl   = in16;\n\n// Upstream Phase Protection: Automatically forces negative or overflowing phase\n// modulations (like rustle noise) into a safe, clean 0.0 to 1.0 coordinate space.\nphase_safe = wrap(phase_raw, 0.0, 1.0);\n\n// ==========================================\n// 2. Monotonic Odd-Multiplier Crossfader\n// ==========================================\n// Calculate how many transition intervals we have.\n// For MAX_MULT = 7, this is (7 - 1) / 2 = 3 intervals (1x-3x, 3x-5x, and 5x-7x)\nnum_intervals = (MAX_MULT - 1.0) / 2.0;\n\n// Map the 0.0 - 1.0 input slider to our interval scale (0.0 to num_intervals)\nscaled_ctrl = clamp(pd_mult_ctrl, 0.0, 1.0) * num_intervals;\n\n// Find the lower interval index, capping it to prevent overrun\nfloor_idx = min(floor(scaled_ctrl), num_intervals - 1.0);\n\n// Calculate the crossfade interpolation coefficient\nfade = scaled_ctrl - floor_idx;\n\n// Convert the interval indices back into actual odd multipliers\nmult_low  = 1.0 + (floor_idx * 2.0);       // e.g., index 0->1, index 1->3, index 2->5\nmult_high = 1.0 + ((floor_idx + 1.0) * 2.0); // e.g., index 0->3, index 1->5, index 2->7\n\n// Calculate the warped phases for both floor and ceiling odd multipliers\n// Passing the guarded 'phase_safe' ensures the functions never div-by-zero or clip.\nwarped_low  = cz_warp_mult(phase_safe, pd_shape_amount, mult_low);\nwarped_high = cz_warp_mult(phase_safe, pd_shape_amount, mult_high);\n\n// Crossfade the warped phases directly in the phase domain.\n// Because both waveforms are strictly monotonic, this weighted sum is also\n// strictly monotonic, guaranteeing zero phase-reversal cancellations!\nwarped_carrier_phase = mix(warped_low, warped_high, fade);\n\n// Generate the base carrier cosine wave for Chebyshev lookup\nx = cos(warped_carrier_phase * twopi);\n\n// ==========================================\n// 3. Additive Waveshaping (Chebyshev Recurrence Pipeline)\n// T_n(x) = 2x * T_{n-1}(x) - T_{n-2}(x)\n// ==========================================\ntwo_x = 2.0 * x;\n\nh1  = x;\nh2  = two_x * h1 - 1.0;\nh3  = two_x * h2 - h1;\nh4  = two_x * h3 - h2;\nh5  = two_x * h4 - h3;\nh6  = two_x * h5 - h4;\nh7  = two_x * h6 - h5;\nh8  = two_x * h7 - h6;\nh9  = two_x * h8 - h7;\nh10 = two_x * h9 - h8;\nh11 = two_x * h10 - h9;\nh12 = two_x * h11 - h10;\nh13 = two_x * h12 - h11;\n\n// Weight and sum the 13 harmonics to create the unnormalized additive output\nadditive_sum = (h1 * amp1) + \n               (h2 * amp2) + \n               (h3 * amp3) + \n               (h4 * amp4) + \n               (h5 * amp5) + \n               (h6 * amp6) + \n               (h7 * amp7) + \n               (h8 * amp8) + \n               (h9 * amp9) + \n               (h10 * amp10) + \n               (h11 * amp11) + \n               (h12 * amp12) + \n               (h13 * amp13);\n\n// ==========================================\n// 4. Final Outputs\n// ==========================================\nout1 = additive_sum;         // Direct Phase Distorted Additive output (Unnormalized)\nout2 = warped_carrier_phase; // Useful debugging output showing the warped phase shape",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
-                    "numinlets": 10,
+                    "numinlets": 16,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 208.33332538604736, 137.49999475479126, 779.1666369438171, 864.5833003520966 ]
@@ -169,6 +235,42 @@
                 "patchline": {
                     "destination": [ "obj-3", 9 ],
                     "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 10 ],
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 11 ],
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 12 ],
+                    "source": [ "obj-15", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 13 ],
+                    "source": [ "obj-16", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 14 ],
+                    "source": [ "obj-17", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 15 ],
+                    "source": [ "obj-18", 0 ]
                 }
             },
             {

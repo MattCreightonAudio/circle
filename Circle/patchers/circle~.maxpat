@@ -777,11 +777,11 @@
                 "box": {
                     "id": "obj-1",
                     "maxclass": "newobj",
-                    "numinlets": 4,
+                    "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 747.0, 192.23202919960022, 439.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 10 1",
+                    "patching_rect": [ 747.0, 192.23202919960022, 365.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 20 1",
                     "varname": "poly~"
                 }
             }
