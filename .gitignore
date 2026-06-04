@@ -2,3 +2,4 @@ inDev/
 figures/
 doubleBind_sampler/samples/
 doubleBind_sampler/samples_synthy/
+*.png

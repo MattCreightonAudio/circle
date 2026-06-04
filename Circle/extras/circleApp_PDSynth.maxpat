@@ -26,7 +26,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "offset": [ 0.0, 0.0 ],
-                    "patching_rect": [ 1012.307788848877, 421.53850173950195, 1197.0, 367.0 ],
+                    "patching_rect": [ 804.6154613494873, 230.7692527770996, 1197.0, 367.0 ],
                     "viewvisibility": 1
                 }
             },
@@ -475,14 +475,6 @@
             "obj-1::obj-1::obj-126": [ "XYSourceRadio[2]", "XYSourceRadio", 0 ],
             "obj-1::obj-1::obj-7": [ "XYSourceRadio", "XYSourceRadio", 0 ],
             "obj-5::obj-63": [ "live.gain~[1]", "live.gain~", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
             "inherited_shortname": 1
         },
         "autosave": 0

@@ -324,7 +324,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "multichannelsignal", "multichannelsignal" ],
                     "patching_rect": [ 783.8709733486176, 1097.3684105873108, 365.0, 22.0 ],
-                    "text": "mc.gen~ circle_mcLerp @timeConstDown 2000 @timeConstUp 10"
+                    "text": "mc.gen~ circle_mcLerp @timeConstDown 3000 @timeConstUp 10"
                 }
             },
             {
