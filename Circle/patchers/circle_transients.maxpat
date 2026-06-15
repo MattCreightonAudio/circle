@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ -155.0, 134.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -71,7 +71,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 868.6747308969498, 189.15663349628448, 30.0, 30.0 ]
                 }
             },
@@ -83,7 +83,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 501.20483779907227, 189.15663349628448, 30.0, 30.0 ]
                 }
             },
@@ -95,7 +95,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 107.22891962528229, 195.1807301044464, 30.0, 30.0 ]
                 }
             },
@@ -192,7 +192,7 @@
                     "numoutlets": 6,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal" ],
                     "patching_rect": [ 80.67473089694977, 275.9036246538162, 814.0, 22.0 ],
-                    "text": "gen~ circle_core_transients @windowTimeMs 300 @curveTimeMs 300 @baseRelease 500 @releaseDecisionWindow 200 @thrustReleaseAmount 1.5",
+                    "text": "gen~ circle_core_transients @windowTimeMs 100 @curveTimeMs 300 @baseRelease 500 @releaseDecisionWindow 200 @thrustReleaseAmount 1.5",
                     "varname": "gen~_AA"
                 }
             }

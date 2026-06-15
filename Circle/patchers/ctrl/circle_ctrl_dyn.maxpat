@@ -60,7 +60,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-22",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -142,11 +142,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-7",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 500.0, 24.0, 30.0, 30.0 ]
                 }
             },
@@ -164,11 +164,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-1",
-                    "index": 0,
+                    "index": 4,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 646.0, 48.0, 30.0, 30.0 ]
                 }
             },
@@ -196,11 +196,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-10",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 426.0, 29.0, 30.0, 30.0 ]
                 }
             },
@@ -208,11 +208,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-9",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 301.0, 29.0, 30.0, 30.0 ]
                 }
             },
@@ -337,7 +337,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

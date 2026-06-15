@@ -339,7 +339,7 @@
                     "numinlets": 0,
                     "numoutlets": 4,
                     "outlettype": [ "int", "int", "int", "int" ],
-                    "patching_rect": [ 317.0212743282318, 276.59574270248413, 50.5, 22.0 ],
+                    "patching_rect": [ 338.5, 272.3404235839844, 50.5, 22.0 ],
                     "text": "key"
                 }
             },
@@ -1639,7 +1639,7 @@
                         }
                     },
                     "size": 3,
-                    "value": 2,
+                    "value": 0,
                     "varname": "XYSourceRadio"
                 }
             },

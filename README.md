@@ -4,11 +4,19 @@ What it does:
 it takes in xy data and looks for cyclic gestures in it. then you get a big feature vector which you can use for controlling stuff
 
 
-how to build:
+how to "build":
 
 fork/clone/whatever
 symlink the Circle/ directory into the max packages folder (this is a bit of a workaround - we'll make it better soon!) 
-it's dependency free except for the Rave demos which use the rave VST (you can get from ircam here https://forum.ircam.fr/projects/detail/rave-vst/)
+
+The core circle~ object is dependency free.
+
+Audio dynamics analysis uses the flucoma package for max which you can get from here:
+https://www.flucoma.org/download/
+
+The Rave demos use the rave VST which you can get from ircam here 
+https://forum.ircam.fr/projects/detail/rave-vst/)
+
 dont open circle~ by itself - it needs a containing patch (theyre named like "circleApp_xxxxx")
 
 First time use:
@@ -23,7 +31,7 @@ Using it in your own projects:
 
 circle~ is the part which does the feature extraction
 give it any realtime XY data as a signal and it spits out a feature vector from its first outlet, which you can use to control things in max/M4L/whatever
-see comments in circle~.maxpat for details of the interface. there are "scope" objects which help you see what its doing too. put them in a bpatcher
+see comments in circle~.maxpat for details of the interface. there are "scope" objects which help you see what its doing too (put them in a bpatcher).s
 most (not all!) of the features are normalised into [0,1]
 the "E" and "Asum" features are special - "asum" is the amplitude of that feature, E is how present it is vs other features. E multiplied by Asum is a good analogue for "volume" or "velocity".
 if a feature has low E, other nonzero values in that feature are likely to be nonsensical
