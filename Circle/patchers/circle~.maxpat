@@ -19,7 +19,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 1030.4933082461357, 141.25561013817787, 30.0, 30.0 ]
                 }
             },
@@ -735,7 +735,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1209.348377943039, 161.0, 200.00000476837158, 213.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n0.25 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n10 = filterbank Q\n1 = smoothing multiplier\n"
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n1 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n10 = filterbank Q\n1 = smoothing multiplier\n"
                 }
             },
             {
@@ -780,8 +780,8 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 747.0, 192.23202919960022, 428.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 10 1",
+                    "patching_rect": [ 750.0000223517418, 189.33333897590637, 365.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.5 8000 4 #1 20 1",
                     "varname": "poly~"
                 }
             }

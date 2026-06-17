@@ -9,8 +9,19 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, -1003.0, 1852.0, 921.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 76.023388504982, 64.32748258113861, 23.0, 22.0 ],
+                    "text": "* 2"
+                }
+            },
             {
                 "box": {
                     "id": "obj-11",
@@ -127,8 +138,14 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-6", 0 ],
+                    "destination": [ "obj-10", 0 ],
                     "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-10", 0 ]
                 }
             },
             {

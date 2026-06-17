@@ -594,7 +594,7 @@
                     "numoutlets": 5,
                     "offset": [ 0.0, 0.0 ],
                     "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "signal", "signal" ],
-                    "patching_rect": [ 79.0, 22.0, 661.5385246276855, 449.2308120727539 ],
+                    "patching_rect": [ 158.0, 23.0, 661.5385246276855, 449.2308120727539 ],
                     "viewvisibility": 1
                 }
             }
