@@ -1,0 +1,118 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 813.0, 1578.0, 35.0, 22.0 ],
+                    "text": "out 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 476.0, 1493.0, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 312.0, 1501.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1869.0, 1743.0, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "// GenExpr code for Max/MSP gen~\r\n// Combined Low-Latency Analyser (Version 2.3 - Full-Band Transient Detection)\r\n// Out1: ZCR Proxy (Normalized Lag-1 Autocorrelation) [0 to 1]\r\n// Out2: Envelope/Volume Tracker (Asymmetric Ballistics RMS) [Linear Amp]\r\n// Out3: Transient Detector (Scale-Invariant, Fast-to-Slow Envelope Ratio) [0 to 1]\r\n\r\nParam windowLen(10, min=0.1, max=1000);   // Window length in ms for ZCR\r\nParam volUpTime(5, min=0.1, max=100);     // Volume Attack/Up time in ms\r\nParam volDownTime(40, min=1, max=500);    // Volume Release/Down time in ms\r\n\r\n// Transient Detector Parameters\r\nParam transFastTime(2, min=0.1, max=20);       // Fast envelope attack time (ms)\r\nParam transFastReleaseMult(10, min=1, max=100); // Fast envelope decay shape multiplier (default 10)\r\nParam transSlowTime(40, min=5, max=500);       // Slow envelope attack time (ms)\r\nParam transientSensitivity(0.5, min=0, max=1);  // Unused in raw_diff, kept for parameter backward-compatibility\r\n\r\n// --- HISTORY STATES ---\r\n// ZCR States\r\nHistory x_prev(0);       \r\nHistory R0(0);           \r\nHistory R1(0);           \r\nHistory hp_in_prev(0);   \r\nHistory hp_out_prev(0);  \r\n\r\n// Volume States\r\nHistory env_pow(0);      \r\n\r\n// Transient Tracker States (Absolute Value Trackers)\r\nHistory env_fast(0);     \r\nHistory env_slow(0);     \r\n\r\n// --- 1. COEFFICIENT CALCULATIONS ---\r\n// ZCR coefficients\r\nwin_samples = samplerate * windowLen / 1000;\r\nalpha_zcr = 2 / (win_samples + 1);\r\nalpha_zcr = clip(alpha_zcr, 1e-5, 1);\r\n\r\nfc = 1000 / windowLen;\r\nomega_c = 2 * PI * fc / samplerate;\r\np = exp(-omega_c); \r\na0 = (1 + p) / 2;\r\na1 = -a0;\r\nb1 = -p;\r\n\r\n// Volume Envelope coefficients (T60 mapping)\r\nalpha_up   = 1 - exp(-1 / (samplerate * (volUpTime / 1000)));\r\nalpha_down = 1 - exp(-1 / (samplerate * (volDownTime / 1000)));\r\n\r\n// Transient Envelope coefficients\r\nalpha_fast_up   = 1 - exp(-1 / (samplerate * (transFastTime / 1000)));\r\nalpha_fast_down = 1 - exp(-1 / (samplerate * ((transFastTime * transFastReleaseMult) / 1000)));\r\n\r\nalpha_slow_up   = 1 - exp(-1 / (samplerate * (transSlowTime / 1000)));\r\nalpha_slow_down = 1 - exp(-1 / (samplerate * ((transSlowTime * 3) / 1000)));\r\n\r\n\r\n// --- 2. SIGNAL PROCESSING CHAIN ---\r\nin_sig = in1;\r\n\r\n// === PATH A: ZCR PROXY ===\r\nhp_out = a0 * in_sig + a1 * hp_in_prev - b1 * hp_out_prev;\r\nhp_in_prev = in_sig;\r\nhp_out_prev = hp_out;\r\n\r\nR0 = mix(R0, hp_out * hp_out, alpha_zcr);\r\nR1 = mix(R1, hp_out * x_prev, alpha_zcr);\r\nx_prev = hp_out;\r\n\r\nrho_1 = 0;\r\nif (R0 > 1e-9) {\r\n    rho_1 = R1 / R0;\r\n}\r\nrho_1 = clip(rho_1, -1, 1);\r\nzcr_proxy = 0.5 * (1 - rho_1);\r\n\r\n\r\n// === PATH B: VOLUME ENVELOPE ===\r\ninst_pow = in_sig * in_sig;\r\nif (inst_pow > env_pow) {\r\n    env_pow = mix(env_pow, inst_pow, alpha_up);\r\n} else {\r\n    env_pow = mix(env_pow, inst_pow, alpha_down);\r\n}\r\nvol_env = sqrt(max(0, env_pow)); \r\n\r\n\r\n// === PATH C: SCALE-INVARIANT TRANSIENT DETECTOR ===\r\n// Operating directly on the full-bandwidth absolute signal\r\ninst_abs = abs(in_sig);\r\n\r\n// 1. Smooth Fast Envelope\r\nif (inst_abs > env_fast) {\r\n    env_fast = mix(env_fast, inst_abs, alpha_fast_up);\r\n} else {\r\n    env_fast = mix(env_fast, inst_abs, alpha_fast_down);\r\n}\r\n\r\n// 2. Smooth Slow Envelope\r\nif (inst_abs > env_slow) {\r\n    env_slow = mix(env_slow, inst_abs, alpha_slow_up);\r\n} else {\r\n    env_slow = mix(env_slow, inst_abs, alpha_slow_down);\r\n}\r\n\r\n// 3. Extract Scale-Invariant Raw Ratio\r\ntransient_metric = 0;\r\nif (env_fast > 1e-6) {\r\n    // Relative difference [0 to 1] of the full-band signal with no gating\r\n    transient_metric = max(0, 1.0 - (env_slow / env_fast));\r\n}\r\n\r\n\r\n// --- 3. OUTPUT ROUTING ---\r\nout1 = zcr_proxy;       // ZCR Proxy [0 to 1]\r\nout2 = vol_env;         // Volume Envelope [Linear Amp]\r\nout3 = transient_metric;// Transient Detector [0 to 1]",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "" ],
+                    "patching_rect": [ 266.0, 56.0, 730.0, 1380.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-5", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-5", 2 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}
