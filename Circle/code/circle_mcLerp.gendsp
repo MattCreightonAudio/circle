@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 557.0370187759399, 101.48147815465927, 89.0, 22.0 ],
+                    "text": "param freeze 0"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-3",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -87,7 +98,7 @@
             },
             {
                 "box": {
-                    "code": "tau = 0;\r\n\r\nif (in1 >= in2) tau = timeConstUp;\r\nif (in1 < in2) tau = timeConstDown;\r\n\r\n// intentional fallthrough!\r\nif (timeConst > 0) tau = timeConst; \r\n\r\n\r\ntau_samp = mstosamps(max(tau, 0.1));\r\nalpha = 1-exp(-1/tau_samp);\r\n\r\nout1 = in2 + (in1 - in2) * alpha;\r\nout2 = tau;",
+                    "code": "tau = 0;\r\n\r\nif (in1 >= in2) tau = timeConstUp;\r\nif (in1 < in2) tau = timeConstDown;\r\n\r\n// intentional fallthrough!\r\nif (timeConst > 0) tau = timeConst; \r\n\r\n\r\ntau_samp = mstosamps(max(tau, 0.1));\r\nalpha = 1-exp(-1/tau_samp);\r\nif (freeze) alpha = 0;\r\n\r\nout1 = in2 + (in1 - in2) * alpha;\r\nout2 = tau;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

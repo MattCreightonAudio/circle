@@ -1,0 +1,253 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 739.0, 23.0, 35.0, 22.0 ],
+                    "text": "in 12"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 689.0, 23.0, 34.0, 22.0 ],
+                    "text": "in 11"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 590.0, 17.0, 35.0, 22.0 ],
+                    "text": "in 10"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 530.0, 17.0, 28.0, 22.0 ],
+                    "text": "in 9"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 483.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 8"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 423.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 7"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 359.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 6"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 301.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 250.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 185.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 123.0, 13.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            },
+            {
+                "box": {
+                    "code": "// -----------------------------------------------------------\r\n// 9-Wave Phase-Driven Wavetable Synth with True Detune Unison\r\n// and 10-Stage Dynamic Envelope-Invariant Chebyshev Folding\r\n// -----------------------------------------------------------\r\n\r\n// --- HELPER FUNCTIONS ---\r\n// GenExpr requires functions to be declared first.\r\n\r\n// 10-Stage Chebyshev Wavefolder\r\n// Smoothly morphs from T1 (linear bypass) up to T10 (extreme high-order folding)\r\nfold_chebyshev10(x, amount) {\r\n\t// Chebyshev polynomials are defined on [-1, 1].\r\n\t// Our envelope-invariant normalization ensures x is perfectly scaled, \r\n\t// but we clamp to protect against floating point rounding errors.\r\n\tx_clamped = clamp(x, -1, 1);\r\n\t\r\n\t// Recurrence relation: T_n(x) = 2x * T_{n-1}(x) - T_{n-2}(x)\r\n\tt0 = 1;\r\n\tt1 = x_clamped;\r\n\tt2 = 2 * x_clamped * t1 - t0;\r\n\tt3 = 2 * x_clamped * t2 - t1;\r\n\tt4 = 2 * x_clamped * t3 - t2;\r\n\tt5 = 2 * x_clamped * t4 - t3;\r\n\tt6 = 2 * x_clamped * t5 - t4;\r\n\tt7 = 2 * x_clamped * t6 - t5;\r\n\tt8 = 2 * x_clamped * t7 - t6;\r\n\tt9 = 2 * x_clamped * t8 - t7;\r\n\tt10 = 2 * x_clamped * t9 - t8;\r\n\t\r\n\t// Map the fold amount [0, 1] to a continuous 9-stage morph index\r\n\tamt = clamp(amount, 0, 1) * 9;\r\n\t\r\n\t// Smoothly morph between polynomial stages\r\n\tret = t1;\r\n\tif (amt <= 1) {\r\n\t\tout = t1 + amt * (t2 - t1);\r\n\t} else if (amt <= 2) {\r\n\t\tout = t2 + (amt - 1) * (t3 - t2);\r\n\t} else if (amt <= 3) {\r\n\t\tout = t3 + (amt - 2) * (t4 - t3);\r\n\t} else if (amt <= 4) {\r\n\t\tout = t4 + (amt - 3) * (t5 - t4);\r\n\t} else if (amt <= 5) {\r\n\t\tout = t5 + (amt - 4) * (t6 - t5);\r\n\t} else if (amt <= 6) {\r\n\t\tout = t6 + (amt - 5) * (t7 - t6);\r\n\t} else if (amt <= 7) {\r\n\t\tout = t7 + (amt - 6) * (t8 - t7);\r\n\t} else if (amt <= 8) {\r\n\t\tout = t8 + (amt - 7) * (t9 - t8);\r\n\t} else {\r\n\t\tout = t9 + (amt - 8) * (t10 - t9);\r\n\t}\r\n\t\r\n\treturn ret;\r\n}\r\n\r\n// 9-Wave Buffer Lookup & Mixer\r\nread_mix(p, l0, l1, l2, l3, l4, l5, l6, l7, l8, buf0, buf1, buf2, buf3, buf4, buf5, buf6, buf7, buf8) {\r\n\treturn sample(buf0, p) * l0 \r\n\t     + sample(buf1, p) * l1 \r\n\t     + sample(buf2, p) * l2 \r\n\t     + sample(buf3, p) * l3 \r\n\t     + sample(buf4, p) * l4 \r\n\t     + sample(buf5, p) * l5 \r\n\t     + sample(buf6, p) * l6 \r\n\t     + sample(buf7, p) * l7 \r\n\t     + sample(buf8, p) * l8;\r\n}\r\n\r\n// --- BUFFERS ---\r\nBuffer w0(\"wave0\");\r\nBuffer w1(\"wave1\");\r\nBuffer w2(\"wave2\");\r\nBuffer w3(\"wave3\"); // Restored proper sequential convention string\r\nBuffer w4(\"wave4\");\r\nBuffer w5(\"wave5\");\r\nBuffer w6(\"wave6\");\r\nBuffer w7(\"wave7\");\r\nBuffer w8(\"wave8\");\r\n\r\n// --- INPUT ASSIGNMENTS ---\r\nphase_in  = in1;\r\nlvl0      = in2;\r\nlvl1      = in3;\r\nlvl2      = in4;\r\nlvl3      = in5;\r\nlvl4      = in6;\r\nlvl5      = in7;\r\nlvl6      = in8;\r\nlvl7      = in9;\r\nlvl8      = in10;\r\ndetune_in = in11;\r\nfold_in   = in12;\r\n\r\n// --- MAIN DSP LOGIC ---\r\n\r\n// 1. Clean the incoming master phase (handles < 0 and > 1 gracefully)\r\np_main = wrap(phase_in, 0, 1);\r\n\r\n// 2. Always calculate all 3 voices to keep instruction pipes uniform and branch-free\r\nv_center = read_mix(p_main, lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, w0, w1, w2, w3, w4, w5, w6, w7, w8);\r\n\r\n// True frequency detuning via phase-drift ramps\r\ndrift1 = phasor(detune_in);\r\ndrift2 = phasor(detune_in * 1.313);\r\n\r\np_up   = wrap(p_main + drift1, 0, 1);\r\np_down = wrap(p_main - drift2, 0, 1);\r\n\r\nv_up   = read_mix(p_up, lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, w0, w1, w2, w3, w4, w5, w6, w7, w8);\r\nv_down = read_mix(p_down, lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, w0, w1, w2, w3, w4, w5, w6, w7, w8);\r\n\r\n// Combine into unison mix\r\nv_unison = (v_center + v_up + v_down) * 0.4;\r\n\r\n// 3. Branch-free State Transition\r\nunison_active = clamp(detune_in * 100000, 0, 1); \r\naudio_mixed   = mix(v_center, v_unison, unison_active);\r\n\r\n// 4. Wavefolding logic with Envelope-Invariant Normalization\r\n// We sum the active levels to determine the theoretical peak of our current wave mix.\r\nlvl_sum = lvl0 + lvl1 + lvl2 + lvl3 + lvl4 + lvl5 + lvl6 + lvl7 + lvl8;\r\n\r\n// Our true peak scale factor changes based on whether unison is active (scaling down to 0.4)\r\ncurrent_peak = lvl_sum * mix(1.0, 0.4, unison_active);\r\n\r\n// Normalize the signal to exactly [-1, 1] before folding.\r\n// We add a tiny epsilon (1e-9) to avoid division by zero when all levels are at 0.\r\nnormalized_audio = audio_mixed / (current_peak + 1e-9);\r\n\r\n// Run the normalized signal through the 10-stage Chebyshev folder\r\nfolded_audio = fold_chebyshev10(normalized_audio, fold_in);\r\n\r\n// Restore the original volume envelope level so the folder doesn't destroy synth dynamics\r\naudio_out = folded_audio * current_peak;\r\n\r\n// --- OUTPUT ASSIGNMENTS ---\r\nout1 = audio_out;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 12,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 143.0, 134.0, 597.0, 680.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 78.0, 17.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 73.0, 762.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 6 ],
+                    "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 7 ],
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 8 ],
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 9 ],
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 10 ],
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 11 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 4 ],
+                    "source": [ "obj-8", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 5 ],
+                    "source": [ "obj-9", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}

@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ -44.0, 141.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -19,7 +19,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 1030.4933082461357, 141.25561013817787, 30.0, 30.0 ]
                 }
             },
@@ -780,8 +780,8 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 750.0000223517418, 189.33333897590637, 365.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.5 8000 4 #1 20 1",
+                    "patching_rect": [ 750.0000223517418, 189.33333897590637, 301.0, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 7 1",
                     "varname": "poly~"
                 }
             }

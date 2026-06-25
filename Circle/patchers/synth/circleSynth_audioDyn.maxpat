@@ -25,7 +25,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-33",
-                    "index": 0,
+                    "index": 6,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -40,7 +40,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 613.0, 468.0, 85.0, 34.0 ],
-                    "presentation_linecount": 3,
                     "text": "Pitch Certainty"
                 }
             },
@@ -48,7 +47,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-31",
-                    "index": 0,
+                    "index": 5,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -69,7 +68,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-29",
-                    "index": 0,
+                    "index": 4,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -83,7 +82,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 416.0, 468.0, 72.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "Transience"
                 }
             },
@@ -91,7 +89,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-27",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -105,7 +103,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 218.0, 474.0, 70.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "Noisiness"
                 }
             },
@@ -113,7 +110,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-25",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -134,7 +131,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-20",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -145,11 +142,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-19",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 450.7352855205536, 38.2352933883667, 30.0, 30.0 ]
                 }
             },
@@ -161,7 +158,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 710.0, 339.0, 42.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "$1 22."
                 }
             },
@@ -184,7 +180,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 599.0, 287.0, 42.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "$1 22."
                 }
             },
@@ -465,7 +460,6 @@
                     "source": [ "obj-7", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

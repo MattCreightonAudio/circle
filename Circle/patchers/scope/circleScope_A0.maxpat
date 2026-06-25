@@ -9,18 +9,18 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 84.0, 800.0, 627.0 ],
         "openinpresentation": 1,
         "boxes": [
             {
                 "box": {
                     "comment": "",
                     "id": "obj-1",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 555.0, 53.0, 30.0, 30.0 ]
                 }
             },
@@ -199,7 +199,6 @@
                     "source": [ "obj-191", 1 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

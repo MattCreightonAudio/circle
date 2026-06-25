@@ -9,8 +9,31 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 638.0, 173.0, 24.0, 24.0 ]
+                }
+            },
+            {
+                "box": {
+                    "comment": "",
+                    "id": "obj-9",
+                    "index": 3,
+                    "maxclass": "inlet",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 635.0, 105.0, 30.0, 30.0 ]
+                }
+            },
             {
                 "box": {
                     "comment": "",
@@ -51,7 +74,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "int" ],
                     "patching_rect": [ 224.0, 95.0, 30.0, 30.0 ]
                 }
             },
@@ -111,35 +134,12 @@
             },
             {
                 "box": {
-                    "id": "obj-29",
-                    "items": [ "Microsoft GS Wavetable Synth", ",", "Arturia MiniLab mkII", ",", "Midinous Clock Port" ],
-                    "maxclass": "umenu",
-                    "numinlets": 1,
-                    "numoutlets": 3,
-                    "outlettype": [ "int", "", "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 69.0, 276.0, 100.0, 22.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-28",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 69.0, 220.0, 70.0, 22.0 ],
-                    "text": "midiinfo 0 1"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-27",
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
-                    "patching_rect": [ 69.0, 189.0, 58.0, 22.0 ],
+                    "patching_rect": [ 32.0, 193.0, 81.0, 22.0 ],
                     "text": "loadbang"
                 }
             }
@@ -153,28 +153,14 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-28", 0 ],
-                    "order": 1,
-                    "source": [ "obj-27", 0 ]
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-14", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-4", 0 ],
-                    "order": 0,
                     "source": [ "obj-27", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-29", 0 ],
-                    "source": [ "obj-28", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-30", 0 ],
-                    "source": [ "obj-29", 1 ]
                 }
             },
             {
@@ -205,6 +191,12 @@
                 "patchline": {
                     "destination": [ "obj-55", 1 ],
                     "source": [ "obj-7", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "source": [ "obj-9", 0 ]
                 }
             }
         ]
