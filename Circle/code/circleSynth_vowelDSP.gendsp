@@ -1,0 +1,123 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1029.0, 2222.0, 100.0, 22.0 ],
+                    "text": "out 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 768.0, 2218.0, 100.0, 22.0 ],
+                    "text": "out 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 444.0, 2212.0, 100.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 80.00000762939453, 2212.0, 100.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2979.9997158050537, 5999.99942779541, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "// --------------------------------------------------------------------------\r\n// Real-time Low Latency Formant Tracker (High-Stability Version)\r\n// Out 1: \"oo\" vs \"ee\" morph (0.0 = oo, 1.0 = ee)\r\n// Out 2: F1 Frequency (Hz)\r\n// Out 3: F2 Frequency (Hz)\r\n// Out 4: Prediction Gain (Ratio > 1.0 means LPC is successfully tracking formants!)\r\n// --------------------------------------------------------------------------\r\n\r\n// Helper function: Evaluates the gradient of the LPC spectral denominator\r\n// at a specific frequency 'w'. This tells our tracker which way to move.\r\n// Defined at the top because Genexpr requires functions before History/Param declarations.\r\nevaluate_gradient(w, a1, a2, a3, a4, a5, a6) {\r\n    cos_w = cos(w); sin_w = sin(w);\r\n    cos_2w = cos(2*w); sin_2w = sin(2*w);\r\n    cos_3w = cos(3*w); sin_3w = sin(3*w);\r\n    cos_4w = cos(4*w); sin_4w = sin(4*w);\r\n    cos_5w = cos(5*w); sin_5w = sin(5*w);\r\n    cos_6w = cos(6*w); sin_6w = sin(6*w);\r\n\r\n    // Real and Imaginary parts of the polynomial A(w)\r\n    R = 1 + a1*cos_w + a2*cos_2w + a3*cos_3w + a4*cos_4w + a5*cos_5w + a6*cos_6w;\r\n    I = 0 - a1*sin_w - a2*sin_2w - a3*sin_3w - a4*sin_4w - a5*sin_5w - a6*sin_6w;\r\n\r\n    // Derivatives with respect to w\r\n    dR = -a1*sin_w - 2*a2*sin_2w - 3*a3*sin_3w - 4*a4*sin_4w - 5*a5*sin_5w - 6*a6*sin_6w;\r\n    dI = -a1*cos_w - 2*a2*cos_2w - 3*a3*cos_3w - 4*a4*cos_4w - 5*a5*cos_5w - 6*a6*cos_6w;\r\n\r\n    // Power P = R^2 + I^2 (This is the denominator of the LPC spectrum)\r\n    P = R*R + I*I;\r\n    \r\n    // Gradient of Power w.r.t w\r\n    dP = 2 * (R*dR + I*dI);\r\n    \r\n    // We return the normalized gradient to keep tracking stable regardless of volume\r\n    return dP / (P + 1e-6); \r\n}\r\n\r\n// Delay lines for the Adaptive Lattice Filter (Backward errors)\r\nHistory b0, b1, b2, b3, b4, b5;\r\n\r\n// Recursive state for the Burg algorithm (Numerator and Denominator)\r\nHistory num1, den1, num2, den2, num3, den3;\r\nHistory num4, den4, num5, den5, num6, den6;\r\n\r\n// Trackers for F1 and F2 (stored in radians)\r\n// Init w1 to ~400Hz, w2 to ~1500Hz\r\nHistory w1(0.05), w2(0.2); \r\nHistory x_prev, x_raw_prev, dc_block_prev;\r\nHistory rms, rms_err;\r\n\r\n// Expose parameters for tweaking stability vs latency\r\n// Slower defaults (lpc_rate=0.002, track_rate=0.0002) prevent chaotic overshooting\r\nParam lpc_rate(0.002, min=0.0001, max=0.05);\r\nParam track_rate(0.0002, min=0.00001, max=0.005);\r\nParam preemphasis(0.95, min=0.0, max=0.999);\r\nParam gate_thresh(1e-5); // Stops tracking in silence\r\n\r\n// --- 1. SIGNAL CONDITIONING & DC BLOCKING ---\r\n// Block sub-audible mic rumble and DC offset (critical to prevent trackers pinning at minimums)\r\ndc_block = in1 - x_raw_prev + 0.995 * dc_block_prev;\r\nx_raw_prev = in1;\r\ndc_block_prev = dc_block;\r\n\r\n// Pre-emphasize to flatten glottal tilt, add tiny dither to prevent NaN in silence\r\nx = dc_block - preemphasis * x_prev;\r\nx_prev = dc_block;\r\nx = x + (noise() * 1e-12); // Reduced dither level to match fine regularization\r\n\r\nrms = (1 - lpc_rate) * rms + lpc_rate * (x * x);\r\n\r\n// --- 2. SAMPLE-BY-SAMPLE ADAPTIVE LATTICE (Order 6) ---\r\nf0 = x; \r\nb0_new = x;\r\n\r\n// Stage 1\r\nnum1 = (1 - lpc_rate) * num1 + lpc_rate * (f0 * b0);\r\nden1 = (1 - lpc_rate) * den1 + lpc_rate * (f0*f0 + b0*b0);\r\nk1 = -2 * num1 / (den1 + 1e-12); // Regularization lowered to 1e-12 to prevent amplitude squash\r\nf1 = f0 + k1 * b0;\r\nb1_new = b0 + k1 * f0;\r\n\r\n// Stage 2\r\nnum2 = (1 - lpc_rate) * num2 + lpc_rate * (f1 * b1);\r\nden2 = (1 - lpc_rate) * den2 + lpc_rate * (f1*f1 + b1*b1);\r\nk2 = -2 * num2 / (den2 + 1e-12);\r\nf2 = f1 + k2 * b1;\r\nb2_new = b1 + k2 * f1;\r\n\r\n// Stage 3\r\nnum3 = (1 - lpc_rate) * num3 + lpc_rate * (f2 * b2);\r\nden3 = (1 - lpc_rate) * den3 + lpc_rate * (f2*f2 + b2*b2);\r\nk3 = -2 * num3 / (den3 + 1e-12);\r\nf3 = f2 + k3 * b2;\r\nb3_new = b2 + k3 * f2;\r\n\r\n// Stage 4\r\nnum4 = (1 - lpc_rate) * num4 + lpc_rate * (f3 * b3);\r\nden4 = (1 - lpc_rate) * den4 + lpc_rate * (f3*f3 + b3*b3);\r\nk4 = -2 * num4 / (den4 + 1e-12);\r\nf4 = f3 + k4 * b3;\r\nb4_new = b3 + k4 * f3;\r\n\r\n// Stage 5\r\nnum5 = (1 - lpc_rate) * num5 + lpc_rate * (f4 * b4);\r\nden5 = (1 - lpc_rate) * den5 + lpc_rate * (f4*f4 + b4*b4);\r\nk5 = -2 * num5 / (den5 + 1e-12);\r\nf5 = f4 + k5 * b4;\r\nb5_new = b4 + k5 * f4;\r\n\r\n// Stage 6\r\nnum6 = (1 - lpc_rate) * num6 + lpc_rate * (f5 * b5);\r\nden6 = (1 - lpc_rate) * den6 + lpc_rate * (f5*f5 + b5*b5);\r\nk6 = -2 * num6 / (den6 + 1e-12);\r\nf6 = f5 + k6 * b5; // Calculate the final residual error\r\n\r\n// Update delay lines\r\nb5 = b5_new; b4 = b4_new; b3 = b3_new; \r\nb2 = b2_new; b1 = b1_new; b0 = b0_new;\r\n\r\n// --- 3. LEVINSON RECURSION (Convert reflection 'k' to direct LPC 'a') ---\r\n// Because we only do Order 6, unrolling this is ultra-fast.\r\na11 = k1;\r\n\r\na21 = a11 + k2 * a11; a22 = k2;\r\n\r\na31 = a21 + k3 * a22; a32 = a22 + k3 * a21; a33 = k3;\r\n\r\na41 = a31 + k4 * a33; a42 = a32 + k4 * a32;\r\na43 = a33 + k4 * a31; a44 = k4;\r\n\r\na51 = a41 + k5 * a44; a52 = a42 + k5 * a43;\r\na53 = a43 + k5 * a42; a54 = a44 + k5 * a41; a55 = k5;\r\n\r\na61 = a51 + k6 * a55; a62 = a52 + k6 * a54;\r\na63 = a53 + k6 * a53; a64 = a54 + k6 * a52;\r\na65 = a55 + k6 * a51; a66 = k6;\r\n\r\n// --- 4. FORMANT TRACKING (Gradient Descent with Bounds & Sorting) ---\r\nif (rms > gate_thresh) {\r\n    \r\n    // F1 Tracker (Search: 200 Hz to 900 Hz)\r\n    grad1 = evaluate_gradient(w1, a61, a62, a63, a64, a65, a66);\r\n    step1 = clip(track_rate * grad1, -0.0002, 0.0002); // Slower maximum step size limits\r\n    w1 = w1 - step1; \r\n    w1 = clip(w1, 200/samplerate*twopi, 900/samplerate*twopi);\r\n\r\n    // F2 Tracker (Search: 800 Hz to 3000 Hz)\r\n    grad2 = evaluate_gradient(w2, a61, a62, a63, a64, a65, a66);\r\n    step2 = clip(track_rate * grad2, -0.0002, 0.0002); // Slower maximum step size limits\r\n    w2 = w2 - step2;\r\n    w2 = clip(w2, 800/samplerate*twopi, 3000/samplerate*twopi);\r\n\r\n    // Repulsion/Sorting Constraint: Ensure F2 stays at least 200 Hz above F1\r\n    min_separation_rad = 200 / samplerate * twopi;\r\n    if (w2 < (w1 + min_separation_rad)) {\r\n        w2 = w1 + min_separation_rad;\r\n    }\r\n}\r\n\r\n// Track the energy of the residual error to measure tracking performance\r\nrms_err = (1 - lpc_rate) * rms_err + lpc_rate * (f6 * f6);\r\n\r\n// --- 5. OUTPUT ASSIGNMENTS ---\r\nf1_hz = w1 * samplerate / twopi;\r\nf2_hz = w2 * samplerate / twopi;\r\n\r\n// Distinguish \"oo\" vs \"ee\" using F2 tracking.\r\n// 'oo' has a very low F2 (~1000Hz). 'ee' has a very high F2 (~2200Hz+).\r\noo_ee_morph = clip((f2_hz - 1000) / 1200, 0.0, 1.0);\r\n\r\n// Calculate Prediction Gain (Linear ratio of Input Energy to Error Energy)\r\npred_gain = sqrt(rms / (rms_err + 1e-12));\r\n\r\nout1 = oo_ee_morph;\r\nout2 = f1_hz;\r\nout3 = f2_hz;\r\nout4 = pred_gain;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 72.0, 88.0, 1040.000099182129, 2076.9232749938965 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-5", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-5", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-5", 2 ]
+                }
+            }
+        ]
+    }
+}

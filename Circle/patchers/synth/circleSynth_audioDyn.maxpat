@@ -13,23 +13,47 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-32",
+                    "id": "obj-11",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 725.0, 461.0, 44.0, 20.0 ],
-                    "text": "Vowel"
+                    "patching_rect": [ 1561.538610458374, 575.3846702575684, 150.0, 48.0 ],
+                    "text": "a vowel tracker which sometimes works? but tracks the wrong vowel"
                 }
             },
             {
                 "box": {
-                    "comment": "",
-                    "id": "obj-33",
-                    "index": 6,
-                    "maxclass": "outlet",
+                    "id": "obj-40",
+                    "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 725.0, 420.0, 30.0, 30.0 ]
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1515.2941808700562, 428.8235473036766, 231.6176426410675, 22.0 ],
+                    "text": "poly~ circleSynth_vowelDown @down 4"
+                }
+            },
+            {
+                "box": {
+                    "format": 6,
+                    "id": "obj-9",
+                    "maxclass": "flonum",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 371.0, 417.0, 50.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "float" ],
+                    "patching_rect": [ 360.0, 380.0, 100.0, 22.0 ],
+                    "text": "peakamp~ 1000"
                 }
             },
             {
@@ -147,7 +171,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 450.7352855205536, 38.2352933883667, 30.0, 30.0 ]
+                    "patching_rect": [ 458.0, 24.615386962890625, 30.0, 30.0 ]
                 }
             },
             {
@@ -157,7 +181,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 710.0, 339.0, 42.0, 22.0 ],
+                    "patching_rect": [ 1261.764681816101, 609.230827331543, 42.0, 22.0 ],
                     "text": "$1 22."
                 }
             },
@@ -168,7 +192,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 710.0, 367.0, 34.0, 22.0 ],
+                    "patching_rect": [ 1261.764681816101, 636.9231376647949, 34.0, 22.0 ],
                     "text": "line~"
                 }
             },
@@ -257,7 +281,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 710.0, 281.0, 74.0, 22.0 ],
+                    "patching_rect": [ 1261.764681816101, 550.7692832946777, 74.0, 22.0 ],
                     "text": "maximum 0."
                 }
             },
@@ -268,7 +292,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 710.0, 306.0, 184.0, 22.0 ],
+                    "patching_rect": [ 1261.764681816101, 575.3846702575684, 184.0, 22.0 ],
                     "text": "expr max((64. - $f1) * (1./64.)\\, 0.)"
                 }
             },
@@ -279,7 +303,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 733.0, 250.0, 47.0, 22.0 ],
+                    "patching_rect": [ 1284.841607093811, 526.1538963317871, 47.0, 22.0 ],
                     "text": "zl.nth 3"
                 }
             },
@@ -291,7 +315,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 733.0, 212.0, 316.0, 23.0 ],
+                    "patching_rect": [ 1284.841607093811, 481.53850746154785, 316.0, 23.0 ],
                     "text": "fluid.mfcc~ 13 @maxnumcoeffs 40 @maxfftsize 1024"
                 }
             },
@@ -326,11 +350,18 @@
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "signal" ],
                     "patching_rect": [ 84.0, 324.0, 406.0, 22.0 ],
-                    "text": "gen~ circle_rtAudioParams @volDownTime 10 @transFastReleaseMult 15"
+                    "text": "gen~ circle_rtAudioParams @volDownTime 10 @transSlowTime 100"
                 }
             }
         ],
         "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "order": 1,
+                    "source": [ "obj-1", 2 ]
+                }
+            },
             {
                 "patchline": {
                     "destination": [ "obj-20", 0 ],
@@ -346,6 +377,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-27", 0 ],
+                    "order": 0,
                     "source": [ "obj-1", 2 ]
                 }
             },
@@ -387,29 +419,22 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-33", 0 ],
-                    "source": [ "obj-18", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "order": 2,
-                    "source": [ "obj-19", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-122", 0 ],
-                    "order": 0,
+                    "order": 1,
                     "source": [ "obj-19", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-46", 0 ],
-                    "order": 1,
+                    "order": 0,
                     "source": [ "obj-19", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {

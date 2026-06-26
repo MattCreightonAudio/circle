@@ -13,14 +13,222 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-26",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "float" ],
+                    "patching_rect": [ 1002.6315693855286, 294.07894456386566, 33.0, 22.0 ],
+                    "text": "* 0.5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-23",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 992.6829504966736, 259.7561037540436, 119.0, 22.0 ],
+                    "text": "r #0_bend_tristate"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-86",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1490.2984541654587, 253.73133420944214, 150.0, 34.0 ],
+                    "text": "simplify bend to 3 distinct states, pass to output"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-84",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1235.8208513259888, 225.37312626838684, 150.0, 34.0 ],
+                    "text": "sustain pedal and modwheel to output"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-82",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 840.3508406281471, 13.450291812419891, 150.0, 20.0 ],
+                    "text": "notes"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-77",
+                    "linecount": 3,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 558.0, 236.0, 150.0, 48.0 ],
+                    "text": "hold on / off (and some mildly silly business around resets)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-75",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 960.0, 142.0, 150.0, 34.0 ],
+                    "text": "filter out \"drum\" channel (i.e pads)"
+                }
+            },
+            {
+                "box": {
+                    "comment": "",
+                    "id": "obj-73",
+                    "index": 5,
+                    "maxclass": "outlet",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1115.789463043213, 912.4999912977219, 30.0, 30.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-65",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1121.7105156183243, 860.0, 107.0, 22.0 ],
+                    "text": "r #0_modWheel"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-58",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1375.657881617546, 488.15789008140564, 109.0, 22.0 ],
+                    "text": "s #0_modWheel"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-61",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1384.8684078454971, 371.71052277088165, 32.0, 22.0 ],
+                    "text": "gate"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-63",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "int" ],
+                    "patching_rect": [ 1342.1052503585815, 336.84210205078125, 33.0, 22.0 ],
+                    "text": "== 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-48",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 600.7407210469246, 371.8518396615982, 29.5, 22.0 ],
+                    "text": "-1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-38",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 637.0370161533356, 375.55554324388504, 29.5, 22.0 ],
+                    "text": "0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-33",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "bang", "bang", "bang" ],
+                    "patching_rect": [ 637.0370161533356, 289.6296201348305, 42.0, 22.0 ],
+                    "text": "t b b b"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-25",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 678.2353224158287, 337.84209060668945, 62.0, 22.0 ],
+                    "text": "keyHold 0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-24",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 738.2353249192238, 302.35295379161835, 62.0, 22.0 ],
+                    "text": "keyHold 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-20",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 3,
+                    "outlettype": [ "bang", "bang", "" ],
+                    "patching_rect": [ 718.2353240847588, 265.294128715992, 60.0, 22.0 ],
+                    "text": "select 0 1"
+                }
+            },
+            {
+                "box": {
+                    "comment": "",
+                    "id": "obj-15",
+                    "index": 2,
+                    "maxclass": "inlet",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 710.2353224158287, 18.518517911434174, 30.0, 30.0 ]
+                }
+            },
+            {
+                "box": {
                     "comment": "",
                     "id": "obj-19",
                     "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 428.1481341123581, 586.0, 30.0, 30.0 ]
+                    "outlettype": [ "bang" ],
+                    "patching_rect": [ 333.43903160095215, 37.56097674369812, 30.0, 30.0 ]
                 }
             },
             {
@@ -140,7 +348,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 898.7189376652241, 422.84209060668945, 205.88234066963196, 22.0 ]
+                    "patching_rect": [ 898.7189376652241, 422.84209060668945, 205.88234066963196, 22.0 ],
+                    "text": "0. 0. 0. 0. 0. 0. 0. 0."
                 }
             },
             {
@@ -225,7 +434,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 739.0, 808.5106325149536, 121.0, 22.0 ],
+                    "patching_rect": [ 1539.0, 484.0, 121.0, 22.0 ],
                     "text": "s #0_bend_tristate"
                 }
             },
@@ -238,7 +447,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 713.4680852890015, 731.914888381958, 50.28017848730087, 22.0 ]
+                    "patching_rect": [ 1513.0, 407.0, 50.28017848730087, 22.0 ]
                 }
             },
             {
@@ -248,7 +457,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 709.2127661705017, 676.5957398414612, 148.0, 22.0 ],
+                    "patching_rect": [ 1509.0, 352.0, 148.0, 22.0 ],
                     "text": "expr ($i1 > 64) - ($i1 < 64)"
                 }
             },
@@ -259,7 +468,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "int", "int" ],
-                    "patching_rect": [ 703.7037599086761, 629.6296799182892, 45.0, 22.0 ],
+                    "patching_rect": [ 1504.0, 305.0, 45.0, 22.0 ],
                     "text": "bendin"
                 }
             },
@@ -312,7 +521,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 780.7189376652241, 338.84209060668945, 85.62091773748398, 20.0 ],
+                    "patching_rect": [ 894.4084787964821, 303.35295379161835, 85.62091773748398, 20.0 ],
                     "text": "voice tracker"
                 }
             },
@@ -320,7 +529,7 @@
                 "box": {
                     "id": "obj-16",
                     "maxclass": "newobj",
-                    "numinlets": 2,
+                    "numinlets": 3,
                     "numoutlets": 12,
                     "outlettype": [ "float", "float", "float", "float", "float", "float", "float", "float", "float", "float", "float", "float" ],
                     "patcher": {
@@ -333,8 +542,19 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ -100.0, 164.0, 1213.0, 642.0 ],
+                        "rect": [ -96.0, 149.0, 1213.0, 642.0 ],
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 856.0, 112.0, 28.0, 22.0 ],
+                                    "text": "in 3"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-16",
@@ -447,13 +667,13 @@
                             },
                             {
                                 "box": {
-                                    "code": "History last_note(-1);\r\nHistory last_vel(-1);\r\nParam maxVoices(12);\r\nData voices(maxVoices);\r\n\r\n// Inputs from notein\r\nnote = in1;\r\nvel  = in2;\r\n    \r\n// Note On Event\r\nif (vel > 0) {\r\n    assigned = 0;\r\n    // First check if this specific note is already playing\r\n    for (i = 0; i < maxVoices; i += 1) {\r\n        if (peek(voices, i) == note) {\r\n            assigned = 1;\r\n            break;\r\n        }\r\n    }\r\n    \r\n    // If not already playing, look for an empty slot (0)\r\n    if (!assigned) {\r\n        for (i = 0; i < maxVoices; i += 1) {\r\n            if (peek(voices, i) == 0) {\r\n                poke(voices, note, i);\r\n                assigned = 1;\r\n                break;\r\n            }\r\n        }\r\n    }\r\n    \r\n    // VOICE STEALING: If still not assigned, steal the oldest note.\r\n    // In this architecture, slot 0 is the oldest active note.\r\n    if (!assigned) {\r\n        // Shift all voices down, dropping the oldest (at index 0)\r\n        for (i = 0; i < 7; i += 1) {\r\n            next_note = peek(voices, i + 1);\r\n            poke(voices, next_note, i);\r\n        }\r\n        // Put the newest note at the end of the line (slot 7)\r\n        poke(voices, note, 7);\r\n    }\r\n}\r\nelse // Note Off Event\r\n{\r\n    // Find where the note is living and clear it\r\n    for (i = 0; i < maxVoices; i += 1) {\r\n        if (peek(voices, i) == note) {\r\n            poke(voices, 0, i); // Clear the slot\r\n            \r\n            // Shift subsequent notes left to keep the FIFO order intact\r\n            for (j = i; j < 7; j += 1) {\r\n                next_note = peek(voices, j + 1);\r\n                poke(voices, next_note, j);\r\n            }\r\n            poke(voices, 0, 7); // Ensure the last slot is cleared\r\n            break;\r\n        }\r\n    }\r\n}\r\n\r\n// Step 2: Route the buffer contents to the outputs\r\nout1 = peek(voices, 0);\r\nout2 = peek(voices, 1);\r\nout3 = peek(voices, 2);\r\nout4 = peek(voices, 3);\r\nout5 = peek(voices, 4);\r\nout6 = peek(voices, 5);\r\nout7 = peek(voices, 6);\r\nout8 = peek(voices, 7);\r\nout9 = peek(voices, 8);\r\nout10 = peek(voices, 9);\r\nout11 = peek(voices, 10);\r\nout12 = peek(voices, 11);",
+                                    "code": "History last_note(-1);\r\nHistory last_vel(-1);\r\nHistory last_keyHold(0);\r\nParam maxVoices(12);\r\nParam keyHold(0); // 0 = Off, 1 = Hold Mode active\r\n\r\n// SOUNDING ENGINE POOLS (What is actually rendering audio)\r\nData voices(maxVoices);       \r\nData voiceBends(maxVoices);   \r\n\r\n// PHYSICAL PERFORMANCE POOLS (What your fingers are physically doing)\r\nData physicalKeys(maxVoices); \r\nData physicalBends(maxVoices);\r\n\r\n// Inputs from notein\r\nnote = in1;\r\nvel  = in2;\r\nbend = in3; // Third input tracking the bend in semitones (e.g. 0.5)\r\n\r\n// Dynamically compute the boundary for FIFO array shifting\r\nlimit = maxVoices - 1;\r\n\r\n// SORT OUT STUCK VOICES WHEN HOLDBACK IS DEACTIVATED\r\nif (last_keyHold == 1 && keyHold == 0) \r\n{\r\n    // Resolve sounding voices directly to the physical keys currently held down,\r\n    // and pull their associated initial physical bends along with them!\r\n    for (i = 0; i < maxVoices; i = i + 1) {\r\n        curr_phys_note = peek(physicalKeys, i);\r\n        curr_phys_bend = peek(physicalBends, i);\r\n        \r\n        poke(voices, curr_phys_note, i);\r\n        poke(voiceBends, curr_phys_bend, i);\r\n    }\r\n}\r\nlast_keyHold = keyHold;\r\n\r\n// ==========================================\r\n// NOTE ON EVENT\r\n// ==========================================\r\nif (vel > 0) {\r\n\r\n    // 1. KEY HOLD ENGINE: If we play a new note and no physical keys are down, \r\n    // clear out the auto-sustained sounding pool entirely.\r\n    if (keyHold > 0) {\r\n        is_any_physical = 0;\r\n        for (i = 0; i < maxVoices; i += 1) {\r\n            if (peek(physicalKeys, i) > 0) {\r\n                is_any_physical = 1;\r\n                break;\r\n            }\r\n        }\r\n        \r\n        if (!is_any_physical) {\r\n            for (i = 0; i < maxVoices; i += 1) {\r\n                poke(voices, 0, i);\r\n                poke(voiceBends, 0, i);\r\n                poke(physicalKeys, 0, i); \r\n                poke(physicalBends, 0, i);\r\n            }\r\n        }\r\n    }\r\n\r\n    // 2. REGISTER PHYSICAL KEYS & BENDS\r\n    phys_registered = 0;\r\n    // Check if the physical key is already registered (safety fallback)\r\n    for (i = 0; i < maxVoices; i += 1) {\r\n        if (peek(physicalKeys, i) == note) {\r\n            poke(physicalBends, bend, i); // Update the bend to the current trigger value\r\n            phys_registered = 1;\r\n            break;\r\n        }\r\n    }\r\n    // If not registered, find the first empty physical key slot\r\n    if (!phys_registered) {\r\n        for (i = 0; i < maxVoices; i += 1) {\r\n            if (peek(physicalKeys, i) == 0) {\r\n                poke(physicalKeys, note, i);\r\n                poke(physicalBends, bend, i); // Snapshot the bend at Note On\r\n                break;\r\n            }\r\n        }\r\n    }\r\n\r\n    // 3. VOICE ALLOCATION (Sounding Pool)\r\n    assigned = 0;\r\n    // Check if this specific note is already sounding\r\n    for (i = 0; i < maxVoices; i += 1) {\r\n        if (peek(voices, i) == note) {\r\n            poke(voiceBends, bend, i); // Update voice bend\r\n            assigned = 1;\r\n            break;\r\n        }\r\n    }\r\n\r\n    // If not sounding, find an empty voice slot\r\n    if (!assigned) {\r\n        for (i = 0; i < maxVoices; i += 1) {\r\n            if (peek(voices, i) == 0) {\r\n                poke(voices, note, i);\r\n                poke(voiceBends, bend, i); // Snapshot the bend at Note On\r\n                assigned = 1;\r\n                break;\r\n            }\r\n        }\r\n    }\r\n\r\n    // VOICE STEALING: If voices are full, steal the oldest sounding note (FIFO)\r\n    if (!assigned) {\r\n        for (i = 0; i < limit; i += 1) {\r\n            next_note = peek(voices, i + 1);\r\n            next_bend = peek(voiceBends, i + 1);\r\n            poke(voices, next_note, i);\r\n            poke(voiceBends, next_bend, i);\r\n        }\r\n        poke(voices, note, limit);\r\n        poke(voiceBends, bend, limit);\r\n    }\r\n}\r\n// ==========================================\r\n// NOTE OFF EVENT\r\n// ==========================================\r\nelse \r\n{\r\n   // 1. REMOVE FROM PHYSICAL TRACKERS (Always keep physical pool clean)\r\n   for (i = 0; i < maxVoices; i += 1) {\r\n      if (peek(physicalKeys, i) == note) {\r\n        poke(physicalKeys, 0, i);\r\n        poke(physicalBends, 0, i);\r\n\r\n        // Shift subsequent physical keys and bends left to preserve FIFO layout\r\n        for (j = i; j < limit; j += 1) {\r\n            next_phys_key  = peek(physicalKeys, j + 1);\r\n            next_phys_bend = peek(physicalBends, j + 1);\r\n            poke(physicalKeys, next_phys_key, j);\r\n            poke(physicalBends, next_phys_bend, j);\r\n        }\r\n        poke(physicalKeys, 0, limit);\r\n        poke(physicalBends, 0, limit);\r\n        break; // Note found and cleared, exit loop\r\n      }\r\n    }\r\n\r\n    // 2. MANAGE SOUNDING ENGINE POOLS BASED ON HOLD MODE\r\n    if (keyHold == 0) {\r\n       // Standard Mode: Immediately clear and shift out the released note\r\n       for (i = 0; i < maxVoices; i += 1) {\r\n           if (peek(voices, i) == note) {\r\n               poke(voices, 0, i);\r\n               poke(voiceBends, 0, i);\r\n            \r\n               for (j = i; j < limit; j += 1) {\r\n                   next_note = peek(voices, j + 1);\r\n                   next_bend = peek(voiceBends, j + 1);\r\n                   poke(voices, next_note, j);\r\n                   poke(voiceBends, next_bend, j);\r\n               }\r\n               poke(voices, 0, limit); \r\n               poke(voiceBends, 0, limit);\r\n               break;\r\n           }\r\n       }\r\n    }\r\n    // Hold Mode: If keyHold is 1, do nothing. The note and its voiceBend stay locked in voices!\r\n}\r\n\r\n// ==========================================\r\n// SIGNAL ROUTING WITH BEND SUMMATION\r\n// ==========================================\r\n// Output the absolute base pitch + frozen bend value per channel.\r\n// If a slot is empty (0), we output 0 directly.\r\nv0  = peek(voices, 0);  out1  = v0  > 0 ? v0  + peek(voiceBends, 0)  : 0;\r\nv1  = peek(voices, 1);  out2  = v1  > 0 ? v1  + peek(voiceBends, 1)  : 0;\r\nv2  = peek(voices, 2);  out3  = v2  > 0 ? v2  + peek(voiceBends, 2)  : 0;\r\nv3  = peek(voices, 3);  out4  = v3  > 0 ? v3  + peek(voiceBends, 3)  : 0;\r\nv4  = peek(voices, 4);  out5  = v4  > 0 ? v4  + peek(voiceBends, 4)  : 0;\r\nv5  = peek(voices, 5);  out6  = v5  > 0 ? v5  + peek(voiceBends, 5)  : 0;\r\nv6  = peek(voices, 6);  out7  = v6  > 0 ? v6  + peek(voiceBends, 6)  : 0;\r\nv7  = peek(voices, 7);  out8  = v7  > 0 ? v7  + peek(voiceBends, 7)  : 0;\r\nv8  = peek(voices, 8);  out9  = v8  > 0 ? v8  + peek(voiceBends, 8)  : 0;\r\nv9  = peek(voices, 9);  out10 = v9  > 0 ? v9  + peek(voiceBends, 9)  : 0;\r\nv10 = peek(voices, 10); out11 = v10 > 0 ? v10 + peek(voiceBends, 10) : 0;\r\nv11 = peek(voices, 11); out12 = v11 > 0 ? v11 + peek(voiceBends, 11) : 0;",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,
                                     "id": "obj-6",
                                     "maxclass": "codebox",
-                                    "numinlets": 2,
+                                    "numinlets": 3,
                                     "numoutlets": 12,
                                     "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "" ],
                                     "patching_rect": [ 179.79602666334677, 167.07317471504211, 798.0, 431.0 ]
@@ -477,7 +697,7 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 940.0, 96.0, 28.0, 22.0 ],
+                                    "patching_rect": [ 649.0, 83.0, 28.0, 22.0 ],
                                     "text": "in 2"
                                 }
                             },
@@ -503,6 +723,12 @@
                                 "patchline": {
                                     "destination": [ "obj-6", 1 ],
                                     "source": [ "obj-2", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 2 ],
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
@@ -1118,6 +1344,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-20", 0 ],
+                    "source": [ "obj-15", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-4", 7 ],
                     "source": [ "obj-16", 7 ]
                 }
@@ -1172,6 +1404,18 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-24", 0 ],
+                    "source": [ "obj-20", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-33", 0 ],
+                    "source": [ "obj-20", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-22", 0 ],
                     "source": [ "obj-21", 0 ]
                 }
@@ -1180,6 +1424,30 @@
                 "patchline": {
                     "destination": [ "obj-10", 0 ],
                     "source": [ "obj-22", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-26", 0 ],
+                    "source": [ "obj-23", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-16", 0 ],
+                    "source": [ "obj-24", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-16", 0 ],
+                    "source": [ "obj-25", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-16", 2 ],
+                    "source": [ "obj-26", 0 ]
                 }
             },
             {
@@ -1208,6 +1476,24 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-25", 0 ],
+                    "source": [ "obj-33", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-38", 0 ],
+                    "source": [ "obj-33", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-48", 0 ],
+                    "source": [ "obj-33", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-21", 1 ],
                     "source": [ "obj-34", 0 ]
                 }
@@ -1222,6 +1508,12 @@
                 "patchline": {
                     "destination": [ "obj-31", 0 ],
                     "source": [ "obj-37", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-16", 1 ],
+                    "source": [ "obj-38", 0 ]
                 }
             },
             {
@@ -1302,14 +1594,36 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-16", 0 ],
+                    "source": [ "obj-48", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-50", 0 ],
+                    "order": 1,
                     "source": [ "obj-49", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-52", 1 ],
+                    "order": 1,
                     "source": [ "obj-49", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-61", 1 ],
+                    "order": 0,
+                    "source": [ "obj-49", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-63", 0 ],
+                    "order": 0,
+                    "source": [ "obj-49", 1 ]
                 }
             },
             {
@@ -1340,6 +1654,24 @@
                 "patchline": {
                     "destination": [ "obj-62", 0 ],
                     "source": [ "obj-59", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-58", 0 ],
+                    "source": [ "obj-61", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-61", 0 ],
+                    "source": [ "obj-63", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-73", 0 ],
+                    "source": [ "obj-65", 0 ]
                 }
             },
             {
