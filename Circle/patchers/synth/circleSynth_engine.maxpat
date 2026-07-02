@@ -19,8 +19,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 332.0, 466.0, 192.0, 50.0 ],
-                    "text": "gen~ circleSynth_primeFDN @cavityMix 0.8 @cavityDecay 0.85 @woodDamp 0.5"
+                    "patching_rect": [ 332.0, 466.0, 194.0, 50.0 ],
+                    "text": "gen~ circleSynth_primeFDN @cavityMix 0.6 @cavityDecay 0.6 @woodDamp 0.1"
                 }
             },
             {
@@ -129,7 +129,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 332.0, 367.5213712453842, 45.0, 22.0 ],
-                    "text": "open 4"
+                    "text": "open 3"
                 }
             },
             {
@@ -195,7 +195,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 284.0, 398.0, 251.0, 22.0 ],
-                    "text": "poly~ circleSynth_engine_core 3 @args #0"
+                    "text": "poly~ circleSynth_engine_core 4 @args #0"
                 }
             },
             {
@@ -286,6 +286,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-33", 0 ],
                     "source": [ "obj-17", 3 ]
                 }
@@ -348,7 +354,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-10", 0 ],
+                    "destination": [ "obj-14", 0 ],
                     "source": [ "obj-9", 0 ]
                 }
             }

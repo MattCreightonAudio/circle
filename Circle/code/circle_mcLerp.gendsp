@@ -13,16 +13,6 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-6",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 514.0, 456.0, 35.0, 22.0 ],
-                    "text": "out 3"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -41,16 +31,6 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 557.0370187759399, 101.48147815465927, 89.0, 22.0 ],
                     "text": "param freeze 0"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-3",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 419.0, 452.0, 35.0, 22.0 ],
-                    "text": "out 2"
                 }
             },
             {
@@ -119,15 +99,15 @@
             },
             {
                 "box": {
-                    "code": "tau = 0;\r\n\r\nif (in1 >= in2) tau = timeConstUp;\r\nif (in1 < in2) tau = timeConstDown;\r\n\r\n// intentional fallthrough!\r\nif (timeConst > 0) tau = timeConst; \r\n\r\n\r\ntau_samp = mstosamps(max(tau, 0.1));\r\nalpha = 1-exp(-1/tau_samp);\r\nif (freeze) alpha = 0;\r\nelse if (freezeDown && in1 < in2) alpha = 0;\r\n\r\nout1 = in2 + (in1 - in2) * alpha;\r\nout2 = tau;\r\n\r\nout3 = freezeDown;",
+                    "code": "tau = 0;\r\n\r\nif (in1 >= in2) tau = timeConstUp;\r\nif (in1 < in2) tau = timeConstDown;\r\n\r\n// intentional fallthrough!\r\nif (timeConst > 0) tau = timeConst; \r\n\r\n\r\ntau_samp = mstosamps(max(tau, 0.1));\r\nalpha = 1-exp(-1/tau_samp);\r\nif (freeze) alpha = 0;\r\nelse if (freezeDown && in1 < in2) alpha = 0;\r\n\r\nout1 = in2 + (in1 - in2) * alpha;\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-23",
                     "maxclass": "codebox",
                     "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "", "", "" ],
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
                     "patching_rect": [ 28.0, 152.0, 465.0, 228.0 ]
                 }
             },
@@ -162,18 +142,6 @@
                     "destination": [ "obj-25", 0 ],
                     "order": 0,
                     "source": [ "obj-23", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-3", 0 ],
-                    "source": [ "obj-23", 1 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-6", 0 ],
-                    "source": [ "obj-23", 2 ]
                 }
             },
             {

@@ -9,8 +9,30 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ -138.0, 175.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-74",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 119.07894623279572, 98.99999809265137, 100.0, 22.0 ],
+                    "text": "-~ 12"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-48",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 745.2198750376701, 1029.0, 295.0, 22.0 ],
+                    "text": "gen~ circle_mcLerp @timeConst 2"
+                }
+            },
             {
                 "box": {
                     "id": "obj-94",
@@ -288,8 +310,8 @@
                     "id": "obj-32",
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 3,
-                    "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+                    "numoutlets": 1,
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 1992.3530243039131, 498.8235502243042, 351.0, 22.0 ],
                     "text": "mc.gen~ circle_mcLerp @timeConstUp 10 @timeConstDown 10"
                 }
@@ -1064,7 +1086,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1193.8462677001953, 1118.7499573230743, 186.0, 22.0 ],
+                    "patching_rect": [ 1202.3462677001953, 1195.0, 186.0, 22.0 ],
                     "text": "mc.s~ #0_dynamics @chans 5"
                 }
             },
@@ -1403,7 +1425,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 862.4073750376701, 1032.8125, 29.5, 22.0 ],
+                    "patching_rect": [ 862.2198750376701, 1004.0, 29.5, 22.0 ],
                     "text": "*~"
                 }
             },
@@ -1489,18 +1511,19 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1989.0, 552.0, 223.0, 22.0 ],
-                    "text": "mc.s~ #0_CGL_features @chans 162"
+                    "text": "mc.s~ #0_CGL_features @chans 90"
                 }
             },
             {
                 "box": {
                     "id": "obj-75",
+                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-                    "patching_rect": [ 2163.0, 252.0, 44.0, 22.0 ],
-                    "text": "circle~"
+                    "patching_rect": [ 2054.0, 272.0, 208.0, 36.0 ],
+                    "text": "circle~ circleSynth_circle_1 @ratiosOfInterest 1 1.5 2 3 4"
                 }
             },
             {
@@ -1628,7 +1651,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 46.3235285282135, 157.8947353363037, 145.0, 22.0 ],
+                    "patching_rect": [ 30.92105233669281, 129.60526192188263, 145.0, 22.0 ],
                     "text": "s~ #0_audioParam_vol"
                 }
             },
@@ -1807,7 +1830,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 5,
-                    "outlettype": [ "signal", "", "signal", "signal", "signal" ],
+                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
                     "patching_rect": [ 46.3235285282135, 52.20588135719299, 125.0, 22.0 ],
                     "text": "circleSynth_audioDyn"
                 }
@@ -1818,12 +1841,6 @@
                 "patchline": {
                     "destination": [ "obj-43", 0 ],
                     "source": [ "obj-1", 1 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-62", 0 ],
-                    "source": [ "obj-1", 3 ]
                 }
             },
             {
@@ -1842,6 +1859,12 @@
                 "patchline": {
                     "destination": [ "obj-67", 0 ],
                     "source": [ "obj-1", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-74", 0 ],
+                    "source": [ "obj-1", 3 ]
                 }
             },
             {
@@ -2530,6 +2553,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-153", 0 ],
+                    "source": [ "obj-48", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-32", 0 ],
                     "source": [ "obj-49", 0 ]
                 }
@@ -2686,6 +2715,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-62", 0 ],
+                    "source": [ "obj-74", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-32", 0 ],
                     "source": [ "obj-75", 0 ]
                 }
@@ -2814,7 +2849,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-153", 0 ],
+                    "destination": [ "obj-48", 0 ],
                     "source": [ "obj-98", 0 ]
                 }
             }
