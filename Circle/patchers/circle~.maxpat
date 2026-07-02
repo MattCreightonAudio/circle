@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ -44.0, 141.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -735,7 +735,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1209.348377943039, 161.0, 200.00000476837158, 213.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n1 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n10 = filterbank Q\n1 = smoothing multiplier\n"
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n1 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n20 = filterbank Q\n1 = smoothing multiplier\n"
                 }
             },
             {
@@ -776,12 +776,13 @@
             {
                 "box": {
                     "id": "obj-1",
+                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 750.0000223517418, 189.33333897590637, 301.0, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 7 1",
+                    "patching_rect": [ 750.0000223517418, 189.33333897590637, 301.0, 36.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 20 1",
                     "varname": "poly~"
                 }
             }
