@@ -804,7 +804,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 750.5882666110992, 189.33333897590637, 418.23531156778336, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 20 1",
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 10 1",
                     "varname": "poly~"
                 }
             }
