@@ -79,8 +79,7 @@
                                     "source": [ "obj-5", 0 ]
                                 }
                             }
-                        ],
-                        "autosave": 0
+                        ]
                     },
                     "patching_rect": [ 402.0, 497.0, 100.0, 22.0 ],
                     "text": "gen~"
@@ -94,7 +93,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 270.0, 793.0, 202.0, 22.0 ],
-                    "text": "gen~ circle_mcLerp @timeConst 20"
+                    "text": "gen~ circle_mcLerp @timeConst 10"
                 }
             },
             {
@@ -498,10 +497,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 560.0, 984.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 1"
                 }
             },
