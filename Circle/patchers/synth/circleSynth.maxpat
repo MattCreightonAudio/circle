@@ -13,6 +13,25 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-5",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "circleScope_FeaturesVisual.maxpat",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 278.4615650177002, 116.92308807373047, 1191.666621208191, 697.9166400432587 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-8",
                     "linecount": 2,
                     "maxclass": "comment",
@@ -93,6 +112,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 2 ],
+                    "order": 0,
                     "source": [ "obj-2", 2 ]
                 }
             },
@@ -106,6 +126,13 @@
                 "patchline": {
                     "destination": [ "obj-3", 0 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "order": 1,
+                    "source": [ "obj-2", 2 ]
                 }
             },
             {

@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-20",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 926.0, 177.0, 100.0, 22.0 ],
+                    "text": "in 17"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-19",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -23,16 +34,16 @@
             },
             {
                 "box": {
-                    "code": "saw(p) {\r\n    p = p + 0.5;\r\n    return p - floor(p);\r\n}\r\n\r\nsquare(p) {\r\n    return (p-floor(p)) < 0.5;\r\n}   \r\n\r\noscCore(phase, sqAmt)\r\n{\r\n    return sin(phase * twopi) * (1-sqAmt) \r\n         + square(phase*4) * sqAmt;\r\n}\r\n\r\nParam numLvls(12);\r\nData lvls(numLvls);\r\nHistory unisPhasor;\r\nHistory mainPhasor;\r\n\r\nfreq = in1/4;\r\ndeltaT = 1/samplerate;\r\nphaseOffset = in16; \r\nmainPhasor = mainPhasor + freq * deltaT;\r\nphase = mainPhasor + phaseOffset;\r\n\r\npoke (lvls, in2, 0 ); // 4\r\npoke (lvls, in3, 1 ); // 5\r\npoke (lvls, in4, 2 ); // 6\r\npoke (lvls, in5, 3 ); // 7\r\n\r\npoke (lvls, in6, 4 ); // 8\r\npoke (lvls, in7, 5 ); // 9\r\npoke (lvls, in8, 6 ); // 10\r\npoke (lvls, in9, 7 ); // 11\r\n\r\npoke (lvls, in10, 8);  // 12 \r\npoke (lvls, in11, 9);  // 13 \r\npoke (lvls, in12, 10); // 14 \r\npoke (lvls, in13, 11); // 15\r\n\r\nsqAmt = in14;\r\n\r\nunisAmt = in15;\r\n\r\nunisPhasor = unisPhasor + pi * 0.03 * deltaT;\r\n\r\nsum = 0;\r\nfor (i=0; i<numLvls; i=i+1)\r\n{\r\n    harm = 4+i;\r\n    lvl = peek (lvls, i);\r\n    centerOsc = oscCore(phase*harm, sqAmt);\r\n    unisOscs = saw(phase*harm+unisPhasor)\r\n             + saw(phase*harm-unisPhasor);\r\n    sum = sum + (centerOsc + unisOscs * unisAmt * 1.5) * lvl;\r\n    \r\n}\r\n\r\nout1 = sum;\r\nout2 = unisPhasor;",
+                    "code": "// -------------------------------------------------------------\r\n// Declarations (GenExpr requires these at the top of the file)\r\n// -------------------------------------------------------------\r\nParam maxHarms(64); // User-configurable absolute harmonics ceiling (physically capped at 64)\r\n\r\nData lvls(16);\r\nData amps(65);      // Exactly sized to 65 (absolute indices 0 to 64)\r\nData phases(65);    // Exactly sized to 65 (absolute indices 0 to 64)\r\nData cos_unis(16);  // Sized to 16 (since min h is 4, max k can never exceed 64 / 4 = 16)\r\nHistory unisPhasor;\r\n\r\n// -------------------------------------------------------------\r\n// DSP Signal Graph Setup\r\n// -------------------------------------------------------------\r\nnumLvls = 16;\r\nfreq = in1/4;\r\ndeltaT = 1/samplerate;\r\n\r\npoke (lvls, in2, 0 ); // 4\r\npoke (lvls, in3, 1 ); // 5\r\npoke (lvls, in4, 2 ); // 6\r\npoke (lvls, in5, 3 ); // 7\r\n\r\npoke (lvls, in6, 4 ); // 8\r\npoke (lvls, in7, 5 ); // 9\r\npoke (lvls, in8, 6 ); // 10\r\npoke (lvls, in9, 7 ); // 11\r\n\r\npoke (lvls, in10, 8);  // 12 \r\npoke (lvls, in11, 9);  // 13 \r\npoke (lvls, in12, 10); // 14 \r\npoke (lvls, in13, 11); // 15\r\n\r\nsqAmt = in14;\r\nunisAmt = in15;\r\nphaseOffset = in16; \r\ninharm = in17; // Inharmonicity input (signal rate)\r\n\r\nunisPhasor = unisPhasor + pi * 0.03 * deltaT;\r\n\r\nnyquist = samplerate * 0.49; // Safe margin below Nyquist\r\nclamped_maxHarms = max(1, min(64, maxHarms));\r\n\r\n// 1. Exact Nyquist Solver under Inharmonicity\r\nR = nyquist / freq;\r\nclamped_inharm = max(0, inharm);\r\n\r\nnyquist_limit = R;\r\nif (clamped_inharm > 0) {\r\n    // Solver for N * sqrt(1 + I * N^2) <= R\r\n    nyquist_limit = sqrt((sqrt(1 + 4 * clamped_inharm * R * R) - 1) / (2 * clamped_inharm));\r\n}\r\n\r\n// Dynamically scale the absolute top-end harmonic index\r\n// gen gets confused by nested max/min? i think? more weirdness.\r\ncompilerBS1 = min(maxHarms, floor(nyquist_limit));\r\ncompilerBS2 = min(64, compilerBS1);\r\ncompilerBS3 = max(0,  compilerBS2);\r\nN_max = compilerBS3;\r\n\r\n// Calculate exactly how many unison cosine elements we need to evaluate\r\nlimit_cos = max(0, min(16, floor(N_max / 4)));\r\n\r\n// 2. Clear amplitude scratchpad up to N_max (incredibly fast)\r\nfor (idx = 0; idx <= N_max; idx = idx + 1) {\r\n    poke(amps, 0, idx);\r\n}\r\n\r\n// 3. Pre-compute unison cosine terms up to limit_cos (max 16 lookups!)\r\nfor (k = 1; k <= limit_cos; k = k + 1) {\r\n    poke(cos_unis, cos(k * unisPhasor * twopi), k - 1);\r\n}\r\n\r\ntotal_lvl = 0;\r\ntwo_over_pi = 2 / pi;\r\n\r\n// 4. Amplitude Accumulation Loop\r\nfor (i = 0; i < numLvls; i = i + 1)\r\n{\r\n    h = 4 + i;\r\n    lvl = peek(lvls, i);\r\n    total_lvl = total_lvl + lvl;\r\n    \r\n    // Calculate maximum k for this slot such that h * k never exceeds N_max\r\n    limit_k = min(16, floor(N_max / h));\r\n    \r\n    for (k = 1; k <= limit_k; k = k + 1) {\r\n        N = h * k; // Mathematically guaranteed to be <= N_max <= 64\r\n        \r\n        // Safe, branchless indicators using pure float comparison (no boolean or ! coercion)\r\n        is_fundamental = (k == 1) ? 1 : 0;\r\n        is_odd = (floor(k / 2) * 2 != k) ? 1 : 0;\r\n        is_odd_harm = (is_odd == 1 && k <= 15) ? 1 : 0;\r\n        \r\n        // Amplitude of the center oscillator component at harmonic k\r\n        term_fundamental = (1 - sqAmt) + sqAmt * two_over_pi;\r\n        term_harmonics   = sqAmt ;//* (two_over_pi / k);\r\n        is_harmonic_term = (is_fundamental == 0 && is_odd_harm == 1) ? 1 : 0;\r\n        \r\n        a_center = is_fundamental * term_fundamental + is_harmonic_term * term_harmonics;\r\n        \r\n        // Amplitude of detuned unison saw components at harmonic k\r\n        sign = (is_odd == 1) ? 1 : -1;\r\n        a_unison = unisAmt * 1.5 * (two_over_pi / k) * sign * peek(cos_unis, k - 1);\r\n        \r\n        // Accumulate into absolute harmonic slot\r\n        current_amp = peek(amps, N);\r\n        poke(amps, current_amp + (a_center +a_unison) * lvl, N);\r\n    }\r\n}\r\n\r\n// 5. Phase Reset & Integration Step\r\nif (total_lvl == 0) {\r\n    // Clear all 65 phase accumulators branchlessly during silence\r\n    for (idx = 0; idx <= 64; idx = idx + 1) {\r\n        poke(phases, 0, idx);\r\n    }\r\n} else {\r\n    // Integrate phases continuously\r\n    for (N = 4; N <= N_max; N = N + 1) {\r\n        old_phase = peek(phases, N);\r\n        mult = N * sqrt(1 + clamped_inharm * N * N);\r\n        new_phase = old_phase + freq * mult * deltaT;\r\n        poke(phases, new_phase, N);\r\n    }\r\n}\r\n\r\nsum_ac = 0;\r\n\r\n// 6. Completely branchless synthesis loop (capped at max 64 iterations)\r\nfor (N = 4; N <= N_max; N = N + 1) {\r\n    amp_val = peek(amps, N);\r\n    phase_val = peek(phases, N);\r\n    \r\n    // Schroeder Phase: Spreads phase quadratically based on max synthesis index\r\n    schroeder = -pi * N * (N - 1) / 64;\r\n    \r\n    // Apply phaseOffset dynamically (scaled by N to preserve phase depth ratios)\r\n    theta = (phase_val + phaseOffset * N) * twopi + schroeder;\r\n    sum_ac = sum_ac + amp_val * sin(theta);\r\n}\r\n\r\n// Bipolar AC signal output (perfectly centered around zero)\r\nout1 = sum_ac;\r\nout2 = unisPhasor;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-18",
                     "maxclass": "codebox",
-                    "numinlets": 16,
+                    "numinlets": 17,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 309.0, 243.0, 462.0, 349.0 ]
+                    "patching_rect": [ 293.0, 228.0, 625.9333333333333, 349.0 ]
                 }
             },
             {
@@ -297,6 +308,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-18", 16 ],
+                    "source": [ "obj-20", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-18", 15 ],
                     "source": [ "obj-3", 0 ]
                 }
@@ -331,7 +348,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }
