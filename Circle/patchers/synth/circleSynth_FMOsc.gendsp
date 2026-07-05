@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-20",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 922.0, 116.0, 35.0, 22.0 ],
+                    "text": "in 17"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-19",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -23,13 +34,13 @@
             },
             {
                 "box": {
-                    "code": "soft_saw(p, k) {\r\n    p = p - floor(p);\r\n    if (p < k) {\r\n        x = p / k;\r\n        return (x * x * 0.5) - 0.5;\r\n    } else if (p > 1.0 - k) {\r\n        x = (p - (1.0 - k)) / k;\r\n        return (x - 0.5 * x * x) - 0.5;\r\n    }\r\n    return (p - 0.5);\r\n}\r\n\r\nsoft_square(p, k) {\r\n    p = p - floor(p);\r\n    val = 0.0;\r\n    if (p < k) {\r\n        val = 3.0 * (p/k) * (p/k) - 2.0 * (p/k) * (p/k) * (p/k);\r\n    } else if (p < 0.5) {\r\n        val = 1.0;\r\n    } else if (p < 0.5 + k) {\r\n        p2 = (p - 0.5) / k;\r\n        val = 1.0 - (3.0 * p2 * p2 - 2.0 * p2 * p2 * p2);\r\n    } else if (p < 1.0 - k) {\r\n        val = -1.0;\r\n    } else {\r\n        p3 = (p - (1.0 - k)) / k;\r\n        val = -1.0 + (3.0 * p3 * p3 - 2.0 * p3 * p3 * p3);\r\n    }\r\n    return val * 0.5;\r\n}\r\n\r\noscCore(phase, sqAmt, k) {\r\n    return sin(phase * 6.28318530718) * (1 - sqAmt) + soft_square(phase *2, k) * sqAmt;\r\n}\r\n\r\nParam numLvls(12);\r\nParam softK(0.15);\r\nData lvls(numLvls);\r\nHistory unisPhasor;\r\nHistory mainPhasor;\r\n\r\nfreq = in1 / 4;\r\ndeltaT = 1 / samplerate;\r\nphaseOffset = in16;\r\nmainPhasor = mainPhasor + freq * deltaT;\r\nphase = mainPhasor + phaseOffset;\r\n\r\npoke(lvls, in2, 0);\r\npoke(lvls, in3, 1);\r\npoke(lvls, in4, 2);\r\npoke(lvls, in5, 3);\r\npoke(lvls, in6, 4);\r\npoke(lvls, in7, 5);\r\npoke(lvls, in8, 6);\r\npoke(lvls, in9, 7);\r\npoke(lvls, in10, 8);\r\npoke(lvls, in11, 9);\r\npoke(lvls, in12, 10);\r\npoke(lvls, in13, 11);\r\n\r\nsqAmt = in14;\r\nunisAmt = in15;\r\nunisPhasor = unisPhasor + 3.14159265359 * 0.03 * deltaT;\r\n\r\nsum = 0;\r\nfor (i = 0; i < numLvls; i = i + 1) {\r\n    harm = 4 + i;\r\n    lvl = peek(lvls, i);\r\n    p = phase * harm;\r\n    centerOsc = oscCore(p, sqAmt, softK);\r\n    unisOscs = soft_saw(p + unisPhasor, softK) + soft_saw(p - unisPhasor, softK);\r\n    sum = sum + (centerOsc + unisOscs * unisAmt * 1.5) * lvl;\r\n}\r\n\r\nout1 = sum;\r\nout2 = unisPhasor;",
+                    "code": "drive(samp, drive, bias)\r\n{\r\n    \r\n    return(tanh(samp * (1+drive) + bias) - tanh(bias)) / tanh(1+drive+bias/2);\r\n}\r\n\r\nsoft_saw(p, k) {\r\n    p = p - floor(p);\r\n    if (p < k) {\r\n        x = p / k;\r\n        return (x * x * 0.5) - 0.5;\r\n    } else if (p > 1.0 - k) {\r\n        x = (p - (1.0 - k)) / k;\r\n        return (x - 0.5 * x * x) - 0.5;\r\n    }\r\n    return (p - 0.5);\r\n}\r\n\r\nsoft_square(p, k) {\r\n    p = p - floor(p);\r\n    val = 0.0;\r\n    if (p < k) {\r\n        val = 3.0 * (p/k) * (p/k) - 2.0 * (p/k) * (p/k) * (p/k);\r\n    } else if (p < 0.5) {\r\n        val = 1.0;\r\n    } else if (p < 0.5 + k) {\r\n        p2 = (p - 0.5) / k;\r\n        val = 1.0 - (3.0 * p2 * p2 - 2.0 * p2 * p2 * p2);\r\n    } else if (p < 1.0 - k) {\r\n        val = -1.0;\r\n    } else {\r\n        p3 = (p - (1.0 - k)) / k;\r\n        val = -1.0 + (3.0 * p3 * p3 - 2.0 * p3 * p3 * p3);\r\n    }\r\n    return val * 0.5;\r\n}\r\n\r\noscCore(phase, sqAmt, k) {\r\n    return sin(phase * 6.28318530718) * (1 - sqAmt) + soft_square(phase *2, k) * sqAmt;\r\n}\r\n\r\nParam numLvls(12);\r\nParam softK(0.15);\r\nData lvls(numLvls);\r\nHistory unisPhasor;\r\nHistory mainPhasor;\r\n\r\nfreq = in1 / 4;\r\ndeltaT = 1 / samplerate;\r\nphaseOffset = in16;\r\nmainPhasor = mainPhasor + freq * deltaT;\r\nphase = mainPhasor + phaseOffset;\r\n\r\npoke(lvls, in2, 0);\r\npoke(lvls, in3, 1);\r\npoke(lvls, in4, 2);\r\npoke(lvls, in5, 3);\r\npoke(lvls, in6, 4);\r\npoke(lvls, in7, 5);\r\npoke(lvls, in8, 6);\r\npoke(lvls, in9, 7);\r\npoke(lvls, in10, 8);\r\npoke(lvls, in11, 9);\r\npoke(lvls, in12, 10);\r\npoke(lvls, in13, 11);\r\n\r\nsqAmt = in14;\r\nunisAmt = in15;\r\nunisPhasor = unisPhasor + 3.14159265359 * 0.03 * deltaT;\r\n\r\ndriveAmt = in17;\r\n\r\nsum = 0;\r\nfor (i = 0; i < numLvls; i = i + 1) {\r\n    harm = 4 + i;\r\n    lvl = peek(lvls, i);\r\n    p = phase * harm;\r\n    centerOsc = oscCore(p, sqAmt, softK);\r\n    unisOscs = soft_saw(p + unisPhasor, softK) + soft_saw(p - unisPhasor, softK);\r\n    sum = sum + (centerOsc + unisOscs * unisAmt * 1.5) * lvl;\r\n}\r\n\r\n// drive it!\r\nout1 = sum * (1-driveAmt*driveAmt) + drive(sum,  20,  0.2) * driveAmt*driveAmt * 0.5;\r\nout2 = unisPhasor;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-18",
                     "maxclass": "codebox",
-                    "numinlets": 16,
+                    "numinlets": 17,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 293.0, 228.0, 625.9333333333333, 349.0 ]
@@ -293,6 +304,12 @@
                 "patchline": {
                     "destination": [ "obj-18", 1 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-18", 16 ],
+                    "source": [ "obj-20", 0 ]
                 }
             },
             {

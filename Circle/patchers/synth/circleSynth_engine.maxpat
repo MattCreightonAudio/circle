@@ -19,8 +19,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 332.0, 466.0, 194.0, 50.0 ],
-                    "text": "gen~ circleSynth_primeFDN @cavityMix 0.6 @cavityDecay 0.6 @woodDamp 0.1"
+                    "patching_rect": [ 332.1951298713684, 468.78049898147583, 194.0, 50.0 ],
+                    "text": "gen~ circleSynth_primeFDN @cavityMix 0.2 @cavityDecay 0.8 @woodDamp 0.4"
                 }
             },
             {
@@ -118,7 +118,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 1229.2308864593506, 338.4615707397461, 171.0, 22.0 ],
-                    "text": "mc.r~ #0_CGL @chans 162"
+                    "text": "mc.r~ #0_CGL @chans 90"
                 }
             },
             {

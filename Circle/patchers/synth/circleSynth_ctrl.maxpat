@@ -1121,7 +1121,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 1184.8462677001953, 1233.3332862854004, 221.0, 22.0 ],
-                    "text": "mc.r~ #0_CGL_features @chans 162"
+                    "text": "mc.r~ #0_CGL_features @chans 90"
                 }
             },
             {
