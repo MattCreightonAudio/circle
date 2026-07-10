@@ -18,6 +18,25 @@
                     "clickthrough": 0,
                     "enablehscroll": 0,
                     "enablevscroll": 0,
+                    "id": "obj-56",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "circleScope_A0.maxpat",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 2121.0, 645.0, 360.0, 284.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
                     "id": "obj-51",
                     "lockeddragscroll": 0,
                     "lockedsize": 0,
@@ -138,7 +157,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 2638.0, 506.0, 152.07100981473923, 22.0 ],
-                    "text": "timeConstDown 20."
+                    "text": "timeConstDown 1815.272"
                 }
             },
             {
@@ -2897,7 +2916,15 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-56", 0 ],
+                    "order": 1,
+                    "source": [ "obj-75", 2 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-80", 0 ],
+                    "order": 0,
                     "source": [ "obj-75", 2 ]
                 }
             },
