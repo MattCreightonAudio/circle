@@ -9,8 +9,30 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 800.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-151",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 738.9610319137573, 455.8441514968872, 24.0, 24.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-150",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 335.3896071910858, 422.7272686958313, 24.0, 24.0 ]
+                }
+            },
             {
                 "box": {
                     "id": "obj-129",
@@ -44,7 +66,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "bang", "" ],
-                    "patching_rect": [ 343.2203471660614, 448.8428316116333, 50.0, 22.0 ],
+                    "patching_rect": [ 304.87012696266174, 395.454541683197, 50.0, 22.0 ],
                     "text": "select 1"
                 }
             },
@@ -55,7 +77,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 343.2203471660614, 419.181813955307, 88.0, 22.0 ],
+                    "patching_rect": [ 304.87012696266174, 366.23376274108887, 88.0, 22.0 ],
                     "text": "r #0_gestOn"
                 }
             },
@@ -66,7 +88,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "bang", "" ],
-                    "patching_rect": [ 719.0909013748169, 465.254248380661, 50.0, 22.0 ],
+                    "patching_rect": [ 706.4934997558594, 426.62337255477905, 50.0, 22.0 ],
                     "text": "select 1"
                 }
             },
@@ -77,7 +99,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 719.0909013748169, 435.5932307243347, 88.0, 22.0 ],
+                    "patching_rect": [ 706.4934997558594, 397.4025936126709, 88.0, 22.0 ],
                     "text": "r #0_gestOn"
                 }
             },
@@ -88,7 +110,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 668.1818118095398, 509.09090423583984, 64.0, 22.0 ],
+                    "patching_rect": [ 641.5584354400635, 474.999995470047, 64.0, 22.0 ],
                     "text": "r~ #0_Y"
                 }
             },
@@ -476,7 +498,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 338.6363604068756, 303.66665744781494, 507.5378818511963, 103.0 ],
+                    "patching_rect": [ 287.01298427581787, 213.6363615989685, 507.5378818511963, 103.0 ],
                     "text": "process incoming XY data  through a pair of constant-ratio filterbanks\nextract the \"analytic components\" - i.e. seperate the anticlockwise-rotating frequency components (Z+) from the clockwise components (Z-)\ncalculate Asum (amplitude), S (similar to eccentricity) and psi (phase offset) values for all frequencies \nelementwise-square Asum to generate A0\nwrite outputs as multichannel signals"
                 }
             },
@@ -579,7 +601,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 268.42359495162964, 239.8368706703186, 656.0, 47.0 ],
+                    "patching_rect": [ 246.7532444000244, 151.29869985580444, 656.0, 47.0 ],
                     "text": "ANALYTIC SIGNAL DECOMPOSITION"
                 }
             },
@@ -1144,7 +1166,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 942.3077237606049, 2053.8462224006653, 57.0, 22.0 ],
+                    "patching_rect": [ 942.3077237606049, 2070.3703024983406, 57.0, 22.0 ],
                     "text": "chans $1"
                 }
             },
@@ -1669,7 +1691,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 2172.4139070510864, 1388.5580110549927, 135.0, 22.0 ],
-                    "text": "a"
+                    "text": "1 1.5 2 3 4"
                 }
             },
             {
@@ -3525,6 +3547,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-151", 0 ],
+                    "source": [ "obj-124", 1 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-20", 0 ],
                     "source": [ "obj-124", 0 ]
                 }
@@ -3711,6 +3739,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-150", 0 ],
+                    "source": [ "obj-148", 1 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-19", 0 ],
                     "source": [ "obj-148", 0 ]
                 }
@@ -3719,6 +3753,18 @@
                 "patchline": {
                     "destination": [ "obj-148", 0 ],
                     "source": [ "obj-149", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-19", 0 ],
+                    "source": [ "obj-150", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-20", 0 ],
+                    "source": [ "obj-151", 0 ]
                 }
             },
             {

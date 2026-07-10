@@ -18,7 +18,7 @@
                     "clickthrough": 0,
                     "enablehscroll": 0,
                     "enablevscroll": 0,
-                    "id": "obj-7",
+                    "id": "obj-12",
                     "lockeddragscroll": 0,
                     "lockedsize": 0,
                     "maxclass": "bpatcher",
@@ -26,8 +26,30 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "offset": [ 0.0, 0.0 ],
-                    "patching_rect": [ 1620.3125, 98.4375, 360.0, 284.0 ],
+                    "patching_rect": [ 2006.0976088047028, 456.06056582927704, 360.0, 284.0 ],
                     "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2361.7021107673645, 1163.8297789096832, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "linecount": 3,
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "multichannelsignal" ],
+                    "patching_rect": [ 1589.0, 353.0, 141.4473670721054, 50.0 ],
+                    "text": "mc.gen~ circle_mcLerp @timeConstUp 0.5 @timeConstDown 500"
                 }
             },
             {
@@ -37,15 +59,15 @@
                     "clickthrough": 0,
                     "enablehscroll": 0,
                     "enablevscroll": 0,
-                    "id": "obj-5",
+                    "id": "obj-7",
                     "lockeddragscroll": 0,
                     "lockedsize": 0,
                     "maxclass": "bpatcher",
-                    "name": "circleScope_FeaturesVisual.maxpat",
+                    "name": "circleScope_A0.maxpat",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "offset": [ 0.0, 0.0 ],
-                    "patching_rect": [ 278.4615650177002, 116.92308807373047, 1191.666621208191, 697.9166400432587 ],
+                    "patching_rect": [ 1625.7574323415756, 456.06056582927704, 360.0, 284.0 ],
                     "viewvisibility": 1
                 }
             },
@@ -124,6 +146,26 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "order": 0,
+                    "source": [ "obj-2", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "order": 1,
+                    "source": [ "obj-2", 3 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-3", 3 ],
                     "source": [ "obj-2", 4 ]
                 }
@@ -131,7 +173,6 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 2 ],
-                    "order": 0,
                     "source": [ "obj-2", 2 ]
                 }
             },
@@ -145,19 +186,6 @@
                 "patchline": {
                     "destination": [ "obj-3", 0 ],
                     "source": [ "obj-2", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-5", 0 ],
-                    "order": 1,
-                    "source": [ "obj-2", 2 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-7", 0 ],
-                    "source": [ "obj-2", 3 ]
                 }
             },
             {

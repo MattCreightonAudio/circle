@@ -126,7 +126,7 @@
                     "patching_rect": [ 560.0000534057617, 286.0, 360.0, 284.0 ],
                     "presentation": 1,
                     "presentation_rect": [ -2.0, -1.0, 360.0, 284.0 ],
-                    "range": 128,
+                    "range": 256,
                     "signed": 1,
                     "size": 64
                 }

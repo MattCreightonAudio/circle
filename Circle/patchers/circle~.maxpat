@@ -803,8 +803,8 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 749.0, 193.0, 418.23531156778336, 22.0 ],
-                    "text": "poly~ circle_core 1 down 8 args 64 8 0.3 8000 4 #1 7 1",
+                    "patching_rect": [ 747.6470900177956, 200.00000834465027, 418.23531156778336, 22.0 ],
+                    "text": "poly~ circle_core 1 down 8 args 64 8 0.6 8000 4 #1 20 1",
                     "varname": "poly~"
                 }
             }
