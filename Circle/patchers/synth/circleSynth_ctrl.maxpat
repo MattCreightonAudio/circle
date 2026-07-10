@@ -161,7 +161,7 @@
                             },
                             {
                                 "box": {
-                                    "code": "hold = in1;\r\nfallTime = in2 * 4000 + 20;\r\nriseTime = 1 + in2*40;\r\ngestState = in3;\r\n\r\ndown = hold ? 100000 : fallTime;\r\nup = gestState ? riseTime : 1000; \r\n\r\nout1 = up;\r\nout2 = down;",
+                                    "code": "hold = in1;\r\nfallTime = in2 * 6000 + 20;\r\nriseTime = 1 + in2*400;\r\ngestState = in3;\r\n\r\ndown = hold ? 100000 : fallTime;\r\nup = gestState ? riseTime : 1000; \r\n\r\nout1 = up;\r\nout2 = down;",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,

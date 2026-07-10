@@ -113,7 +113,8 @@
                                     "source": [ "obj-5", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "autosave": 0
                     },
                     "patching_rect": [ 402.0, 497.0, 100.0, 22.0 ],
                     "text": "gen~"
@@ -531,10 +532,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 560.0, 984.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 1"
                 }
             },
@@ -918,13 +915,13 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-40", 1 ],
+                    "destination": [ "obj-40", 2 ],
                     "source": [ "obj-70", 4 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-40", 2 ],
+                    "destination": [ "obj-40", 1 ],
                     "source": [ "obj-70", 3 ]
                 }
             },
