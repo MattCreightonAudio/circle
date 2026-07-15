@@ -1,0 +1,137 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 111.0, 721.0, 100.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 213.0, 8.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 468.0, 8.0, 28.0, 22.0 ],
+                    "text": "in 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 8439.999195098877, 4029.9996156692505, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "History phase(0);\nHistory y0(0), y1(0), y2(0), y3(0);\nHistory last_in(0), last_out(0);\n\r\nlevel = in1;\ncenter_freq = in2;\nQ = 1;\r\nmorph = in4;\n\nf_high = pow(2, center_freq * 11) * 5;\nT = samplerate / f_high;\n\nf_low = f_high / Q;\ntheta = (2 * PI * f_low) / samplerate;\nR = clip(1 - theta, 0, 1);\n\nphase += 1;\nif (phase >= T) {\n    phase -= T;\n    y0 = y1;\n    y1 = y2;\n    y2 = y3;\n    y3 = noise();\n}\n\nt = phase / T;\nexponent = 1 + (morph * 50);\nt_warped = pow(t, exponent);\n\nt2 = t_warped * t_warped;\nt3 = t2 * t_warped;\n\na0 = -0.5 * y0 + 1.5 * y1 - 1.5 * y2 + 0.5 * y3;\na1 = y0 - 2.5 * y1 + 2.0 * y2 - 0.5 * y3;\na2 = -0.5 * y0 + 0.5 * y2;\na3 = y1;\n\nraw_noise = a0 * t3 + a1 * t2 + a2 * t_warped + a3;\n\nfiltered_noise = raw_noise - last_in + R * last_out;\n\nlast_in = raw_noise;\nlast_out = filtered_noise;\n\nout1 = filtered_noise * level;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 4,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 95.0, 79.0, 440.66667979955673, 611.3333515524864 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 305.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 176.0, 418.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}

@@ -1,0 +1,178 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1139.0, 28.0, 28.0, 22.0 ],
+                    "text": "in 5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 888.0, 20.0, 28.0, 22.0 ],
+                    "text": "in 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 670.0, 20.0, 28.0, 22.0 ],
+                    "text": "in 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 2136.6666157245636, 1679.9999599456787, 100.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "code": "soft_saw(p, k) {\r\n    p = p - floor(p);\r\n    val = 0.0;\r\n    if (p < k) {\r\n        x = p / k;\r\n        val = x * x - 1.0;\r\n    } else if (p > 1.0 - k) {\r\n        x = (p - (1.0 - k)) / k;\r\n        val = 2.0 * x - x * x - 1.0;\r\n    } else {\r\n        val = 2.0 * p - 1.0;\r\n    }\r\n    return val + k;\r\n}\r\n\r\nsoft_square(p, k) {\r\n    p = p - floor(p);\r\n    val = 0.0;\r\n    if (p < k) {\r\n        val = 3.0 * (p/k) * (p/k) - 2.0 * (p/k) * (p/k) * (p/k);\r\n    } else if (p < 0.5) {\r\n        val = 1.0;\r\n    } else if (p < 0.5 + k) {\r\n        p2 = (p - 0.5) / k;\r\n        val = 1.0 - (3.0 * p2 * p2 - 2.0 * p2 * p2 * p2);\r\n    } else if (p < 1.0 - k) {\r\n        val = -1.0;\r\n    } else {\r\n        p3 = (p - (1.0 - k)) / k;\r\n        val = -1.0 + (3.0 * p3 * p3 - 2.0 * p3 * p3 * p3);\r\n    }\r\n    return val;\r\n}\r\n\r\nosc_core(p, odds, evens, k)\r\n{\r\n    sq = soft_square(p, k);\r\n    saw_oct = soft_saw(2.0 * p, k);\r\n    sin_fund = sin(2.0 * pi * p);\r\n    \r\n    fund_amplitude = (4.0 / pi);\r\n    \r\n    high_odds = 0.5 * (sq - fund_amplitude * sin_fund);\r\n    even_harmonics = 0.5 * saw_oct;\r\n    \r\n    f_amp = 1.0 - odds * (1.0 - 2.0 / pi);\r\n    fund = f_amp * sin_fund;\r\n    \r\n    \r\n    return fund /* * (min(1,odds+1-evens))*/ + high_odds * odds + even_harmonics * evens;\r\n}\r\n\r\ndrive(samp, drive, bias)\r\n{\r\n    \r\n    return(tanh(samp * (1+drive) + bias) - tanh(bias)) / tanh(1+drive+bias/2);\r\n}\r\n\r\nHistory mainPhasor(0);\r\nParam softK(0.3);\r\nParam numHarms(16);\r\n\r\nfreq = in1;\r\nodds = in2;\r\nevens =  in3;\r\ndriveAmt = in4;\r\nphaseOffset = in5;\r\n\r\ndeltaT = 1/samplerate;\r\nmainPhasor = mainPhasor + freq * deltaT;\r\nphase = mainPhasor + phaseOffset;\r\n\r\nsum = 0;\r\nfor (i=0; i<numHarms; i=i+1)\r\n{\r\n\tratio = peek(harmRatios, i);\r\n\tlevel = peek(harmLevels, i);\r\n\tp = phase * ratio;\r\n\tsum = sum + osc_core(p, odds, evens, softK) * level;\r\n}\r\n\r\n// drive it!\r\nout1 = sum * (1-driveAmt*driveAmt) + drive(sum,  20,  0.2) * driveAmt*driveAmt * 0.5;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 5,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 200.0, 207.0, 978.0, 1060.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 334.0, 397.0, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 598.0, 73.0, 100.0, 36.0 ],
+                    "text": "buffer harmLevels"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 474.0, 73.0, 100.0, 36.0 ],
+                    "text": "buffer harmRatios"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 452.0, 28.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 209.0, 1363.0, 61.33335995674133, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 3 ],
+                    "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 4 ],
+                    "source": [ "obj-11", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 2 ],
+                    "source": [ "obj-9", 0 ]
+                }
+            }
+        ],
+        "autosave": 0
+    }
+}
