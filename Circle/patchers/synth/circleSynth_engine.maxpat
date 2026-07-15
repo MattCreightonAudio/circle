@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ -98.0, 103.0, 800.0, 633.0 ],
         "boxes": [
             {
                 "box": {
@@ -20,7 +20,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 332.1951298713684, 468.78049898147583, 194.0, 50.0 ],
-                    "text": "gen~ circleSynth_primeFDN @cavityMix 0.2 @cavityDecay 0.8 @woodDamp 0.4"
+                    "text": "gen~ circleSynth_primeFDN @cavityMix 0.5 @cavityDecay 0.8 @woodDamp 0.4"
                 }
             },
             {
@@ -97,7 +97,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 284.0, 398.0, 251.0, 22.0 ],
-                    "text": "poly~ circleSynth_engine_core 4 @args #0"
+                    "text": "poly~ circleSynth_engine_core 3 @args #0"
                 }
             },
             {
