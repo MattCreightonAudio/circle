@@ -9,8 +9,19 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 838.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 120.0, 331.0, 150.0, 34.0 ],
+                    "text": "the other input is phase offset"
+                }
+            },
             {
                 "box": {
                     "id": "obj-38",
@@ -59,7 +70,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 240.0, 58.0, 113.0, 20.0 ],
-                    "text": "odds evens    drive "
+                    "text": "PD evens    drive "
                 }
             },
             {
@@ -72,7 +83,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 320.0, 91.0, 20.0, 140.0 ],
+                    "patching_rect": [ 308.0, 86.0, 20.0, 140.0 ],
                     "size": 1.0
                 }
             },

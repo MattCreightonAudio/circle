@@ -9,83 +9,53 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 59.0, 107.0, 896.0, 602.0 ],
         "boxes": [
             {
                 "box": {
                     "comment": "",
-                    "id": "obj-2",
-                    "index": 1,
+                    "id": "obj-5",
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 350.0, 343.0, 30.0, 30.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-17",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 542.0, 31.0, 49.0, 20.0 ],
-                    "text": "morph"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-13",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 305.0, 38.0, 79.0, 20.0 ],
-                    "text": "center freq"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-10",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 200.0, 45.0, 45.0, 20.0 ],
-                    "text": "level"
+                    "patching_rect": [ 395.0, 449.0, 30.0, 30.0 ]
                 }
             },
             {
                 "box": {
                     "comment": "",
-                    "id": "obj-8",
-                    "index": 3,
+                    "id": "obj-4",
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 547.0, 74.0, 30.0, 30.0 ]
+                    "patching_rect": [ 560.0, 207.0, 30.0, 30.0 ]
                 }
             },
             {
                 "box": {
                     "comment": "",
-                    "id": "obj-6",
-                    "index": 2,
+                    "id": "obj-3",
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 333.0, 70.0, 30.0, 30.0 ]
+                    "patching_rect": [ 426.0, 201.0, 30.0, 30.0 ]
                 }
             },
             {
                 "box": {
                     "comment": "",
-                    "id": "obj-5",
-                    "index": 1,
+                    "id": "obj-2",
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 203.0, 87.0, 30.0, 30.0 ]
+                    "patching_rect": [ 345.0, 180.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -95,36 +65,37 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 293.0, 218.0, 174.0, 22.0 ],
-                    "text": "gen~ circleSynth_noiseOsc"
+                    "patching_rect": [ 354.0, 299.0, 232.0, 22.0 ],
+                    "text": "gen~ circleSynth_equalPowerXfade"
                 }
             }
         ],
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-2", 0 ],
+                    "destination": [ "obj-5", 0 ],
                     "source": [ "obj-1", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "source": [ "obj-5", 0 ]
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 1 ],
-                    "source": [ "obj-6", 0 ]
+                    "source": [ "obj-3", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 2 ],
-                    "source": [ "obj-8", 0 ]
+                    "source": [ "obj-4", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

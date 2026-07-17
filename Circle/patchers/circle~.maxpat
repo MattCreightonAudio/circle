@@ -758,7 +758,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1209.348377943039, 161.0, 200.00000476837158, 213.0 ],
-                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n1 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n20 = main Q\n1 = smoothing multiplier\n20 = slow Q (for S)"
+                    "text": "arguments (in order):\n\"cicle....Hz\" = patcher path\n1 = make one of it\n\"down 8\" = downsampling factor\n64 =  number of TE/TFS bands \n8 = bands per oct\n1 = starting freq\n8000 = TE rolling buffer size (samps)\n4 = num_ellipses\n#1 = identifier for this instance of circle_core\n6 = main Q\n1 = smoothing multiplier\n20 = slow Q (for S)"
                 }
             },
             {
