@@ -115,10 +115,10 @@
                     "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "multichannelsignal", "multichannelsignal" ],
-                    "patching_rect": [ 193.0, 480.0, 344.0, 36.0 ],
-                    "text": "mc.gen~ circle_sigSvf_cutoffHelper @chans #1 @startingFreq #2 @freqRatio #3"
+                    "numoutlets": 1,
+                    "outlettype": [ "multichannelsignal" ],
+                    "patching_rect": [ 187.5, 494.0, 344.0, 36.0 ],
+                    "text": "mc.gen~ circle_sigSvf_cutoffHelper @chans #1 @startingFreq #2 @bandsPerOct #3"
                 }
             },
             {

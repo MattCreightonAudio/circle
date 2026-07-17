@@ -209,12 +209,12 @@
             {
                 "box": {
                     "id": "obj-3",
-                    "linecount": 6,
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 473.0, 281.0, 150.0, 103.0 ],
-                    "text": "args: \nnumber of bands\nStarting freq\nFreq ratio\nstarting Q (global to all filters)\n"
+                    "patching_rect": [ 473.0, 281.0, 150.0, 75.0 ],
+                    "text": "args: \nnumber of bands\nStarting freq\nBands/oct\n"
                 }
             },
             {
@@ -226,7 +226,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 335.0, 299.0, 136.0, 36.0 ],
-                    "text": "circle_core_svfBank 64 0.3 1.05"
+                    "text": "circle_core_svfBank 64 0.3 12"
                 }
             }
         ],

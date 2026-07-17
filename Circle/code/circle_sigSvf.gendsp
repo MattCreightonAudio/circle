@@ -85,7 +85,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// Persistent state variables (history) for the trapezoidal integration\r\nHistory s1(0);\r\nHistory s2(0);\r\n\r\n// Inputs\r\nx = in1;       // Audio input signal\r\nfc = in2;      // Cutoff frequency in Hz\r\nQ = in3;       // Filter quality factor (Q)\r\nkeep_factor = clamp(1-in4, 0, 1);\r\n\r\n// 1. Prewarp the cutoff frequency to the bilinear transform space\r\n// Clamp to prevent tan() from blowing up near Nyquist\r\nfc_clamped = clamp(fc, 0.1, samplerate * 0.49);\r\ng = tan(PI * fc_clamped / samplerate);\r\n\r\n// 2. Damping factor derived from Q (clamp Q to prevent division by zero)\r\nk = 1 / max(Q, 0.01);\r\n\r\n// 3. Solve the matrix for the trapezoidal state update coefficients\r\na1 = 1 / (1 + g * (g + k));\r\na2 = g * a1;\r\na3 = g * a2;\r\n\r\n// Apply the keep_factor  to the history states before processing\r\ns1_attenuated = s1 * keep_factor;\r\ns2_attenuated = s2 * keep_factor;\r\n\r\n// 4. Run the filter equations\r\nv3 = x - s2_attenuated;\r\nv1 = a1 * s1_attenuated + a2 * v3;\r\nv2 = s2_attenuated + a2 * s1_attenuated + a3 * v3;\r\n\r\n// 5. Update internal state histories\r\ns1 = 2 * v1 - s1_attenuated;\r\ns2 = 2 * v2 - s2_attenuated;\r\n\r\n// 6. Extracted Outputs\r\nbandpass = v1;\r\nout1 = bandpass;",
+                    "code": "\r\n// Persistent state variables (history) for the trapezoidal integration\r\nHistory s1(0);\r\nHistory s2(0);\r\n\r\n// Inputs\r\nx = in1;       // Audio input signal\r\nfc = in2;      // Cutoff frequency in Hz\r\nQ = in3;       // Filter quality factor (Q)\r\nkeep_factor = clamp(1-in4, 0, 1);\r\n\r\n// 1. Prewarp the cutoff frequency to the bilinear transform space\r\n// Clamp to prevent tan() from blowing up near Nyquist\r\nfc_clamped = clamp(fc, 0.1, samplerate * 0.49);\r\ng = tan(PI * fc_clamped / samplerate);\r\n\r\n// 2. Damping factor derived from Q (clamp Q to prevent division by zero)\r\nk = 1 / max(Q, 0.0001);\r\n\r\n// 3. Solve the matrix for the trapezoidal state update coefficients\r\na1 = 1 / (1 + g * (g + k));\r\na2 = g * a1;\r\na3 = g * a2;\r\n\r\n// Apply the keep_factor  to the history states before processing\r\ns1_attenuated = s1 * keep_factor;\r\ns2_attenuated = s2 * keep_factor;\r\n\r\n// 4. Run the filter equations\r\nv3 = x - s2_attenuated;\r\nv1 = a1 * s1_attenuated + a2 * v3;\r\nv2 = s2_attenuated + a2 * s1_attenuated + a3 * v3;\r\n\r\n// 5. Update internal state histories\r\ns1 = 2 * v1 - s1_attenuated;\r\ns2 = 2 * v2 - s2_attenuated;\r\n\r\n// 6. Extracted Outputs\r\nbandpass = v1;\r\nout1 = bandpass * k;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -161,6 +161,7 @@
                     "source": [ "obj-6", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }
