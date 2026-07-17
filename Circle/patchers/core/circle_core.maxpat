@@ -58,7 +58,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 773.7288320064545, 534.7457754611969, 150.0, 20.0 ],
+                    "patching_rect": [ 968.1817327737808, 536.0, 150.0, 20.0 ],
                     "text": "slow Q"
                 }
             },
@@ -68,7 +68,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 979.7604073286057, 534.7457754611969, 56.479185342788696, 20.0 ],
+                    "patching_rect": [ 772.6694911718369, 544.7908668518066, 56.479185342788696, 20.0 ],
                     "text": "fast Q"
                 }
             },
@@ -176,10 +176,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 2208.2353862524033, 1277.4018189907074, 100.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 4"
                 }
             },
@@ -267,6 +263,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1655.5556877851486, 188.88890397548676, 28.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 3"
                 }
             },
@@ -1055,10 +1055,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 459.15189135074615, 5409.999871015549, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 1"
                 }
             },
@@ -3156,10 +3152,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 1511.111231803894, 193.8271759748459, 35.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in~ 2"
                 }
             },
@@ -3171,10 +3163,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 1383.9507278203964, 188.88890397548676, 35.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in~ 1"
                 }
             }
