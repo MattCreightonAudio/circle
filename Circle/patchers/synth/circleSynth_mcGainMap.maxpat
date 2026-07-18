@@ -28,9 +28,9 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 173.0, 501.0, 100.0, 22.0 ],
-                    "text": "*~"
+                    "text": "mc.*~"
                 }
             },
             {
@@ -84,7 +84,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 144.0, 222.0, 100.0, 22.0 ],
+                    "patching_rect": [ 138.0, 227.0, 100.0, 22.0 ],
                     "text": "sig~ 1"
                 }
             },
@@ -94,9 +94,9 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 227.0, 271.0, 100.0, 22.0 ],
-                    "text": "-~"
+                    "text": "mc.-~"
                 }
             },
             {
@@ -105,9 +105,9 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 268.0, 371.0, 100.0, 22.0 ],
-                    "text": "*~"
+                    "text": "mc.*~"
                 }
             },
             {
@@ -116,9 +116,9 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 213.0, 330.0, 100.0, 22.0 ],
-                    "text": ">=~ -80"
+                    "text": "mc.>=~ -80"
                 }
             },
             {
@@ -127,9 +127,9 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 334.0, 330.0, 100.0, 22.0 ],
-                    "text": "dbtoa~"
+                    "text": "mc.dbtoa~"
                 }
             },
             {
@@ -138,9 +138,9 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 329.0, 301.0, 100.0, 22.0 ],
-                    "text": "*~ -80"
+                    "text": "mc.*~ -80"
                 }
             },
             {

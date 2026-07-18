@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -906,7 +906,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 166.0, 139.0, 100.0, 22.0 ],
+                    "patching_rect": [ 158.0, 138.0, 100.0, 22.0 ],
                     "text": "s~ #0_freq1"
                 }
             },
