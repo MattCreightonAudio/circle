@@ -38,9 +38,9 @@
                     "id": "obj-7",
                     "maxclass": "newobj",
                     "numinlets": 7,
-                    "numoutlets": 3,
-                    "outlettype": [ "multichannelsignal", "", "" ],
-                    "patching_rect": [ 48.76190476190476, 127.1276586651802, 100.0, 22.0 ],
+                    "numoutlets": 4,
+                    "outlettype": [ "multichannelsignal", "", "", "" ],
+                    "patching_rect": [ 73.26202994585037, 135.2941136956215, 100.0, 22.0 ],
                     "text": "circleSynth_map"
                 }
             },
@@ -91,7 +91,7 @@
                 "box": {
                     "id": "obj-2",
                     "maxclass": "newobj",
-                    "numinlets": 2,
+                    "numinlets": 3,
                     "numoutlets": 8,
                     "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "", "", "", "multichannelsignal" ],
                     "patching_rect": [ 58.83333333333333, 80.0, 90.0, 22.0 ],

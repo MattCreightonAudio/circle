@@ -72,7 +72,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 558.0, 236.0, 150.0, 48.0 ],
+                    "patching_rect": [ 442.0, 121.0, 150.0, 48.0 ],
                     "text": "hold on / off (and some mildly silly business around resets)"
                 }
             },
@@ -148,7 +148,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 600.7407210469246, 371.8518396615982, 29.5, 22.0 ],
+                    "patching_rect": [ 485.0, 257.0, 29.5, 22.0 ],
                     "text": "-1"
                 }
             },
@@ -159,7 +159,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 637.0370161533356, 375.55554324388504, 29.5, 22.0 ],
+                    "patching_rect": [ 521.0, 261.0, 29.5, 22.0 ],
                     "text": "0"
                 }
             },
@@ -170,7 +170,7 @@
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "bang", "bang", "bang" ],
-                    "patching_rect": [ 637.0370161533356, 289.6296201348305, 42.0, 22.0 ],
+                    "patching_rect": [ 521.0, 175.0, 42.0, 22.0 ],
                     "text": "t b b b"
                 }
             },
@@ -181,7 +181,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 678.2353224158287, 337.84209060668945, 62.0, 22.0 ],
+                    "patching_rect": [ 562.0, 223.0, 62.0, 22.0 ],
                     "text": "keyHold 0"
                 }
             },
@@ -192,7 +192,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 738.2353249192238, 302.35295379161835, 62.0, 22.0 ],
+                    "patching_rect": [ 622.0, 187.0, 62.0, 22.0 ],
                     "text": "keyHold 1"
                 }
             },
@@ -203,7 +203,7 @@
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "bang", "bang", "" ],
-                    "patching_rect": [ 718.2353240847588, 265.294128715992, 60.0, 22.0 ],
+                    "patching_rect": [ 602.0, 150.0, 60.0, 22.0 ],
                     "text": "select 0 1"
                 }
             },
@@ -304,7 +304,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 870.5882186889648, 154.87805247306824, 32.0, 22.0 ],
+                    "patching_rect": [ 875.0, 155.87805247306824, 32.0, 22.0 ],
                     "text": "gate"
                 }
             },
@@ -349,7 +349,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 898.7189376652241, 422.84209060668945, 205.88234066963196, 22.0 ],
-                    "text": "0. 0. 0. 0. 0. 0. 0. 0."
+                    "text": "48. 0. 0. 0. 0. 0. 0. 0."
                 }
             },
             {
@@ -528,6 +528,7 @@
             {
                 "box": {
                     "id": "obj-16",
+                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 3,
                     "numoutlets": 12,
@@ -542,7 +543,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ -96.0, 149.0, 1213.0, 642.0 ],
+                        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
                         "boxes": [
                             {
                                 "box": {
@@ -805,8 +806,8 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 880.7189376652241, 337.84209060668945, 134.5, 22.0 ],
-                    "text": "gen @maxVoices 8"
+                    "patching_rect": [ 880.7189376652241, 337.84209060668945, 134.5, 36.0 ],
+                    "text": "gen @maxVoices 8 @keyHold 1"
                 }
             },
             {
