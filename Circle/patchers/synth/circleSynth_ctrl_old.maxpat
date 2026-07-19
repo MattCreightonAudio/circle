@@ -62,19 +62,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
-                    "patching_rect": [ 667.7966260910034, 104.0, 100.0, 22.0 ],
+                    "patching_rect": [ 730.0, 94.0, 100.0, 22.0 ],
                     "text": "* 0.007874"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-39",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 714.7058687210083, 184.55882000923157, 100.0, 22.0 ],
-                    "text": "*~"
                 }
             },
             {
@@ -172,7 +161,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+                        "rect": [ -155.0, 159.0, 1213.0, 642.0 ],
                         "boxes": [
                             {
                                 "box": {
@@ -330,7 +319,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 765.2542555332184, 104.0, 160.169495344162, 36.0 ],
+                    "patching_rect": [ 730.0, 136.0, 160.169495344162, 36.0 ],
                     "text": "s #0_ctrlState_cglFallTIme"
                 }
             },
@@ -447,7 +436,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "bang" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 576.5, 26.0, 30.0, 30.0 ]
                 }
             },
@@ -1025,7 +1014,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 42.0, 6.0, 30.0, 30.0 ]
                 }
             },

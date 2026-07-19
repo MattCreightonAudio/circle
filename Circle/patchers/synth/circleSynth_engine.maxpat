@@ -140,7 +140,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 176.47058486938477, 123.52940940856934, 30.0, 30.0 ]
                 }
             },
@@ -174,7 +174,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 389.4117809534073, 291.9117591381073, 149.0, 36.0 ],
-                    "text": "poly~ circleSynth_voice 1 @args #0"
+                    "text": "poly~ circleSynth_voice 3 @args #0"
                 }
             }
         ],

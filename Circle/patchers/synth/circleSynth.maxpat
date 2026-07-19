@@ -13,12 +13,23 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 5,
+                    "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "" ],
+                    "patching_rect": [ 165.13157737255096, 84.21052551269531, 163.8157879114151, 22.0 ],
+                    "text": "circleSynth_ctrl_old"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 140.0, 266.0, 184.0, 22.0 ],
+                    "patching_rect": [ 52.47863382101059, 241.0, 184.0, 22.0 ],
                     "text": "gen~ circleSynth_primeFDN"
                 }
             },
@@ -61,7 +72,7 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 117.0, 378.0, 35.0, 22.0 ],
+                    "patching_rect": [ 44.0, 288.0, 35.0, 22.0 ],
                     "text": "dac~"
                 }
             },
