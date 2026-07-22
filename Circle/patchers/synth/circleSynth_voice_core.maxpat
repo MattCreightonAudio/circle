@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 134.0, 134.0, 1213.0, 642.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
         "boxes": [
             {
                 "box": {
@@ -486,7 +486,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 776.9231510162354, 184.6154022216797, 100.0, 22.0 ],
+                    "patching_rect": [ 184.0, 148.0, 100.0, 22.0 ],
                     "text": "*~"
                 }
             },
@@ -497,7 +497,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 776.9231510162354, 147.69232177734375, 100.0, 22.0 ],
+                    "patching_rect": [ 184.0, 111.0, 100.0, 22.0 ],
                     "text": "r~ #0_freq1"
                 }
             },
@@ -832,7 +832,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 620.0000591278076, 152.30770683288574, 113.0, 50.0 ],
+                    "patching_rect": [ 813.0, 157.0, 113.0, 50.0 ],
                     "text": "mc.s~ #0_noise1Params @chans 2"
                 }
             },
@@ -864,7 +864,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 776.9231510162354, 221.53848266601562, 100.0, 22.0 ],
+                    "patching_rect": [ 184.0, 185.0, 100.0, 22.0 ],
                     "text": "s~ #0_freq2"
                 }
             },
@@ -875,7 +875,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 455.38465881347656, 141.5384750366211, 100.0, 50.0 ],
+                    "patching_rect": [ 648.0, 147.0, 100.0, 50.0 ],
                     "text": "mc.s~ #0_osc1Levels @chans 10"
                 }
             },
@@ -886,7 +886,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 332.30772399902344, 141.5384750366211, 100.0, 50.0 ],
+                    "patching_rect": [ 525.0, 147.0, 100.0, 50.0 ],
                     "text": "mc.s~ #0_osc1Params @chans 3"
                 }
             },
@@ -896,7 +896,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 27.0, 134.0, 100.0, 22.0 ],
+                    "patching_rect": [ 374.0, 166.30770683288574, 100.0, 22.0 ],
                     "text": "s~ #0_level"
                 }
             },
@@ -906,7 +906,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 158.0, 138.0, 100.0, 22.0 ],
+                    "patching_rect": [ 18.0, 148.0, 100.0, 22.0 ],
                     "text": "s~ #0_freq1"
                 }
             },
@@ -939,7 +939,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 576.923131942749, 61.53846740722656, 127.45098441839218, 34.0 ],
+                    "patching_rect": [ 770.0, 67.0, 127.45098441839218, 34.0 ],
                     "text": "Noise params 1\n(center, morph)"
                 }
             },
@@ -947,12 +947,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-19",
-                    "index": 5,
+                    "index": 6,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 615.3846740722656, 107.69231796264648, 30.0, 30.0 ]
+                    "patching_rect": [ 808.0, 113.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -1006,7 +1006,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 429.2308101654053, 70.76923751831055, 116.48936086893082, 20.0 ],
+                    "patching_rect": [ 622.0, 76.0, 116.48936086893082, 20.0 ],
                     "text": "Osc 1 Levels "
                 }
             },
@@ -1014,12 +1014,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-14",
-                    "index": 4,
+                    "index": 5,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 455.38465881347656, 100.00000953674316, 30.0, 30.0 ]
+                    "patching_rect": [ 648.0, 105.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -1028,7 +1028,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 761.5385341644287, 56.92308235168457, 95.0, 20.0 ],
+                    "patching_rect": [ 169.0, 20.0, 95.0, 20.0 ],
                     "text": "inter-Osc Ratio"
                 }
             },
@@ -1036,12 +1036,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-10",
-                    "index": 6,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 787.6923828125, 90.76923942565918, 30.0, 30.0 ]
+                    "patching_rect": [ 195.0, 54.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -1051,7 +1051,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 306.15387535095215, 58.461544036865234, 116.48936086893082, 34.0 ],
+                    "patching_rect": [ 499.0, 63.0, 116.48936086893082, 34.0 ],
                     "text": "Osc 1 Params \n(PD, Evens, Dist)"
                 }
             },
@@ -1059,12 +1059,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-7",
-                    "index": 3,
+                    "index": 4,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 328.9156748056412, 100.00000953674316, 30.0, 30.0 ]
+                    "patching_rect": [ 522.0, 105.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -1073,7 +1073,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 17.0, 63.0, 40.42553162574768, 20.0 ],
+                    "patching_rect": [ 364.0, 95.30770683288574, 40.42553162574768, 20.0 ],
                     "text": "level"
                 }
             },
@@ -1081,12 +1081,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-4",
-                    "index": 1,
+                    "index": 3,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 22.0, 92.0, 30.0, 30.0 ]
+                    "patching_rect": [ 369.0, 124.30770683288574, 30.0, 30.0 ]
                 }
             },
             {
@@ -1095,7 +1095,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 172.0, 68.0, 37.234042286872864, 20.0 ],
+                    "patching_rect": [ 32.0, 78.0, 37.234042286872864, 20.0 ],
                     "text": "freq"
                 }
             },
@@ -1103,12 +1103,12 @@
                 "box": {
                     "comment": "",
                     "id": "obj-1",
-                    "index": 2,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 175.0, 94.0, 30.0, 30.0 ]
+                    "patching_rect": [ 35.0, 104.0, 30.0, 30.0 ]
                 }
             }
         ],

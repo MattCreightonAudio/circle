@@ -13,17 +13,6 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-9",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 5,
-                    "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "" ],
-                    "patching_rect": [ 165.13157737255096, 84.21052551269531, 163.8157879114151, 22.0 ],
-                    "text": "circleSynth_ctrl_old"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
                     "numinlets": 1,
