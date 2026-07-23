@@ -42,7 +42,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 455.0, 205.0, 100.0, 22.0 ],
-                    "text": "metro 100"
+                    "text": "metro 1000"
                 }
             },
             {
@@ -63,7 +63,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 52.47863382101059, 241.0, 184.0, 22.0 ],
+                    "patching_rect": [ 44.0, 231.0, 184.0, 22.0 ],
                     "text": "gen~ circleSynth_primeFDN"
                 }
             },
