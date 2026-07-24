@@ -1,0 +1,227 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 856.0, 112.0, 28.0, 22.0 ],
+                    "text": "in 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-19",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 930.0, 637.0, 35.0, 22.0 ],
+                    "text": "out 9"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 864.0, 637.0, 35.0, 22.0 ],
+                    "text": "out 8"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 769.0, 637.0, 35.0, 22.0 ],
+                    "text": "out 7"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 659.0, 637.0, 36.0, 22.0 ],
+                    "text": "out 6"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 552.0, 629.0, 35.0, 22.0 ],
+                    "text": "out 5"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 461.0, 637.0, 35.0, 22.0 ],
+                    "text": "out 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 374.54602666334677, 629.0, 35.0, 22.0 ],
+                    "text": "out 3"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 228.0487859249115, 623.1707465648651, 35.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
+            {
+                "box": {
+                    "code": "// History states for tracking note changes and hold transitions\r\nHistory last_note(-1);\r\nHistory last_vel(-1);\r\nHistory last_keyHold(0);\r\n\r\n// Parameters for active voice count limit and pedal/key hold state\r\nParam maxVoices(12); // Dynamic limit: 1 to 12\r\nParam keyHold(0);   // 0 = Off, 1 = Hold Mode active\r\n\r\n// Sounding note pools (active audio output notes)\r\nData voices(12);       \r\nData voiceBends(12);   \r\n\r\n// Stolen note pools (stack for notes pushed out due to voice limits)\r\nData stolenVoices(12);\r\nData stolenBends(12);\r\n\r\n// Physical key state pools (matches actual key presses on MIDI keyboard)\r\nData physicalKeys(12); \r\nData physicalBends(12);\r\n\r\n// Inputs from notein\r\nnote = in1;\r\nvel  = in2;\r\nbend = in3; // Pitch bend in semitones snapshot at Note On\r\n\r\n// Clamp maxVoices strictly between 1 and 12\r\nactiveLimit = clamp(maxVoices, 1, 12);\r\nlimit = activeLimit - 1;\r\n\r\n// ITEM 2 FIX: If keyHold transitioned 1 -> 0, purge non-physical notes from active AND stolen pools\r\nif (last_keyHold == 1 && keyHold == 0) \r\n{\r\n    // Clear all sounding and stolen pools\r\n    for (i = 0; i < 12; i = i + 1) {\r\n        poke(voices, 0, i);\r\n        poke(voiceBends, 0, i);\r\n        poke(stolenVoices, 0, i);\r\n        poke(stolenBends, 0, i);\r\n    }\r\n    \r\n    // Repopulate sounding and stolen pools strictly from remaining physical keys\r\n    snd_idx = 0;\r\n    stolen_idx = 0;\r\n    \r\n    for (i = 0; i < 12; i = i + 1) {\r\n        pk = peek(physicalKeys, i);\r\n        pb = peek(physicalBends, i);\r\n        if (pk > 0) {\r\n            if (snd_idx < activeLimit) {\r\n                poke(voices, pk, snd_idx);\r\n                poke(voiceBends, pb, snd_idx);\r\n                snd_idx = snd_idx + 1;\r\n            } else {\r\n                poke(stolenVoices, pk, stolen_idx);\r\n                poke(stolenBends, pb, stolen_idx);\r\n                stolen_idx = stolen_idx + 1;\r\n            }\r\n        }\r\n    }\r\n}\r\nlast_keyHold = keyHold;\r\n\r\n// Evaluate physical key state PRIOR to processing current Note On/Off event\r\nprev_is_any_physical = 0;\r\nfor (i = 0; i < 12; i += 1) {\r\n    if (peek(physicalKeys, i) > 0) {\r\n        prev_is_any_physical = 1;\r\n        break;\r\n    }\r\n}\r\n\r\nif (vel > 0) { // NOTE ON\r\n    \r\n    // ITEM 2 FIX: If KeyHold is active and NO physical keys were held prior to this Note On,\r\n    // clear sounding, stolen, AND physical key pools ready for a new chord\r\n    if (keyHold > 0 && !prev_is_any_physical) {\r\n        for (i = 0; i < 12; i += 1) {\r\n            poke(voices, 0, i);\r\n            poke(voiceBends, 0, i);\r\n            poke(stolenVoices, 0, i);\r\n            poke(stolenBends, 0, i);\r\n            poke(physicalKeys, 0, i);  // Fixed: Reset physical keys\r\n            poke(physicalBends, 0, i); // Fixed: Reset physical bends\r\n        }\r\n    }\r\n\r\n    // Register incoming note and bend snapshot into physical keys pool\r\n    phys_registered = 0;\r\n    for (i = 0; i < 12; i += 1) {\r\n        if (peek(physicalKeys, i) == note) {\r\n            poke(physicalBends, bend, i);\r\n            phys_registered = 1;\r\n            break;\r\n        }\r\n    }\r\n    if (!phys_registered) {\r\n        for (i = 0; i < 12; i += 1) {\r\n            if (peek(physicalKeys, i) == 0) {\r\n                poke(physicalKeys, note, i);\r\n                poke(physicalBends, bend, i);\r\n                break;\r\n            }\r\n        }\r\n    }\r\n\r\n    // Check if note is currently in stolen pool; if so, remove & compact stolen pool\r\n    for (i = 0; i < 12; i += 1) {\r\n        if (peek(stolenVoices, i) == note) {\r\n            // Remove from stolen pool and shift remaining stolen notes left\r\n            for (j = i; j < 11; j += 1) {\r\n                poke(stolenVoices, peek(stolenVoices, j + 1), j);\r\n                poke(stolenBends, peek(stolenBends, j + 1), j);\r\n            }\r\n            poke(stolenVoices, 0, 11);\r\n            poke(stolenBends, 0, 11);\r\n            break;\r\n        }\r\n    }\r\n\r\n    // Snapshot incoming pitch bend into physical and sounding pools\r\n    assigned = 0;\r\n    for (i = 0; i < activeLimit; i += 1) {\r\n        if (peek(voices, i) == note) {\r\n            poke(voiceBends, bend, i); // Update voice bend snapshot on re-strike\r\n            assigned = 1;\r\n            break;\r\n        }\r\n    }\r\n\r\n    // If not already sounding, try allocating to an open slot\r\n    if (!assigned) {\r\n        for (i = 0; i < activeLimit; i += 1) {\r\n            if (peek(voices, i) == 0) {\r\n                poke(voices, note, i);\r\n                poke(voiceBends, bend, i); // Store frozen bend snapshot\r\n                assigned = 1;\r\n                break;\r\n            }\r\n        }\r\n    }\r\n\r\n    // VOICE STEALING: If full, steal oldest active voice (index 0) and push into stolen pool\r\n    if (!assigned) {\r\n        stolen_note = peek(voices, 0);\r\n        stolen_bend = peek(voiceBends, 0);\r\n\r\n        if (stolen_note > 0) {\r\n            stolen_slot = -1;\r\n            for (s = 0; s < 12; s += 1) {\r\n                if (peek(stolenVoices, s) == 0) {\r\n                    stolen_slot = s;\r\n                    break;\r\n                }\r\n            }\r\n            if (stolen_slot < 0) {\r\n                for (s = 0; s < 11; s += 1) {\r\n                    poke(stolenVoices, peek(stolenVoices, s + 1), s);\r\n                    poke(stolenBends, peek(stolenBends, s + 1), s);\r\n                }\r\n                stolen_slot = 11;\r\n            }\r\n            poke(stolenVoices, stolen_note, stolen_slot);\r\n            poke(stolenBends, stolen_bend, stolen_slot); // Freeze original stolen bend\r\n        }\r\n\r\n        // Shift sounding voices left (removing index 0)\r\n        for (i = 0; i < limit; i += 1) {\r\n            poke(voices, peek(voices, i + 1), i);\r\n            poke(voiceBends, peek(voiceBends, i + 1), i);\r\n        }\r\n        // Place new incoming note at top active slot\r\n        poke(voices, note, limit);\r\n        poke(voiceBends, bend, limit);\r\n    }\r\n}\r\nelse // NOTE OFF\r\n{\r\n    // Remove note from physical keys pool\r\n    for (i = 0; i < 12; i += 1) {\r\n        if (peek(physicalKeys, i) == note) {\r\n            poke(physicalKeys, 0, i);\r\n            poke(physicalBends, 0, i);\r\n\r\n            // Shift physical pool left\r\n            for (j = i; j < 11; j += 1) {\r\n                poke(physicalKeys, peek(physicalKeys, j + 1), j);\r\n                poke(physicalBends, peek(physicalBends, j + 1), j);\r\n            }\r\n            poke(physicalKeys, 0, 11);\r\n            poke(physicalBends, 0, 11);\r\n            break;\r\n        }\r\n    }\r\n\r\n    if (keyHold == 0) { \r\n        // Remove note from stolen voices pool if present\r\n        for (i = 0; i < 12; i += 1) {\r\n            if (peek(stolenVoices, i) == note) {\r\n                for (j = i; j < 11; j += 1) {\r\n                    poke(stolenVoices, peek(stolenVoices, j + 1), j);\r\n                    poke(stolenBends, peek(stolenBends, j + 1), j);\r\n                }\r\n                poke(stolenVoices, 0, 11);\r\n                poke(stolenBends, 0, 11);\r\n                break;\r\n            }\r\n        }\r\n\r\n        // Remove note from sounding voices pool if present\r\n        for (i = 0; i < activeLimit; i += 1) {\r\n            if (peek(voices, i) == note) {\r\n                poke(voices, 0, i);\r\n                poke(voiceBends, 0, i);\r\n\r\n                // Shift sounding voices left\r\n                for (j = i; j < limit; j += 1) {\r\n                    poke(voices, peek(voices, j + 1), j);\r\n                    poke(voiceBends, peek(voiceBends, j + 1), j);\r\n                }\r\n                poke(voices, 0, limit);\r\n                poke(voiceBends, 0, limit);\r\n                break;\r\n            }\r\n        }\r\n\r\n        // ITEM 3 FIX: If sounding slots opened up, promote most recently stolen notes\r\n        for (i = 0; i < activeLimit; i += 1) {\r\n            if (peek(voices, i) == 0) {\r\n                // Find top-most (most recently added) stolen note index\r\n                last_stolen_idx = -1;\r\n                for (s = 11; s >= 0; s -= 1) {\r\n                    if (peek(stolenVoices, s) > 0) {\r\n                        last_stolen_idx = s;\r\n                        break;\r\n                    }\r\n                }\r\n\r\n                // Move last stolen note into available sounding slot\r\n                if (last_stolen_idx >= 0) {\r\n                    promoted_note = peek(stolenVoices, last_stolen_idx);\r\n                    promoted_bend = peek(stolenBends, last_stolen_idx);\r\n\r\n                    poke(voices, promoted_note, i);\r\n                    poke(voiceBends, promoted_bend, i);\r\n\r\n                    // Clear promoted note and shift remaining stolen pool left to maintain compaction\r\n                    for (j = last_stolen_idx; j < 11; j += 1) {\r\n                        poke(stolenVoices, peek(stolenVoices, j + 1), j);\r\n                        poke(stolenBends, peek(stolenBends, j + 1), j);\r\n                    }\r\n                    poke(stolenVoices, 0, 11);\r\n                    poke(stolenBends, 0, 11);\r\n                } else {\r\n                    break; // No more stolen notes available\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n// Retrieve sounding voice notes\r\nv0 = peek(voices, 0);  \r\nv1 = peek(voices, 1);  \r\nv2 = peek(voices, 2);  \r\nv3 = peek(voices, 3);  \r\nv4 = peek(voices, 4);  \r\nv5 = peek(voices, 5);  \r\nv6 = peek(voices, 6);  \r\nv7 = peek(voices, 7);  \r\n\r\n// Output pitch + bend calculations for active voices\r\nout1 = v0 > 0 ? v0 + peek(voiceBends, 0) : 0;\r\nout2 = v1 > 0 ? v1 + peek(voiceBends, 1) : 0;\r\nout3 = v2 > 0 ? v2 + peek(voiceBends, 3) : 0;\r\nout4 = v3 > 0 ? v3 + peek(voiceBends, 3) : 0;\r\nout5 = v4 > 0 ? v4 + peek(voiceBends, 4) : 0;\r\nout6 = v5 > 0 ? v5 + peek(voiceBends, 5) : 0;\r\nout7 = v6 > 0 ? v6 + peek(voiceBends, 6) : 0;\r\nout8 = v7 > 0 ? v7 + peek(voiceBends, 7) : 0;\r\n\r\n// ITEM 1 FIX: Re-evaluate physical state AFTER all Note On/Off processing is done\r\nis_any_physical = 0;\r\nfor (i = 0; i < 12; i += 1) {\r\n    if (peek(physicalKeys, i) > 0) {\r\n        is_any_physical = 1;\r\n        break;\r\n    }\r\n}\r\n\r\n// Output hardware key gate state\r\nout9 = is_any_physical;",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-6",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 9,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 179.79602666334677, 167.07317471504211, 798.0, 431.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 179.5, 96.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 649.0, 83.0, 28.0, 22.0 ],
+                    "text": "in 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 165.85366249084473, 623.1707465648651, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 2 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-6", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-6", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "source": [ "obj-6", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 0 ],
+                    "source": [ "obj-6", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "source": [ "obj-6", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-19", 0 ],
+                    "source": [ "obj-6", 8 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-6", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-6", 2 ]
+                }
+            }
+        ]
+    }
+}

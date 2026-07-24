@@ -9,8 +9,18 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 34.0, 77.0, 1213.0, 642.0 ],
+        "rect": [ -34.0, 149.0, 1213.0, 642.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 421.0, 729.0, 100.0, 22.0 ],
+                    "text": "out 2"
+                }
+            },
             {
                 "box": {
                     "id": "obj-8",
@@ -44,15 +54,15 @@
             },
             {
                 "box": {
-                    "code": "History phase(0);\nHistory y0(0), y1(0), y2(0), y3(0);\nHistory last_in(0), last_out(0);\n\r\nlevel = in1;\ncenter_freq = in2;\nQ = 1;\r\nmorph = in3 * 0.2;\n\nf_high = pow(2, center_freq * 11) * 5;\nT = samplerate / f_high;\n\nf_low = f_high / Q;\ntheta = (2 * PI * f_low) / samplerate;\nR = clip(1 - theta, 0, 1);\n\nphase += 1;\nif (phase >= T) {\n    phase -= T;\n    y0 = y1;\n    y1 = y2;\n    y2 = y3;\n    y3 = noise();\n}\n\nt = phase / T;\nexponent = 1 + (morph * 50);\nt_warped = pow(t, exponent);\n\nt2 = t_warped * t_warped;\nt3 = t2 * t_warped;\n\na0 = -0.5 * y0 + 1.5 * y1 - 1.5 * y2 + 0.5 * y3;\na1 = y0 - 2.5 * y1 + 2.0 * y2 - 0.5 * y3;\na2 = -0.5 * y0 + 0.5 * y2;\na3 = y1;\n\nraw_noise = a0 * t3 + a1 * t2 + a2 * t_warped + a3;\n\nfiltered_noise = raw_noise - last_in + R * last_out;\n\nlast_in = raw_noise;\nlast_out = filtered_noise;\n\nout1 = filtered_noise * level;",
+                    "code": "History phase(0);\nHistory y0(0), y1(0), y2(0), y3(0);\nHistory last_in(0), last_out(0);\r\n\r\nlevel = in1 * pow((1-in2), 1.5);\ncenter_freq = in2;\nQ = 1;\r\nmorph = in3;\n\nf_high = pow(2, center_freq * 11) * 5;\nT = samplerate / f_high;\n\nf_low = f_high / Q;\ntheta = (2 * PI * f_low) / samplerate;\nR = clip(1 - theta, 0, 1);\n\nphase += 1;\nif (phase >= T) {\n    phase -= T;\n    y0 = y1;\n    y1 = y2;\n    y2 = y3;\n    y3 = noise();\n}\n\nt = phase / T;\nexponent = 1 + (morph * 50);\nt_warped = pow(t, exponent);\n\nt2 = t_warped * t_warped;\nt3 = t2 * t_warped;\n\na0 = -0.5 * y0 + 1.5 * y1 - 1.5 * y2 + 0.5 * y3;\na1 = y0 - 2.5 * y1 + 2.0 * y2 - 0.5 * y3;\na2 = -0.5 * y0 + 0.5 * y2;\na3 = y1;\n\nraw_noise = a0 * t3 + a1 * t2 + a2 * t_warped + a3;\n\nfiltered_noise = raw_noise - last_in + R * last_out;\n\nlast_in = raw_noise;\nlast_out = filtered_noise;\n\nout1 = filtered_noise * level;\r\nout2 = level;",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
                     "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
                     "patching_rect": [ 95.0, 79.0, 440.66667979955673, 611.3333515524864 ]
                 }
             },
@@ -104,6 +114,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-8", 0 ],
                     "source": [ "obj-3", 0 ]
                 }
@@ -114,6 +130,7 @@
                     "source": [ "obj-6", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

@@ -540,12 +540,13 @@
             {
                 "box": {
                     "id": "obj-171",
+                    "linecount": 3,
                     "maxclass": "newobj",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1277.5510082244873, 1144.8979482650757, 173.72881770133972, 22.0 ],
-                    "text": "r #0_minilabBendPedMod"
+                    "patching_rect": [ 1277.5510082244873, 1144.8979482650757, 173.72881770133972, 50.0 ],
+                    "text": "r #0_minilabBendPedModGate"
                 }
             },
             {
@@ -566,8 +567,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 406.12244510650635, 289.7959156036377, 156.77966475486755, 36.0 ],
-                    "text": "s #0_minilabBendPedMod"
+                    "patching_rect": [ 405.9259126186371, 289.7959156036377, 178.51851266622543, 36.0 ],
+                    "text": "s #0_minilabBendPedModGate"
                 }
             },
             {
@@ -639,18 +640,18 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 506.12244415283203, 218.3673448562622, 150.0, 20.0 ],
-                    "text": "bend pedal mod"
+                    "text": "bend pedal mod gate"
                 }
             },
             {
                 "box": {
                     "id": "obj-77",
                     "maxclass": "newobj",
-                    "numinlets": 3,
+                    "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 395.918363571167, 216.32652854919434, 100.0, 22.0 ],
-                    "text": "pak 0. 0. 0."
+                    "text": "pak 0. 0. 0. 0."
                 }
             },
             {
@@ -1549,8 +1550,8 @@
                     "id": "obj-3",
                     "maxclass": "newobj",
                     "numinlets": 2,
-                    "numoutlets": 5,
-                    "outlettype": [ "", "", "", "", "" ],
+                    "numoutlets": 6,
+                    "outlettype": [ "", "", "", "", "", "float" ],
                     "patching_rect": [ 244.89795684814453, 102.04081535339355, 112.0, 22.0 ],
                     "text": "circleSynth_Minilab"
                 }
@@ -2069,6 +2070,12 @@
                 "patchline": {
                     "destination": [ "obj-59", 0 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-77", 3 ],
+                    "source": [ "obj-3", 5 ]
                 }
             },
             {

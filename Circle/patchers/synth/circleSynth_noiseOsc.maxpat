@@ -13,6 +13,21 @@
         "boxes": [
             {
                 "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-7",
+                    "maxclass": "number~",
+                    "mode": 2,
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "float" ],
+                    "patching_rect": [ 518.0, 319.0, 56.0, 22.0 ],
+                    "sig": 0.0
+                }
+            },
+            {
+                "box": {
                     "comment": "",
                     "id": "obj-2",
                     "index": 1,
@@ -60,7 +75,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 547.0, 74.0, 30.0, 30.0 ]
                 }
             },
@@ -72,7 +87,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 333.0, 70.0, 30.0, 30.0 ]
                 }
             },
@@ -84,7 +99,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 203.0, 87.0, 30.0, 30.0 ]
                 }
             },
@@ -93,8 +108,8 @@
                     "id": "obj-1",
                     "maxclass": "newobj",
                     "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "signal" ],
                     "patching_rect": [ 293.0, 218.0, 174.0, 22.0 ],
                     "text": "gen~ circleSynth_noiseOsc"
                 }
@@ -105,6 +120,12 @@
                 "patchline": {
                     "destination": [ "obj-2", 0 ],
                     "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-1", 1 ]
                 }
             },
             {

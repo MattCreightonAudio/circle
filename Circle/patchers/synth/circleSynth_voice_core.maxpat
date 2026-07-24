@@ -201,7 +201,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 254.4303764104843, 326.5822741985321, 52.0, 22.0 ],
-                    "text": "sig~ 2."
+                    "text": "sig~ 4."
                 }
             },
             {
@@ -375,7 +375,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 56.962024569511414, 334.1772108078003, 52.0, 22.0 ],
-                    "text": "sig~ 2."
+                    "text": "sig~ 4."
                 }
             },
             {
