@@ -150,16 +150,22 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-4", 1 ],
                     "order": 0,
-                    "source": [ "obj-3", 0 ]
+                    "source": [ "obj-5", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-4", 0 ],
                     "order": 1,
-                    "source": [ "obj-3", 0 ]
+                    "source": [ "obj-5", 0 ]
                 }
             },
             {
