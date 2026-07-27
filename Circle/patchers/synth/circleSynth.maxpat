@@ -13,17 +13,6 @@
         "boxes": [
             {
                 "box": {
-                    "id": "obj-5",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 70.0, 231.0, 184.0, 22.0 ],
-                    "text": "gen~ circleSynth_primeFDN"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-7",
                     "maxclass": "newobj",
                     "numinlets": 7,
@@ -150,22 +139,16 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-5", 0 ],
-                    "source": [ "obj-3", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-4", 1 ],
                     "order": 0,
-                    "source": [ "obj-5", 0 ]
+                    "source": [ "obj-3", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-4", 0 ],
                     "order": 1,
-                    "source": [ "obj-5", 0 ]
+                    "source": [ "obj-3", 0 ]
                 }
             },
             {
