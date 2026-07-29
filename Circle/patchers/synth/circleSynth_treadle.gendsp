@@ -1,0 +1,86 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 1,
+            "revision": 1,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 134.0, 84.0, 455.0, 627.0 ],
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 950.0, 421.0, 100.0, 22.0 ],
+                    "text": "clip"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 82.0, 765.0, 100.0, 22.0 ],
+                    "text": "out 1"
+                }
+            },
+            {
+                "box": {
+                    "code": "// ============================================================\r\n// Harmonium Bellows Treadle Model (Energy-Conserving Soft Ceiling)\r\n// ============================================================\r\n// Inputs:\r\n//   in1 : Instantaneous stylus speed M(t) [>= 0]\r\n// Parameters:\r\n//   s   : Stylus sensitivity (scale factor)\r\n//   t : Empty time constant (seconds)\r\n//   k   : Non-linear leakage factor (soft ceiling shaping)\r\n// Outlets:\r\n//   out1: Energy state E(t) [0.0 to 1.0 clamped]\r\n//   out2: Airflow rate Q(t) (proportional to sound loudness/drive)\r\n\r\nParam sensitivity(1.2, min=0.01, max=1000.0);\r\nParam timeConst(0.6, min=0.01, max=100.0);\r\nParam nonLin(1.8, min=0.0, max=100.0);\r\n\r\nHistory E_prev(0.0);\r\n\r\n\r\ns=100;\r\nt=timeConst;\r\nk=nonLin;\r\n\r\n// 1. Clamp input stylus speed to positive values\r\nM = max(0.0, in1);\r\n\r\n// 2. Scaled drive input\r\nD = s * M;\r\n\r\n// 3. Solve non-linear steady state target: k*E^2 + E - D = 0\r\n// Quadratic solution ensures soft ceiling curve without deleting energy\r\nE_target = D;\r\nif (k>0.0001) E_target = (sqrt(1.0 + 4.0 * k * D) - 1.0) / (2.0 * k);\r\n\r\n// 4. Calculate dynamic effective time constant t_eff = t / (1 + k*E)\r\n// Higher energy causes faster outflow, giving a soft ceiling on peak level\r\nt_eff = t / (1.0 + k * E_prev);\r\n\r\n// 5. Convert sample-rate independent t_eff to exponential lerp coefficient\r\n// dt = 1.0 / samplerate()\r\nalpha = 1.0 - exp(-1.0 / (samplerate * max(0.0001, t_eff)));\r\nalpha = clip(alpha, 0.0, 1.0);\r\n\r\n// 6. Exponential Moving Average (Lerp update)\r\nE_new = E_prev + alpha * (E_target - E_prev);\r\n\r\n// 7. Energy safety clamp\r\nE_out = clip(E_new, 0.0, 1.0);\r\n\r\n// 8. Store energy state for next block iteration\r\nE_prev = E_out;\r\n\r\n// Outlets\r\nout1 = E_out;                             // Bellows fill level / energy",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-5",
+                    "maxclass": "codebox",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 74.0, 46.0, 674.0, 667.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 62.0, 12.0, 28.0, 22.0 ],
+                    "text": "in 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 121.0, 881.0, 35.0, 22.0 ],
+                    "text": "out 1"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "source": [ "obj-5", 0 ]
+                }
+            }
+        ]
+    }
+}
