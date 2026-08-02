@@ -29,10 +29,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 627.0, 526.0, 100.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 1"
                 }
             },
@@ -78,7 +74,7 @@
                     "numoutlets": 9,
                     "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
                     "patching_rect": [ 686.0, 373.0, 205.0, 22.0 ],
-                    "text": "mc.separate~ 1 3 10 2 3 10 2 5"
+                    "text": "mc.separate~ 1 3 10 2 3 10 2 6"
                 }
             },
             {
@@ -212,7 +208,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 623.0, 94.0, 209.0, 22.0 ],
-                    "text": "mc.r~ #1_voiceParams @chans 38"
+                    "text": "mc.r~ #1_voiceParams @chans 39"
                 }
             },
             {
@@ -223,7 +219,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 514.0, 160.0, 145.18518042564392, 22.0 ],
-                    "text": "mc.gate~ @chans 38"
+                    "text": "mc.gate~ @chans 39"
                 }
             },
             {
@@ -320,6 +316,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 92.51336628198624, 140.6417071223259, 100.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 1"
                 }
             },

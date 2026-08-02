@@ -358,7 +358,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 32.0, 164.0, 115.0, 50.0 ],
-                    "text": "mc.s~ #0_voiceParams @chans 38"
+                    "text": "mc.s~ #0_voiceParams @chans 39"
                 }
             },
             {
@@ -369,8 +369,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 712.0, 459.0, 149.0, 36.0 ],
-                    "text": "poly~ circleSynth_voice 4 @args #0"
+                    "patching_rect": [ 716.0, 453.0, 149.0, 36.0 ],
+                    "text": "poly~ circleSynth_voice 4 down 2 @args #0"
                 }
             }
         ],
