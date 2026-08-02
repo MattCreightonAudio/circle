@@ -13,6 +13,37 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-85",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 609.2683072090149, 296.5853729248047, 150.0, 20.0 ],
+                    "text": "less microtonal"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-83",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 606.3414778709412, 242.43903017044067, 150.0, 20.0 ],
+                    "text": "microtonal"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-81",
+                    "maxclass": "newobj",
+                    "numinlets": 10,
+                    "numoutlets": 1,
+                    "outlettype": [ "multichannelsignal" ],
+                    "patching_rect": [ 485.3658652305603, 262.43903064727783, 388.2353181838989, 22.0 ],
+                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.28571 1.77777 1.625 1.75 2."
+                }
+            },
+            {
+                "box": {
                     "id": "obj-79",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -160,7 +191,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 492.64708936214447, 313.92404651641846, 388.2353181838989, 22.0 ],
-                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.28571 1.77777 1.666666 1.75 2."
+                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.25 1.77777 1.666666 1.75 2."
                 }
             },
             {
