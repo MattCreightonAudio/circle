@@ -213,7 +213,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 667.0, 374.68353939056396, 349.0, 22.0 ],
-                    "text": "mcs.sig~ 2. 5. 4. 3. 6. 7. 8. 9. 10."
+                    "text": "mcs.sig~ 0.5 2. 5. 2. 1.41421 7. 8. 9. 10."
                 }
             },
             {
