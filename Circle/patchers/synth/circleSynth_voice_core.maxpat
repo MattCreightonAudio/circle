@@ -14,21 +14,23 @@
             {
                 "box": {
                     "id": "obj-85",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 609.2683072090149, 296.5853729248047, 150.0, 20.0 ],
-                    "text": "less microtonal"
+                    "patching_rect": [ 959.7286085486412, 229.7468324303627, 150.0, 48.0 ],
+                    "text": "less microtonal (no septimal wholetone, no neu6) "
                 }
             },
             {
                 "box": {
                     "id": "obj-83",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 606.3414778709412, 242.43903017044067, 150.0, 20.0 ],
-                    "text": "microtonal"
+                    "patching_rect": [ 537.3417651057243, 248.82353979349136, 150.0, 34.0 ],
+                    "text": "microtonal (with the secret septimal wholetone hack) "
                 }
             },
             {
@@ -38,8 +40,8 @@
                     "numinlets": 10,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 485.3658652305603, 262.43903064727783, 388.2353181838989, 22.0 ],
-                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.28571 1.77777 1.625 1.75 2."
+                    "patching_rect": [ 499.41178554296494, 302.9411891102791, 388.2353181838989, 22.0 ],
+                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.25 1.77777 1.625 1.75 2.28571"
                 }
             },
             {
@@ -190,8 +192,8 @@
                     "numinlets": 10,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 492.64708936214447, 313.92404651641846, 388.2353181838989, 22.0 ],
-                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.25 1.77777 1.666666 1.75 2."
+                    "patching_rect": [ 941.7647451758385, 274.70589381456375, 388.2353181838989, 22.0 ],
+                    "text": "mcs.sig~ 1. 1.5 1.2 1.333333 1.25 2.25 1.77777 1.666666 1.75 2.25"
                 }
             },
             {
@@ -1664,7 +1666,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-49", 0 ],
-                    "source": [ "obj-80", 0 ]
+                    "source": [ "obj-81", 0 ]
                 }
             }
         ]
