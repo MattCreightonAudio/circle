@@ -612,7 +612,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 1088.148112475872, 962.962931394577, 100.0, 22.0 ],
+                    "patching_rect": [ 1155.555592060089, 981.0457826256752, 100.0, 22.0 ],
                     "text": "*~"
                 }
             },
@@ -623,19 +623,8 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 1099.2592232227325, 1025.1851515769958, 100.0, 22.0 ],
+                    "patching_rect": [ 1166.6667035222054, 1043.7908826470375, 100.0, 22.0 ],
                     "text": "clip~ 0. 1."
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-54",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 1084.4444088935852, 994.0740414857864, 100.0, 22.0 ],
-                    "text": "*~ 2.5"
                 }
             },
             {
@@ -743,7 +732,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1099.2592232227325, 1068.8888538479805, 100.0, 22.0 ],
+                    "patching_rect": [ 1166.6667035222054, 1086.928138911724, 100.0, 22.0 ],
                     "text": "s~ #0_E2"
                 }
             },
@@ -3855,12 +3844,6 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-80", 0 ],
-                    "source": [ "obj-54", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-158", 1 ],
                     "source": [ "obj-55", 0 ]
                 }
@@ -4148,7 +4131,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-54", 0 ],
+                    "destination": [ "obj-80", 0 ],
                     "source": [ "obj-89", 0 ]
                 }
             },

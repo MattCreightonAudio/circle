@@ -61,7 +61,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1561.193974018097, 362.6865541934967, 129.85074162483215, 22.0 ],
+                    "patching_rect": [ 1541.951256275177, 347.317081451416, 129.85074162483215, 22.0 ],
                     "text": "s~ #0_microMode"
                 }
             },
@@ -213,7 +213,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1506.0, 329.0, 111.0, 22.0 ],
+                    "patching_rect": [ 1499.024425983429, 320.00000762939453, 111.0, 22.0 ],
                     "text": "s~ #0_vib"
                 }
             },
