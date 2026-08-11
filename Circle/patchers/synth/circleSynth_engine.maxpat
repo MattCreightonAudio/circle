@@ -358,7 +358,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 32.0, 164.0, 115.0, 50.0 ],
-                    "text": "mc.s~ #0_voiceParams @chans 39"
+                    "text": "mc.s~ #0_voiceParams @chans 40"
                 }
             },
             {

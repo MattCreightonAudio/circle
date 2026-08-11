@@ -13,6 +13,16 @@
         "boxes": [
             {
                 "box": {
+                    "automatic": 1,
+                    "id": "obj-9",
+                    "maxclass": "scope~",
+                    "numinlets": 2,
+                    "numoutlets": 0,
+                    "patching_rect": [ 283.0, 338.0, 130.0, 130.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-15",
                     "linecount": 2,
                     "maxclass": "message",
@@ -105,7 +115,7 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 139.03742909431458, 311.7646967768669, 35.0, 22.0 ],
+                    "patching_rect": [ 171.0, 371.0, 35.0, 22.0 ],
                     "text": "dac~"
                 }
             },
@@ -159,14 +169,21 @@
             {
                 "patchline": {
                     "destination": [ "obj-4", 1 ],
-                    "order": 0,
+                    "order": 1,
                     "source": [ "obj-13", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-4", 0 ],
-                    "order": 1,
+                    "order": 2,
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "order": 0,
                     "source": [ "obj-13", 0 ]
                 }
             },
