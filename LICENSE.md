@@ -1,7 +1,7 @@
 RESEARCH AND EVALUATION LICENSE
 
 Project: Circle~
-Copyright © 2026 ---anonymised for review---. All rights reserved.
+Copyright © 2026 Matthew Creighton. All rights reserved.
 
 1. PERMITTED USE
 
