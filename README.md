@@ -1,42 +1,52 @@
-this is circle! 
+# `circle~` 
 
-What it does:
-it takes in xy data and looks for cyclic gestures in it. then you get a big feature vector which you can use for controlling stuff
+> A Max package for real-time control with the Circle Gesture Language
 
-how to build:
+---
 
-fork/clone/whatever
-put it somewhere max can see it
-it's dependency free except for the Rave demos which use the rave VST (you can get from ircam here https://forum.ircam.fr/projects/detail/rave-vst/)
-dont open circle~ by itself - it needs a containing patch (theyre named like "circleApp_xxxxx")
+## What is `circle~`?
 
-First time use:
+It's a max object which takes in realtime XY data and looks for cyclic gestures in it. Then you get a big feature vector which you can use for controlling stuff.
 
-open circleApp_featureTestbed
-mess with the testbed sliders - view pretty shapes (keep to Fr = 2 for comprhensibility)
-view the effect of pretty shapes on the outputs 
-open circleApp_Mouse 
-draw some of the pretty shapes you saw and see if you can learn to control the outputs 
+## Installation & Setup
 
-Using it in your own projects:
+1. **Clone or download** this repository.
+2. Place the project folder into your **Max Packages** directory:
+   * **macOS:** `~/Documents/Max 8/Packages/`
+   * **Windows:** `C:\Users\<username>\Documents\Max 8\Packages\`
+3. Open Max and launch one of the main app patches (e.g., `circleApp_featureTestbed.maxpat`).
 
-circle~ is the part which does the feature extraction
-give it any realtime XY data as a signal and it spits out a feature vector from its first outlet, which you can use to control things in max/M4L/whatever
-see comments in circle~.maxpat for details of the interface.
-most (not all!) of the features are normalised into [0,1]
-the "E" and "Asum" features are special - "asum" is the amplitude of that feature, E is how present it is vs other features. E multiplied by Asum is a good analogue for "volume" or "velocity".
-if a feature has low E, other nonzero values in that feature are likely to be nonsensical
+### Dependencies
 
-To understand a bit about the gesture language:
+Circle~ itself is **dependency free**.
+The included RAVE demos use the **RAVE VST** (available from [IRCAM Forum](https://forum.ircam.fr/projects/detail/rave-vst/)).
 
-try the 2Ellipse.py plotter
-read the accompanying paper
-play around in the testbed
-practice with the mouse or tuiopad implementations (or build your own)
-email us at --anonymized for review--  
 
-collaborators: 
+## First time use:
 
-this project is very early stage! right now we are not accepting pull requests.
-But that might change, and we'd love to hear from potential collaborators / partners
-email: --anonymized for review--
+1. Open `circleApp_featureTestbed.maxpat` in Max. Start the DSP (big power button, bottom right corner)
+2. Mess with the testbed sliders. View pretty shapes (keep to Fr = 2 for comprhensibility)
+3. Scrutinize effect of pretty shapes on the numerical outputs 
+4. Open `circleApp_Mouse.maxpat` 
+5. Draw some of the pretty shapes you saw with the mouse and see if you can learn to control the outputs 
+
+## Using it in your own projects:
+
+* circle~ is the part which does the feature extraction
+* Give it any realtime XY data as a signal and it spits out a large feature vector from its first outlet, which you can use to control things in max/M4L/whatever
+* See comments in circle~.maxpat for details of the interface/channel layout/etc
+* The "E" and "Asum" parameters are special - "Asum" is the amplitude of that feature, "E" is how present that feature is vs other features. E multiplied by Asum is a good analogue for "volume" or "energy".
+* If a feature has low E, other nonzero values in that feature are likely to be nonsensical.
+
+## Learning more about the Circle Gesture Language
+
+* Read the accompanying paper (Circle: high-dimensional latent space traversal in real time on a two-dimensional controller, AIMC 2026)
+* Play around in the testbed
+* Practice with the mouse or tuiopad implementations (or build your own with the controllers you like to use)
+* Email me at matthew.k.creighton@gmail.com - I'd love to hear from you!
+
+## Collaborators: 
+
+* this project is very early stage! Not currently accepting pull requests.
+* But that might change, and we'd love to hear from potential collaborators / partners.
+email: matthew.k.creighton@gmail.com
