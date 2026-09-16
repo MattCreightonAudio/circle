@@ -1,6 +1,11 @@
 inDev/
 figures/
 Cubase/
+Handin/
+Poster/
+Videos/
 doubleBind_sampler/samples/
 doubleBind_sampler/samples_synthy/
 *.png
+*.mov
+*.mp4
