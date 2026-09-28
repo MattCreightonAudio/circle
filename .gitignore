@@ -1,11 +1,4 @@
-inDev/
-figures/
-Cubase/
-Handin/
-Poster/
-Videos/
-doubleBind_sampler/samples/
-doubleBind_sampler/samples_synthy/
+supporting_files/
 *.png
 *.mov
 *.mp4
