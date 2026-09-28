@@ -4,7 +4,4 @@
   "version": "0.1.0",
   "author": "Matt Creighton",
   "description": "High dimensional control on low dimensional controllers with a structured language of gestures",
-  "extends": [
-    "FluidCorpusManipulation"
-  ],
 }
